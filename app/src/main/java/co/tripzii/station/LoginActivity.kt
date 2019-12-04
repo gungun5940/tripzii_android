@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.title = "Login"
-        login_button.setOnClickListener {
+        reset_button.setOnClickListener {
             performLogin()
 
         }
@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
             Log.d(TAG, "Try to show Forgot my password activity")
 
             //เปิดหน้า forgot password
-            val intent = Intent(this, SetupCompanyProfileActivity::class.java)
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)
         }
     }
