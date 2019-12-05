@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.title = "Login"
-        reset_button.setOnClickListener {
+        login_button.setOnClickListener {
             performLogin()
 
         }
@@ -30,8 +30,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun performLogin() {
-        val email = current_password_textInput.text.toString()
-        val password = new_password_textInput.text.toString()
+        val email = username_textInput.text.toString()
+        val password = password_textInput.text.toString()
 
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please enter text in email/password", Toast.LENGTH_SHORT).show()

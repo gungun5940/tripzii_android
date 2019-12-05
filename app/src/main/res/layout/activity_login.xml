@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/current_password_textInput"
+            android:id="@+id/username_textInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -22,7 +22,6 @@
             android:inputType="textEmailAddress" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/forgot_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleDrawable="@drawable/selector_button_password_visibility"
@@ -30,7 +29,7 @@
             app:passwordToggleTint="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/new_password_textInput"
+                android:id="@+id/password_textInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -40,7 +39,7 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/reset_button"
+                android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
@@ -52,7 +51,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/forgot_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
