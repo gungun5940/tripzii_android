@@ -23,9 +23,7 @@
                 android:value=".LoginActivity" />
         </activity>
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".ReportCommissionActivity">
-
-        </activity>
+        <activity android:name=".ReportCommissionActivity"></activity>
         <activity
             android:name=".SplashScreenActivity"
             android:noHistory="true"
@@ -37,5 +35,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

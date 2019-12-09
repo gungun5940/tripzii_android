@@ -24,7 +24,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleDrawable="@drawable/selector_button_password_visibility"
+            app:passwordToggleDrawable="@drawable/bt_password_visibility"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/colorAccent">
 
@@ -45,7 +45,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="32dp"
-                android:background="@drawable/rounded_button"
+                android:background="@drawable/bt_rounded"
                 android:text="Login"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
@@ -60,7 +60,5 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
     </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>
