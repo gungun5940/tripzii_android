@@ -8,12 +8,12 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
+
     companion object{
         val TAG = "LoginActivity"
     }
 
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.title = "Login"
@@ -21,11 +21,12 @@ class LoginActivity : AppCompatActivity() {
             performLogin()
         }
         forgot_textView.setOnClickListener {
-            Log.d(TAG, "Try to show Forgot my password activity")
+            Log.d(TAG, "Try to show forgot my password activity")
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent) //เปิดหน้า forgot password
         }
     }
+
     private fun performLogin() {
         val email = username_textInput.text.toString()
         val password = password_textInput.text.toString()
@@ -34,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "Please enter text in email/password", Toast.LENGTH_SHORT).show()
             return
         }
-        Log.d(TAG, "email is :" + email)
+        Log.d(TAG, "Email :" + email)
         Log.d(TAG, "Password : $password")
     }
 }
