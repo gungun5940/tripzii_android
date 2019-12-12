@@ -54,18 +54,15 @@
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <AutoCompleteTextView
+            android:id="@+id/select_province_autoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/select_province_textinput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Select province"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:hint="Select province"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="10dp"
+            android:drawableEnd="@drawable/bt_drop_down"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
