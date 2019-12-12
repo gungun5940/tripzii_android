@@ -9,21 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SetupCompanyProfileActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".EditProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HotelAccountActivity" />
         </activity>
+        <activity android:name=".SetupCompanyProfileActivity"></activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
-        <activity android:name=".HotelAccountActivity" />
+
+        <activity android:name=".HotelAccountActivity"/>
         <activity android:name=".ResetPasswordActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity" />
+                android:value=".HotelAccountActivity" />
         </activity>
         <activity android:name=".ForgotPasswordActivity">
             <meta-data
@@ -43,4 +44,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

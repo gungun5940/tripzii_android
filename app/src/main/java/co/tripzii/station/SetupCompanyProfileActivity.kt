@@ -17,6 +17,5 @@ class SetupCompanyProfileActivity : AppCompatActivity() {
         select_province_autoCompleteTextView.setAdapter(adapter)
         select_province_autoCompleteTextView.setOnFocusChangeListener(
             { view, b -> if (b) select_province_autoCompleteTextView.showDropDown()})
-
     }
 }
