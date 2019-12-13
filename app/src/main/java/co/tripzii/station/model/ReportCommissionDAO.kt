@@ -1,4 +1,4 @@
-package co.tripzii.station.adapter
+package co.tripzii.station.model
 
 data class ReportCommissionDAO (
     val name: String = "",
