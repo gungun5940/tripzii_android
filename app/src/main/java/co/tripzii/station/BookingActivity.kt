@@ -3,18 +3,19 @@ package co.tripzii.station
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Toast
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_booking.*
-import kotlinx.android.synthetic.main.activity_setup_company_profile.*
 import java.util.*
 
+
 class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+
+    var minteger = 0
+    var mintegerchild = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +50,39 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         select_package_autoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
                 view, b -> if(b){select_package_autoCompleteTextView.showDropDown()}
         }
+        var nationality = resources.getStringArray(R.array.nationality)
+        var nationailtyadapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,nationality)
+        nationality_autoCompleteTextView.threshold=0
+        nationality_autoCompleteTextView.setAdapter(nationailtyadapter)
+        nationality_autoCompleteTextView.setOnClickListener {
+            nationality_autoCompleteTextView.showDropDown() }
+        nationality_autoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
+                parent,view,position,id->
+            hideKeyboard()
+            nationality_autoCompleteTextView.dismissDropDown()
+            val selectedItem = parent.getItemAtPosition(position).toString()
+            Toast.makeText(applicationContext,"Selected : $selectedItem",Toast.LENGTH_SHORT).show()
+        }
+        nationality_autoCompleteTextView.setOnDismissListener {
+            Toast.makeText(applicationContext,"Suggestion closed.",Toast.LENGTH_SHORT).show()
+        }
+        nationality_autoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
+                view, b -> if(b){nationality_autoCompleteTextView.showDropDown()}
+        }
+        val plus = findViewById<Button>(R.id.increase_adults)
+        val minus = findViewById<Button>(R.id.decrease_adults)
+
+        plus.setOnClickListener {
+
+            increaseInteger(plus)
+        }
+
+
+
+        minus.setOnClickListener {
+
+            decreaseInteger(minus)
+        }
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -67,5 +101,35 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
+    fun increaseInteger(view: View?) {
+        minteger = minteger + 1
+        display(minteger)
+    }
+
+    fun decreaseInteger(view: View?) {
+        minteger = minteger - 1
+        display(minteger)
+    }
+
+    private fun display(number: Int) {
+        val displayInteger = findViewById<View>(R.id.number_adults_textView) as TextView
+        displayInteger.text = "" + number
+    }
+    fun increaseIntegerChild(view: View?) {
+        mintegerchild = mintegerchild + 1
+        displayChild(mintegerchild)
+    }
+
+    fun decreaseIntegerChild(view: View?) {
+        mintegerchild = mintegerchild - 1
+        displayChild(mintegerchild)
+    }
+
+    private fun displayChild(number: Int) {
+        val displayInteger = findViewById<View>(R.id.number_child_textView) as TextView
+        displayInteger.text = "" + number
+    }
 }
+
 
