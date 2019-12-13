@@ -1,12 +1,3 @@
 <resources>
     <string name="app_name">Tripzii Station</string>
-    <string name="selected_item">Selected province:</string>
-    <string-array name="province">
-        <item>Lampang</item>
-        <item>Chiang Mai</item>
-        <item>Chiang Rai</item>
-        <item>Nan</item>
-        <item>Bangkok</item>
-        <item>Nonthaburee</item>
-    </string-array>
 </resources>

@@ -6,17 +6,16 @@
     android:layout_height="match_parent"
     android:background="#DFE0E0"
     android:orientation="vertical"
-    android:id="@+id/root_layout"
-    tools:context=".SetupCompanyProfileActivity">
+    tools:context=".BookingActivity">
 
     <TextView
-        android:id="@+id/hotel_information_textView"
+        android:id="@+id/select_day_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
-        android:text="Hotel information"
+        android:text="Select day"
         android:textSize="13sp"
         android:textStyle="bold"/>
 
@@ -27,96 +26,37 @@
         android:layout_marginTop="12dp"
         android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/hotel_name_textinput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Hotel name"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/hotel_address_textinput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Hotel Address"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <AutoCompleteTextView
-            android:id="@+id/select_province_autoCompleteTextView"
+            android:id="@+id/select_day_autoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Select province"
+            android:hint="Select date"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginTop="10dp"
             android:drawableEnd="@drawable/bt_drop_down"/>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <AutoCompleteTextView
+            android:id="@+id/select_package_autoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:hint="Package"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="10dp"
+            android:drawableEnd="@drawable/bt_drop_down"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/postcode_textinput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Postcode"
-                android:inputType="number"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email_address_textinput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:hint="E-mail address"
-                android:inputType="textEmailAddress"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="12dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phone_number_textinput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Phone number"
-                android:inputType="phone"/>
-        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <TextView
-        android:id="@+id/bank_information_textView"
+        android:id="@+id/buyer_information_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
-        android:text="Bank information"
+        android:text="Buyer information"
         android:textSize="13sp"
         android:textStyle="bold"/>
 
@@ -132,12 +72,12 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/bank_name_textinput"
+                android:id="@+id/first_name_textinput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:hint="Bank name"
+                android:hint="First name"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,27 +86,37 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/branch_textinput"
+                android:id="@+id/last_name_textinput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:hint="Branch"
+                android:hint="Last name"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <AutoCompleteTextView
+            android:id="@+id/nationality_autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nationality"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="10dp"
+            android:drawableEnd="@drawable/bt_drop_down"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/account_name_textinput"
+                android:id="@+id/email_address_booking_textinput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:hint="Account name"
-                android:inputType="text"/>
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -175,25 +125,76 @@
             android:layout_marginBottom="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/account_number_textinput"
+                android:id="@+id/phone_number_booking_textinput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:hint="Account number"
-                android:inputType="number"/>
+                android:hint="Phone number"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pickup_location_textinput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Pickup location"
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/setup_button"
+    <TextView
+        android:id="@+id/coupon_code_textView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/bt_rounded"
-        android:text="Setup"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:text="Coupon code"
+        android:textSize="13sp"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_marginTop="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/coupon_code_textinput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="120dp"
+            android:hint="Coupon code"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="-2dp" />
+
+        <Button
+            android:id="@+id/apply_button"
+            android:layout_width="111dp"
+            android:layout_height="40dp"
+            android:text="Apply"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/coupon_code_textinput"
+            tools:layout_editor_absoluteY="2dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </LinearLayout>
