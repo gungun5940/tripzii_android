@@ -23,7 +23,6 @@ class ReportCommissionActivity : AppCompatActivity() {
             android.R.layout.simple_spinner_item, // Layout
             mount // Array
         )
-
         // Set the drop down view resource
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
 
