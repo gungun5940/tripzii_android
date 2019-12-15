@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MenubarActivity"
+            android:name=".MenuBarActivity"
             android:label="@string/title_activity_menubar"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".AllTripActivity" />
