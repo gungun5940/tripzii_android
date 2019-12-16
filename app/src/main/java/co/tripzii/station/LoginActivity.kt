@@ -25,6 +25,10 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent) //เปิดหน้า forgot password
         }
+        login_button.setOnClickListener {
+            val intent = Intent(this, SetupCompanyProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun performLogin() {

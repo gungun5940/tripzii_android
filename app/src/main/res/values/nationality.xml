@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="selected_nationality">Selected nationality:</string>
+    <string-array name="nationality">
+        <item>Australian</item>
+        <item>Belgian</item>
+        <item>Brazilian</item>
+        <item>Brazilian</item>
+        <item>Cambodian</item>
+        <item>Canadian</item>
+        <item>Chinese</item>
+        <item>Danish</item>
+        <item>Egyptian</item>
+        <item>English</item>
+        <item>Finnish</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Greek</item>
+        <item>Indonesian</item>
+        <item>Iranian</item>
+        <item>Irish</item>
+        <item>Israeli</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Laotian</item>
+        <item>Malaysian</item>
+        <item>Mexican</item>
+        <item>Dutch</item>
+        <item>New Zealander</item>
+        <item>Norwegian</item>
+        <item>Filipino</item>
+        <item>Portuguese</item>
+        <item>Romanian</item>
+        <item>Russian</item>
+        <item>Korean</item>
+        <item>Spanish</item>
+        <item>Swedish</item>
+        <item>Swiss</item>
+        <item>Thai</item>
+        <item>British</item>
+        <item>American</item>
+        <item>Vietnamese</item>
+    </string-array>
+</resources>
