@@ -3,7 +3,10 @@ package co.tripzii.station
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
@@ -129,6 +132,17 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
     private fun displayChild(number: Int) {
         val displayInteger = findViewById<View>(R.id.number_child_textView) as TextView
         displayInteger.text = "" + number
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            R.id.menu_refresh
+                val intent = Intent(this, BookingActivity::class.java)
+                startActivity(intent)
+            return super.onOptionsItemSelected(item)
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.nav_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
 

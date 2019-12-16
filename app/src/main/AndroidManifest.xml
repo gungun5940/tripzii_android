@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".BookingActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HotelAccountActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

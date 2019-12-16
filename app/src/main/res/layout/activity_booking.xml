@@ -97,6 +97,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/line"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="2dp">
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="12dp">
@@ -151,7 +160,15 @@
                 android:textColor="#F43B44"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/bt_rectangle"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/line"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="2dp">
         </LinearLayout>
 
         <AutoCompleteTextView
@@ -164,8 +181,6 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
             android:drawableEnd="@drawable/bt_drop_down"/>
-
-
     </LinearLayout>
 
     <TextView
@@ -279,43 +294,34 @@
         android:text="Coupon code"
         android:textSize="13sp"
         android:textStyle="bold"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:layout_marginTop="12dp">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginTop="12dp"
         android:background="@android:color/white"
-        android:orientation="vertical"
         android:layout_marginBottom="12dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/coupon_code_textinput"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <EditText
+            android:id="@+id/coupon_text"
+            android:layout_width="414dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginEnd="120dp"
+            android:layout_marginEnd="160dp"
+            android:ems="10"
             android:hint="Coupon code"
-            android:inputType="text"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="-2dp" />
+            android:inputType="text" />
 
         <Button
             android:id="@+id/apply_button"
             android:layout_width="111dp"
             android:layout_height="40dp"
-            android:text="Apply"
-            android:textColor="#F43B44"
+            android:layout_marginStart="-150dp"
+            android:layout_marginEnd="32dp"
             android:background="@drawable/bt_rectangle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/coupon_code_textinput"
-            tools:layout_editor_absoluteY="2dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="Apply"
+            android:textColor="#F43B44" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -336,8 +342,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
             android:text="Total Price"
+            android:layout_marginTop="10dp"
             android:textColor="@android:color/white"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -357,11 +363,11 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/checkout_button"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:background="@drawable/bt_checkout"
-            android:text="Checkout"
+            android:text="Check out"
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
