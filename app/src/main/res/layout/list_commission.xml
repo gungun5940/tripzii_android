@@ -78,7 +78,7 @@
                 android:gravity="left"
                 android:paddingRight="3dp"
                 android:layout_marginLeft="1dp"
-                android:text="Price 3900"
+                android:text="Price"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#000000"
                 android:textSize="18sp"
@@ -93,9 +93,6 @@
                 android:id="@+id/txt_commisson" />
 
         </LinearLayout>
-
-     L
-
     </LinearLayout>
 
     <TextView

@@ -9,7 +9,6 @@
     android:gravity="bottom"
     android:paddingLeft="15dp"
     android:paddingBottom="15dp">
-
     <TextView
         android:id="@+id/name_hotel"
         android:layout_width="match_parent"
@@ -27,7 +26,6 @@
         android:text="hotel@email.com"
         android:textColor="#FFFFFF"
         android:textStyle="bold"/>
-
     <TextView
         android:id="@+id/phone_hotel"
         android:layout_width="wrap_content"
@@ -35,5 +33,4 @@
         android:text="095-757-1234"
         android:textColor="#FFFFFF"
         />
-
 </LinearLayout>

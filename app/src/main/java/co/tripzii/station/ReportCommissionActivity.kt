@@ -35,20 +35,14 @@ class ReportCommissionActivity : AppCompatActivity() {
             android.R.layout.simple_spinner_item, // Layout
             mount // Array
         )
-
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-
         spinner.adapter = adapter;
-
         spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent:AdapterView<*>, view: View, position: Int, id: Long){
-
             }
-
             override fun onNothingSelected(parent: AdapterView<*>){
             }
         }
-
         val report = ArrayList<ReportCommissionDAO>()
         report.add(ReportCommissionDAO("test", "test2", "test3", "test4"))
         report.add(ReportCommissionDAO("test", "test2", "test3", "test4"))

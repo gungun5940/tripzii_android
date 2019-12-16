@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -14,14 +13,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10">
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:background="@drawable/ic_home">
         </ImageView>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -31,9 +28,7 @@
             android:textStyle="bold"
             android:textColor="#000000"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
-
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -41,7 +36,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10">
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +62,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10">
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,19 +78,14 @@
                 android:textColor="#000000"
                 android:text="English" />
         </androidx.appcompat.widget.LinearLayoutCompat>
-
     </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-      >
+        android:layout_height="match_parent">
         <FrameLayout
             android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -107,7 +95,6 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/ic_admin">
                 </ImageView>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -117,7 +104,6 @@
                     android:textColor="#000000"
                     android:text="Admin" />
             </androidx.appcompat.widget.LinearLayoutCompat>
-
         </FrameLayout>
     </LinearLayout>
 </LinearLayout>
