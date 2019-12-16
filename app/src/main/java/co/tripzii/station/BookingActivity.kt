@@ -76,14 +76,9 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         val minus = findViewById<Button>(R.id.decrease_adults)
 
         plus.setOnClickListener {
-
             increaseInteger(plus)
         }
-
-
-
         minus.setOnClickListener {
-
             decreaseInteger(minus)
         }
     }
@@ -140,6 +135,7 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
                 startActivity(intent)
             return super.onOptionsItemSelected(item)
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.nav_menu, menu)
         return super.onCreateOptionsMenu(menu)
