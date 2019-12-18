@@ -28,7 +28,11 @@
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
-        <activity android:name=".HotelAccountActivity" />
+        <activity android:name=".HotelAccountActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".AllTripActivity" />
+        </activity>
         <activity android:name=".ResetPasswordActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

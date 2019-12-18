@@ -20,24 +20,24 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
         supportActionBar?.title = "Setup Company Profile"
         var province = resources.getStringArray(R.array.province)
         var adapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,province)
-        select_province_autoCompleteTextView.threshold=0
-        select_province_autoCompleteTextView.setAdapter(adapter)
-        select_province_autoCompleteTextView.setOnClickListener {
-            select_province_autoCompleteTextView.showDropDown() }
-        select_province_autoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
+        selectProvinceAutoCompleteTextView.threshold=0
+        selectProvinceAutoCompleteTextView.setAdapter(adapter)
+        selectProvinceAutoCompleteTextView.setOnClickListener {
+            selectProvinceAutoCompleteTextView.showDropDown() }
+        selectProvinceAutoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
                 parent,view,position,id->
             hideKeyboard()
-            select_province_autoCompleteTextView.dismissDropDown()
+            selectProvinceAutoCompleteTextView.dismissDropDown()
             val selectedItem = parent.getItemAtPosition(position).toString()
             Toast.makeText(applicationContext,"Selected : $selectedItem",Toast.LENGTH_SHORT).show()
         }
-        select_province_autoCompleteTextView.setOnDismissListener {
+        selectProvinceAutoCompleteTextView.setOnDismissListener {
             Toast.makeText(applicationContext,"Suggestion closed.",Toast.LENGTH_SHORT).show()
         }
-        select_province_autoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
-                view, b -> if(b){select_province_autoCompleteTextView.showDropDown()}
+        selectProvinceAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
+                view, b -> if(b){selectProvinceAutoCompleteTextView.showDropDown()}
         }
-        setup_button.setOnClickListener {
+        setupButton.setOnClickListener {
             val intent = Intent(this, HotelAccountActivity::class.java)
             startActivity(intent)
         }

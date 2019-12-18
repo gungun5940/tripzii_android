@@ -17,63 +17,63 @@ import java.util.*
 
 class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    var minteger = 0
-    var mintegerchild = 0
+    var numberAdults = 0
+    var numberChild = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)
         supportActionBar?.title = "Booking"
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
-        select_day_autoCompleteTextView.setOnClickListener {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        selectDateAutoCompleteTextView.setOnClickListener {
             val datePickerDialog = DatePickerDialog(this,DatePickerDialog.OnDateSetListener
             { datePicker, i, i2, i3 ->
-            select_day_autoCompleteTextView.setText("" + i+ "/" + i2 + "/" + i3) },year,month,day)
+            selectDateAutoCompleteTextView.setText("" + i+ "/" + i2 + "/" + i3) },year,month,day)
             datePickerDialog.show()
         }
         var packages = resources.getStringArray(R.array.packages)
         var adapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,packages)
-        select_package_autoCompleteTextView.threshold=0
-        select_package_autoCompleteTextView.setAdapter(adapter)
-        select_package_autoCompleteTextView.setOnClickListener {
-            select_package_autoCompleteTextView.showDropDown() }
-        select_package_autoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
+        selectPackageAutoCompleteTextView.threshold=0
+        selectPackageAutoCompleteTextView.setAdapter(adapter)
+        selectPackageAutoCompleteTextView.setOnClickListener {
+            selectPackageAutoCompleteTextView.showDropDown() }
+        selectPackageAutoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
                 parent,view,position,id->
             hideKeyboard()
-            select_package_autoCompleteTextView.dismissDropDown()
+            selectPackageAutoCompleteTextView.dismissDropDown()
             val selectedItem = parent.getItemAtPosition(position).toString()
             Toast.makeText(applicationContext,"Selected : $selectedItem",Toast.LENGTH_SHORT).show()
         }
-        select_package_autoCompleteTextView.setOnDismissListener {
+        selectPackageAutoCompleteTextView.setOnDismissListener {
             Toast.makeText(applicationContext,"Suggestion closed.",Toast.LENGTH_SHORT).show()
         }
-        select_package_autoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
-                view, b -> if(b){select_package_autoCompleteTextView.showDropDown()}
+        selectPackageAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
+                view, b -> if(b){selectPackageAutoCompleteTextView.showDropDown()}
         }
         var nationality = resources.getStringArray(R.array.nationality)
         var nationailtyadapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,nationality)
-        nationality_autoCompleteTextView.threshold=0
-        nationality_autoCompleteTextView.setAdapter(nationailtyadapter)
-        nationality_autoCompleteTextView.setOnClickListener {
-            nationality_autoCompleteTextView.showDropDown() }
-        nationality_autoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
+        nationalityAutoCompleteTextView.threshold=0
+        nationalityAutoCompleteTextView.setAdapter(nationailtyadapter)
+        nationalityAutoCompleteTextView.setOnClickListener {
+            nationalityAutoCompleteTextView.showDropDown() }
+        nationalityAutoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
                 parent,view,position,id->
             hideKeyboard()
-            nationality_autoCompleteTextView.dismissDropDown()
+            nationalityAutoCompleteTextView.dismissDropDown()
             val selectedItem = parent.getItemAtPosition(position).toString()
             Toast.makeText(applicationContext,"Selected : $selectedItem",Toast.LENGTH_SHORT).show()
         }
-        nationality_autoCompleteTextView.setOnDismissListener {
+        nationalityAutoCompleteTextView.setOnDismissListener {
             Toast.makeText(applicationContext,"Suggestion closed.",Toast.LENGTH_SHORT).show()
         }
-        nationality_autoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
-                view, b -> if(b){nationality_autoCompleteTextView.showDropDown()}
+        nationalityAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
+                view, b -> if(b){nationalityAutoCompleteTextView.showDropDown()}
         }
-        val plus = findViewById<Button>(R.id.increase_adults)
-        val minus = findViewById<Button>(R.id.decrease_adults)
+        val plus = findViewById<Button>(R.id.increaseAdultsButton)
+        val minus = findViewById<Button>(R.id.decreaseAdultsButton)
 
         plus.setOnClickListener {
             increaseInteger(plus)
@@ -84,11 +84,11 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("Please select") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("Select item") //To change body of created functions use File | Settings | File Templates.
     }
 
     fun Activity.hideKeyboard() {
@@ -101,31 +101,32 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
     }
 
     fun increaseInteger(view: View?) {
-        minteger = minteger + 1
-        display(minteger)
+        numberAdults = numberAdults + 1
+        displayNumberOfAdults(numberAdults)
     }
 
     fun decreaseInteger(view: View?) {
-        minteger = minteger - 1
-        display(minteger)
+        numberAdults = numberAdults - 1
+        displayNumberOfAdults(numberAdults)
     }
 
-    private fun display(number: Int) {
-        val displayInteger = findViewById<View>(R.id.number_adults_textView) as TextView
+    private fun displayNumberOfAdults(number: Int) {
+        val displayInteger = findViewById<View>(R.id.numberOfAdultsTextView) as TextView
         displayInteger.text = "" + number
     }
+
     fun increaseIntegerChild(view: View?) {
-        mintegerchild = mintegerchild + 1
-        displayChild(mintegerchild)
+        numberChild = numberChild + 1
+        displayNumberOfChild(numberChild)
     }
 
     fun decreaseIntegerChild(view: View?) {
-        mintegerchild = mintegerchild - 1
-        displayChild(mintegerchild)
+        numberChild = numberChild - 1
+        displayNumberOfChild(numberChild)
     }
 
-    private fun displayChild(number: Int) {
-        val displayInteger = findViewById<View>(R.id.number_child_textView) as TextView
+    private fun displayNumberOfChild(number: Int) {
+        val displayInteger = findViewById<View>(R.id.numberOfChildTextView) as TextView
         displayInteger.text = "" + number
     }
 

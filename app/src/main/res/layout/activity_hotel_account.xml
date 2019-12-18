@@ -9,7 +9,7 @@
     tools:context=".HotelAccountActivity">
 
     <TextView
-        android:id="@+id/account_textView"
+        android:id="@+id/accountTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -27,7 +27,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/edit_profile_textView"
+            android:id="@+id/editProfileTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -40,7 +40,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/change_password_textView"
+            android:id="@+id/changePasswordTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -54,7 +54,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/report_textView"
+        android:id="@+id/reportTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -71,7 +71,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/commission_textView"
+            android:id="@+id/commissionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -84,7 +84,7 @@
             android:textStyle="bold" />
     </LinearLayout>
     <Button
-        android:id="@+id/logout_button"
+        android:id="@+id/logoutButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"

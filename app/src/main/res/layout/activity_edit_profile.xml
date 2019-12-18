@@ -9,7 +9,7 @@
     tools:context=".EditProfileActivity">
 
     <TextView
-        android:id="@+id/edit_hotel_information_textView"
+        android:id="@+id/editHotelInformationTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -31,7 +31,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_hotel_name_textinput"
+                android:id="@+id/editHotelNameTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -45,7 +45,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_hotel_address_textinput"
+                android:id="@+id/editHotelAddressTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -55,7 +55,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <AutoCompleteTextView
-            android:id="@+id/edit_select_province_autoCompleteTextView"
+            android:id="@+id/editSelectProvinceAutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Select province"
@@ -69,7 +69,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_postcode_textinput"
+                android:id="@+id/editPostCodeTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -83,7 +83,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_email_address_textinput"
+                android:id="@+id/editEmailHotelTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -98,7 +98,7 @@
             android:layout_marginBottom="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_phone_number_textinput"
+                android:id="@+id/editPhoneNumberHotelTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -109,7 +109,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/edit_bank_information_textView"
+        android:id="@+id/editBankInformationTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -131,7 +131,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_bank_name_textinput"
+                android:id="@+id/editBankNameTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -145,7 +145,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_branch_textinput"
+                android:id="@+id/editBranchTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -159,7 +159,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_account_name_textinput"
+                android:id="@+id/editAccountNameTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -174,7 +174,7 @@
             android:layout_marginBottom="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_account_number_textinput"
+                android:id="@+id/editAccountNumberTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -185,7 +185,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/edit_profile_button"
+        android:id="@+id/editProileButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"

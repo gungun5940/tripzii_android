@@ -19,23 +19,23 @@ class EditProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         supportActionBar?.title = "Edit Profile"
         var province = resources.getStringArray(R.array.province)
         var adapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,province)
-        edit_select_province_autoCompleteTextView.threshold=0
-        edit_select_province_autoCompleteTextView.setAdapter(adapter)
-        edit_select_province_autoCompleteTextView.setOnClickListener {
-            edit_select_province_autoCompleteTextView.showDropDown()
+        editSelectProvinceAutoCompleteTextView.threshold=0
+        editSelectProvinceAutoCompleteTextView.setAdapter(adapter)
+        editSelectProvinceAutoCompleteTextView.setOnClickListener {
+            editSelectProvinceAutoCompleteTextView.showDropDown()
         }
-        edit_select_province_autoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
+        editSelectProvinceAutoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
                 parent,view,position,id->
             hideKeyboard()
-            edit_select_province_autoCompleteTextView.dismissDropDown()
+            editSelectProvinceAutoCompleteTextView.dismissDropDown()
             val selectedItem = parent.getItemAtPosition(position).toString()
             Toast.makeText(applicationContext,"Selected : $selectedItem", Toast.LENGTH_SHORT).show()
         }
-        edit_select_province_autoCompleteTextView.setOnDismissListener {
+        editSelectProvinceAutoCompleteTextView.setOnDismissListener {
             Toast.makeText(applicationContext,"Suggestion closed.", Toast.LENGTH_SHORT).show()
         }
-        edit_select_province_autoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
-                view, b -> if(b){edit_select_province_autoCompleteTextView.showDropDown()}
+        editSelectProvinceAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
+                view, b -> if(b){editSelectProvinceAutoCompleteTextView.showDropDown()}
         }
     }
 

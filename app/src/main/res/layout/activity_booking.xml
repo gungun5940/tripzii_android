@@ -9,7 +9,7 @@
     tools:context=".BookingActivity">
 
     <TextView
-        android:id="@+id/select_day_textView"
+        android:id="@+id/selectDayTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -27,7 +27,7 @@
         android:orientation="vertical">
 
         <AutoCompleteTextView
-            android:id="@+id/select_day_autoCompleteTextView"
+            android:id="@+id/selectDateAutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Select date"
@@ -43,7 +43,7 @@
             android:layout_marginTop="12dp">
 
             <TextView
-                android:id="@+id/adults_textView"
+                android:id="@+id/adultsTextView"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -54,7 +54,7 @@
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/price_adults_textView"
+                android:id="@+id/priceAdultsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -65,7 +65,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/decrease_adults"
+                android:id="@+id/decreaseAdultsButton"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:background="@drawable/bt_rectangle"
@@ -74,7 +74,7 @@
                 android:textColor="#F43B44"/>
 
             <TextView
-                android:id="@+id/number_adults_textView"
+                android:id="@+id/numberOfAdultsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -84,7 +84,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/increase_adults"
+                android:id="@+id/increaseAdultsButton"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:onClick="increaseInteger"
@@ -111,7 +111,7 @@
             android:layout_marginTop="12dp">
 
             <TextView
-                android:id="@+id/child_textView"
+                android:id="@+id/childTextView"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -122,7 +122,7 @@
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/price_child_textView"
+                android:id="@+id/priceChildTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -133,7 +133,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/decrease_child"
+                android:id="@+id/decreaseChildButton"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:background="@drawable/bt_rectangle"
@@ -142,7 +142,7 @@
                 android:textColor="#F43B44"/>
 
             <TextView
-                android:id="@+id/number_child_textView"
+                android:id="@+id/numberOfChildTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -152,7 +152,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/increase_child"
+                android:id="@+id/increaseChildButton"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:onClick="increaseIntegerChild"
@@ -172,7 +172,7 @@
         </LinearLayout>
 
         <AutoCompleteTextView
-            android:id="@+id/select_package_autoCompleteTextView"
+            android:id="@+id/selectPackageAutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Package"
@@ -184,7 +184,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/buyer_information_textView"
+        android:id="@+id/buyerInformationTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -206,7 +206,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/first_name_textinput"
+                android:id="@+id/firstNameTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -220,7 +220,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/last_name_textinput"
+                android:id="@+id/lastNameTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -230,7 +230,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <AutoCompleteTextView
-            android:id="@+id/nationality_autoCompleteTextView"
+            android:id="@+id/nationalityAutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nationality"
@@ -244,7 +244,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email_address_booking_textinput"
+                android:id="@+id/emailBookingTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -259,7 +259,7 @@
             android:layout_marginBottom="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phone_number_booking_textinput"
+                android:id="@+id/phoneNumberBookingTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -274,7 +274,7 @@
             android:layout_marginBottom="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pickup_location_textinput"
+                android:id="@+id/pickupLocationTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -285,7 +285,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/coupon_code_textView"
+        android:id="@+id/couponTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -304,7 +304,7 @@
         android:layout_marginBottom="12dp">
 
         <EditText
-            android:id="@+id/coupon_text"
+            android:id="@+id/couponCodeText"
             android:layout_width="414dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -314,7 +314,7 @@
             android:inputType="text" />
 
         <Button
-            android:id="@+id/apply_button"
+            android:id="@+id/applyButton"
             android:layout_width="111dp"
             android:layout_height="40dp"
             android:layout_marginStart="-150dp"
@@ -329,7 +329,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/bgTextView"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginEnd="180dp"
@@ -338,7 +338,7 @@
             tools:layout_editor_absoluteX="30dp" />
 
         <TextView
-            android:id="@+id/total_textView"
+            android:id="@+id/totalTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -350,7 +350,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/total_price_textView"
+            android:id="@+id/totalPriceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -359,11 +359,11 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/total_textView"
+            app:layout_constraintTop_toBottomOf="@+id/totalTextView"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/checkout_button"
+            android:id="@+id/checkOutButton"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:background="@drawable/bt_checkout"
@@ -371,6 +371,6 @@
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView2" />
+            app:layout_constraintStart_toEndOf="@+id/bgTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

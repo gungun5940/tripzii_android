@@ -17,23 +17,23 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.title = "Login"
-        login_button.setOnClickListener {
+        loginButton.setOnClickListener {
             performLogin()
         }
-        forgot_textView.setOnClickListener {
+        forgotPasswordTextView.setOnClickListener {
             Log.d(TAG, "Try to show forgot my password activity")
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent) //เปิดหน้า forgot password
         }
-        login_button.setOnClickListener {
+        loginButton.setOnClickListener {
             val intent = Intent(this, SetupCompanyProfileActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun performLogin() {
-        val email = username_textInput.text.toString()
-        val password = password_textInput.text.toString()
+        val email = usernameTextInput.text.toString()
+        val password = passwordTextInput.text.toString()
 
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please enter text in email/password", Toast.LENGTH_SHORT).show()
