@@ -28,7 +28,7 @@
                 android:id="@+id/spinner_layout"
                 android:background="@drawable/spinner_color_orange">
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/monthSpinner"
                     style="@style/Widget.AppCompat.DropDownItem.Spinner"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -51,9 +51,9 @@
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:layout_gravity="center"
-     android:orientation="horizontal"
-     >
+     android:orientation="horizontal">
      <TextView
+         android:id="@+id/totalCommissionTextView"
          android:layout_width="match_parent"
          android:layout_height="match_parent"
          android:textSize="30sp"
@@ -62,8 +62,7 @@
          android:background="#ffff"
          android:gravity="center"
          android:text="฿ 20000"
-         android:textColor="#161010"
-         >
+         android:textColor="#161010">
      </TextView>
 
  </LinearLayout>
@@ -71,8 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -81,9 +79,7 @@
             android:background="#ffff"
             android:gravity="center"
             android:text="Total Commission"
-            android:textColor="#535353"
-
-            >
+            android:textColor="#535353">
         </TextView>
 
     </LinearLayout>
@@ -106,11 +102,10 @@
             android:layout_marginTop="0dp">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewCommission"
+                android:id="@+id/commissionRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ffff"
-                >
+                android:background="#ffff">
             </androidx.recyclerview.widget.RecyclerView>
 
         </FrameLayout>

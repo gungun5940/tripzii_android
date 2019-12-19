@@ -18,11 +18,9 @@ class ReportCommissionAdapter ( val dataCommision : List<ReportCommissionDAO>) :
     }
     override fun getItemCount() = dataCommision.size
 
-
     override fun onBindViewHolder(holder: CommissionViewHolder, position: Int) {
         holder.bind(dataCommision[position])
         holder.itemView.setOnClickListener{
-            //do sth in here
         }
 
     }
@@ -30,10 +28,10 @@ class ReportCommissionAdapter ( val dataCommision : List<ReportCommissionDAO>) :
     class CommissionViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(report: ReportCommissionDAO) {
             itemView.apply {
-                tripName_textView.text = report.name
-                tripDate_textView.text = report.date
-                tripPrice_textView.text = report.price
-                tripTotalCommission__textView.text = report.total
+                tripNameCommissionTextView.text = report.name
+                tripDateCommissionTextView.text = report.date
+                tripPriceCommissionTextView.text = report.price
+                tripTotalCommissionTextView.text = report.total
             }
         }
     }

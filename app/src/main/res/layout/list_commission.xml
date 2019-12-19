@@ -10,11 +10,9 @@
     android:textAlignment="center"
     android:focusable="false"
     android:focusableInTouchMode="false"
-    android:background="@drawable/bottom_line"
-    >
-
+    android:background="@drawable/bottom_line">
     <TextView
-        android:id="@+id/tripName_textView"
+        android:id="@+id/tripNameCommissionTextView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -25,9 +23,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:textSize="18sp"/>
-
     <TextView
-        android:id="@+id/tripDate_textView"
+        android:id="@+id/tripDateCommissionTextView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -39,7 +36,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:textSize="18sp" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
@@ -53,10 +49,7 @@
         android:layout_marginTop="5dp"
         android:paddingRight="5dp"
         android:paddingTop="2dp"
-        android:paddingBottom="1dp"
-
-        >
-
+        android:paddingBottom="1dp">
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -66,9 +59,8 @@
             android:textAlignment="center"
             android:paddingLeft="3dp"
             android:paddingRight="3dp">
-
             <TextView
-                android:id="@+id/tripPrice_textView"
+                android:id="@+id/tripPriceCommissionTextView"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -80,8 +72,7 @@
                 android:text="Price"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#000000"
-                android:textSize="18sp"
-                 />
+                android:textSize="18sp"/>
             <TextView
                 android:layout_weight="0"
                 android:layout_width="wrap_content"
@@ -89,13 +80,11 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="Commission"
                 android:textSize="18sp"
-                android:id="@+id/txt_commisson" />
-
+                android:id="@+id/txtCommission"/>
         </LinearLayout>
     </LinearLayout>
-
     <TextView
-        android:id="@+id/tripTotalCommission__textView"
+        android:id="@+id/tripTotalCommissionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"

@@ -31,8 +31,8 @@ class ReportCommissionActivity : AppCompatActivity() {
             mount
         )
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-        spinner.adapter = adapter
-        spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        monthSpinner.adapter = adapter
+        monthSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent:AdapterView<*>, view: View, position: Int, id: Long){
             }
             override fun onNothingSelected(parent: AdapterView<*>){
@@ -45,8 +45,8 @@ class ReportCommissionActivity : AppCompatActivity() {
         report.add(ReportCommissionDAO("Bangkok", "14/02/2020", "6,500", "800"))
 
         val reportAdapter = ReportCommissionAdapter(report)
-        recyclerViewCommission.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        recyclerViewCommission.adapter = reportAdapter
+        commissionRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        commissionRecyclerView.adapter = reportAdapter
     }
 
 

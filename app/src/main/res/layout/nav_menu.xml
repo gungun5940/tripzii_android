@@ -20,6 +20,7 @@
             android:background="@drawable/ic_home">
         </ImageView>
         <TextView
+            android:id="@+id/honeMenuTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="5dp"
@@ -45,6 +46,7 @@
             </ImageView>
 
             <TextView
+                android:id="@+id/moneyMenuTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
@@ -58,25 +60,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/ic_translate">
-            </ImageView>
+                android:background="@drawable/ic_translate"></ImageView>
 
             <TextView
+                android:id="@+id/translateMenuTextView"
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
-                android:paddingTop="5dp"
                 android:paddingLeft="5dp"
-                android:textStyle="bold"
+                android:paddingTop="5dp"
+                android:text="English"
                 android:textColor="#000000"
-                android:text="English" />
+                android:textStyle="bold" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </LinearLayout>
     <LinearLayout
@@ -96,6 +100,7 @@
                     android:background="@drawable/ic_admin">
                 </ImageView>
                 <TextView
+                    android:id="@+id/adminMenuTextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingTop="5dp"
