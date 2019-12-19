@@ -14,13 +14,12 @@
     >
 
     <TextView
-        android:id="@+id/trip_name"
+        android:id="@+id/tripName_textView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:gravity="left"
         android:layout_marginLeft="8dp"
         android:text="Trip name"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -28,7 +27,7 @@
         android:textSize="18sp"/>
 
     <TextView
-        android:id="@+id/trip_date"
+        android:id="@+id/tripDate_textView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -69,7 +68,7 @@
             android:paddingRight="3dp">
 
             <TextView
-                android:id="@+id/trip_price"
+                android:id="@+id/tripPrice_textView"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -96,13 +95,13 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/trip_total_com_price"
+        android:id="@+id/tripTotalCommission__textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="right"
         android:layout_marginRight="11dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="#000000"

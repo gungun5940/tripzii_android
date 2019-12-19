@@ -30,10 +30,10 @@ class ReportCommissionAdapter ( val dataCommision : List<ReportCommissionDAO>) :
     class CommissionViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(report: ReportCommissionDAO) {
             itemView.apply {
-                trip_name.text = report.name
-                trip_date.text = report.name
-                trip_price.text = report.name
-                trip_total_com_price.text = report.name
+                tripName_textView.text = report.name
+                tripDate_textView.text = report.date
+                tripPrice_textView.text = report.price
+                tripTotalCommission__textView.text = report.total
             }
         }
     }

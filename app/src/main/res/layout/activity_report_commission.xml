@@ -4,32 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C7C7C7"
     android:orientation="vertical"
     tools:context=".ReportCommissionActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:background="#ffff">
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
         </FrameLayout>
-
         <FrameLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
-            android:layout_weight="0"
-            >
-
+            android:layout_weight="0">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:id="@+id/spinner_layout"
                 android:background="@drawable/spinner_color_orange">
-
                 <Spinner
                     android:id="@+id/spinner"
                     style="@style/Widget.AppCompat.DropDownItem.Spinner"
@@ -38,11 +35,10 @@
                     android:scaleType="center"
                     android:spinnerMode="dropdown"
                     android:visibility="visible" />
-
             </LinearLayout>
 
-
         </FrameLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,6 +59,7 @@
          android:textSize="30sp"
          android:textStyle="bold"
          android:paddingTop="10dp"
+         android:background="#ffff"
          android:gravity="center"
          android:text="฿ 20000"
          android:textColor="#161010"
@@ -81,6 +78,7 @@
             android:layout_height="match_parent"
             android:textSize="18sp"
             android:paddingTop="10dp"
+            android:background="#ffff"
             android:gravity="center"
             android:text="Total Commission"
             android:textColor="#535353"
@@ -111,6 +109,7 @@
                 android:id="@+id/recyclerViewCommission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#ffff"
                 >
             </androidx.recyclerview.widget.RecyclerView>
 
