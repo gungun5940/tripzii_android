@@ -20,7 +20,7 @@
             android:background="@drawable/ic_home">
         </ImageView>
         <TextView
-            android:id="@+id/honeMenuTextView"
+            android:id="@+id/homeMenuTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="5dp"

@@ -24,6 +24,4 @@
           <include layout="@layout/menu_bar"></include>
 
       </com.google.android.material.navigation.NavigationView>
-
-
 </androidx.drawerlayout.widget.DrawerLayout>
