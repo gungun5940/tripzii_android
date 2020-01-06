@@ -48,6 +48,4 @@ class ReportCommissionActivity : AppCompatActivity() {
         commissionRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         commissionRecyclerView.adapter = reportAdapter
     }
-
-
 }

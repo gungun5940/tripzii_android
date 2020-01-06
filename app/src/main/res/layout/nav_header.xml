@@ -10,7 +10,7 @@
     android:paddingLeft="15dp"
     android:paddingBottom="15dp">
     <TextView
-        android:id="@+id/nameHotelTextView"
+        android:id="@+id/nameHotelMenuTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ressident Hotel"
@@ -20,14 +20,14 @@
         android:textStyle="bold"
         android:paddingTop="20dp"/>
     <TextView
-        android:id="@+id/emailHotelTextView"
+        android:id="@+id/emailHotelMenuTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="hotel@email.com"
         android:textColor="#FFFFFF"
         android:textStyle="bold"/>
     <TextView
-        android:id="@+id/phoneHotelTextView"
+        android:id="@+id/phoneHotelMenuTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="095-757-1234"
