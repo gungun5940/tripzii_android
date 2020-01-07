@@ -9,21 +9,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".MenuBarActivity"
+            android:label="@string/title_activity_menubar"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".AllTripActivity" />
+        <activity android:name=".BookingActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HotelAccountActivity"/>
+        </activity>
+        <activity android:name=".EditProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HotelAccountActivity" />
+        </activity>
+        <activity android:name=".SetupCompanyProfileActivity" />
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-            android:value="true"/>
+            android:value="true" />
+        <activity android:name=".HotelAccountActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".AllTripActivity" />
+        </activity>
         <activity android:name=".ResetPasswordActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity" />
+                android:value=".HotelAccountActivity" />
         </activity>
         <activity android:name=".ForgotPasswordActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginActivity" />
         </activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".ReportCommissionActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ReportCommissionActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".HotelAccountActivity" />
+        </activity>
         <activity
             android:name=".SplashScreenActivity"
             android:noHistory="true"
@@ -35,4 +60,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

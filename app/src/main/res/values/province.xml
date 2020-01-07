@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="selected_province">Selected province:</string>
+    <string-array name="province">
+        <item>Lampang</item>
+        <item>Chiang Mai</item>
+        <item>Chiang Rai</item>
+        <item>Nan</item>
+        <item>Bangkok</item>
+        <item>Nonthaburi</item>
+    </string-array>
+</resources>
