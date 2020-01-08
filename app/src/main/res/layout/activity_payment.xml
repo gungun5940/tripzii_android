@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PaymentActivity"
+    android:background="#DFE0E0">
+    <LinearLayout
+        android:id="@+id/qrLinearLayout"
+        android:layout_width="340dp"
+        android:layout_height="390dp"
+        android:layout_marginTop="35dp"
+        android:background="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#F43B44">
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_tripzii"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp">
+        </View>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/qrCodeImageView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/faded_orange"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/scanPaymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/qrLinearLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="302dp"
+        android:layout_marginBottom="352dp"
+        android:text="Scan in"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/timePaymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/qrLinearLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="245dp"
+        android:layout_marginBottom="353dp"
+        android:text="04:59"
+        android:textColor="#F43B44"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/titleTripNamePaymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/qrLinearLayout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="65dp"
+        android:text="Trip name"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/tripNamePaymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTripNamePaymentTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="3dp"
+        android:text="Lampang na ja"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/titlePackagePaymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tripNamePaymentTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Package"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/packageNamePaymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titlePackagePaymentTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="3dp"
+        android:text="PackageName"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/titleDateAndTimePaymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/packageNamePaymentTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Date / Time"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/dateAndTimePaymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleDateAndTimePaymentTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="3dp"
+        android:text="2019-03-05 / 7.00 PM"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+</RelativeLayout>

@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_booking.*
 import java.util.*
 
-
 class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     var numberAdults = 0
