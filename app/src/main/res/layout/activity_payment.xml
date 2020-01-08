@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,6 +30,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="15dp">
         </View>
+
         </LinearLayout>
 
         <ImageView
@@ -47,14 +51,12 @@
         android:layout_below="@+id/qrLinearLayout"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="240dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="302dp"
-        android:layout_marginBottom="352dp"
         android:text="Scan in"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/timePaymentTextView"
@@ -62,10 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/qrLinearLayout"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="245dp"
-        android:layout_marginBottom="353dp"
         android:text="04:59"
         android:textColor="#F43B44"
         android:textSize="20sp" />
@@ -136,4 +136,197 @@
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/dateAndTimePaymentTextView">
+        <LinearLayout
+            android:id="@+id/quantityLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/titleQuantityPaymentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Quantity"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/priceQuantityPaymentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="450dp"
+                android:layout_marginTop="20dp"
+                android:text="฿ 2,000"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/adultLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/quantityLinearLayout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/titleAdultPaymentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="3dp"
+            android:text="Adult"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/adultPaymentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            android:text="x"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/numberAdultPaymentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            android:text="1"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/priceAdultPaymentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="435dp"
+            android:layout_marginTop="3dp"
+            android:text="฿ 2,000"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/childLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/adultLinearLayout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/titleChildPaymentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="3dp"
+            android:text="Child"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/childPaymentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="3dp"
+            android:text="x"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/numberChildPaymentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="3dp"
+            android:text="1"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/priceChildPaymentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="435dp"
+            android:layout_marginTop="3dp"
+            android:text="฿ 2,000"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lineLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@+id/childLinearLayout"
+            android:background="@drawable/line"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+             <TextView
+                 android:id="@+id/titleTotalPricePaymentTextView"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:text="Total Price"
+                 android:layout_marginStart="20dp"
+                 android:textColor="@android:color/black"
+                 android:textStyle="bold"
+                 android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/totalPricePaymentTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="฿ 3,900"
+                android:layout_marginStart="-85dp"
+                android:textColor="#F43B44"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/totalPriceLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/totalPriceLinearLayout"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="20dp"
+                android:text="Confirm"
+                android:layout_marginTop="30dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bt_rounded"/>
+
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
+</ScrollView>
