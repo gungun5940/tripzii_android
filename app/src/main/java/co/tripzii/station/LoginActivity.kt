@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -25,10 +26,6 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent) //เปิดหน้า forgot password
         }
-        loginButton.setOnClickListener {
-            val intent = Intent(this, SetupCompanyProfileActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun performLogin() {
@@ -39,7 +36,24 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "Please enter text in email/password", Toast.LENGTH_SHORT).show()
             return
         }
-        Log.d(TAG, "Email :" + email)
-        Log.d(TAG, "Password : $password")
+        Log.d("login","Login with email/pw: $email/***")
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+            .addOnCompleteListener { task ->
+                if (!task.isSuccessful){
+                    if (password.length < 6){
+                        passwordTextInput.error = "Please check your password"
+                        Log.d(TAG,"Enter password less than 6 characters")
+                    }else{
+                        Toast.makeText(this, "Authentication Failed!", Toast.LENGTH_SHORT).show()
+                        Log.d(TAG,"Authentication Failed:"+ task.exception)
+                    }
+                }else{
+                    Toast.makeText(this, "Sing in successfully!", Toast.LENGTH_SHORT).show()
+                    Log.d(TAG,"Sing in successfully!")
+                    val intent = Intent(this, AllTripActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
     }
 }
