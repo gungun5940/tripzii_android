@@ -31,7 +31,6 @@ class LoginActivity : AppCompatActivity() {
     private fun performLogin() {
         val email = usernameTextInput.text.toString()
         val password = passwordTextInput.text.toString()
-
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please enter text in email/password", Toast.LENGTH_SHORT).show()
             return
@@ -50,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
                 }else{
                     Toast.makeText(this, "Sing in successfully!", Toast.LENGTH_SHORT).show()
                     Log.d(TAG,"Sing in successfully!")
-                    val intent = Intent(this, AllTripActivity::class.java)
+                    val intent = Intent(this, SetupCompanyProfileActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
