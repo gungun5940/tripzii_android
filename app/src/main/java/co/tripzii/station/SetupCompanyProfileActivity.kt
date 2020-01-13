@@ -59,4 +59,11 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+        val intent = Intent(this,AllTripActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+    }
 }

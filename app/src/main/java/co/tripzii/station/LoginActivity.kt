@@ -50,8 +50,8 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "Sing in successfully!", Toast.LENGTH_SHORT).show()
                     Log.d(TAG,"Sing in successfully!")
                     val intent = Intent(this, SetupCompanyProfileActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
-                    finish()
                 }
             }
     }

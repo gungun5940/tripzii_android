@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_hotel_account.*
 
 class HotelAccountActivity : AppCompatActivity() {
@@ -29,6 +30,11 @@ class HotelAccountActivity : AppCompatActivity() {
         commissionTextView.setOnClickListener {
             Log.d(TAG, "Try to show report commission activity")
             val intent = Intent(this, ReportCommissionActivity::class.java)
+            startActivity(intent)
+        }
+        logoutButton.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
