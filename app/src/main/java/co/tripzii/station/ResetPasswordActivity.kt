@@ -10,33 +10,27 @@ import kotlinx.android.synthetic.main.activity_reset_password.*
 
 class ResetPasswordActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
+    private var auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reset_password)
         supportActionBar?.title = "Reset my password"
-
         resetButton.setOnClickListener {
             changePassword()
         }
     }
 
     private fun changePassword() {
-
         if (currentPasswordTextInput.text!!.isNotEmpty() &&
             newPasswordTextInput.text!!.isNotEmpty()
         ) {
-
-
                 val user = auth.currentUser
                 if (user != null && user.email != null) {
                     val credential = EmailAuthProvider
                         .getCredential(user.email!!, currentPasswordTextInput.text.toString())
-
-// Prompt the user to re-provide their sign-in credentials
                     user.reauthenticate(credential)
-                        ?.addOnCompleteListener {
+                        .addOnCompleteListener {
                             if (it.isSuccessful) {
                                 Toast.makeText(
                                     this,
@@ -56,7 +50,6 @@ class ResetPasswordActivity : AppCompatActivity() {
                                             finish()
                                         }
                                     }
-
                             } else {
                                 Toast.makeText(
                                     this,
@@ -69,11 +62,8 @@ class ResetPasswordActivity : AppCompatActivity() {
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
-
-
         } else {
             Toast.makeText(this, "Please enter all the fields.", Toast.LENGTH_SHORT).show()
         }
-
     }
 }
