@@ -5,12 +5,10 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -19,8 +17,9 @@ class LoginActivity : AppCompatActivity() {
     companion object{
         val TAG = "LoginActivity"
     }
+
     private lateinit var auth: FirebaseAuth
-    private var customToken: String? = null
+//    private var customToken: String? = null
     private var sharedPref: SharedPreferences? = null
 //    private lateinit var tokenReceiver: TokenBroadcastReceiver
 
@@ -29,83 +28,26 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         supportActionBar?.title = "Login"
         loginButton.setOnClickListener{
-        performLogin()
+            performLogin()
         }
         forgotPasswordTextView.setOnClickListener {
             Log.d(TAG, "Try to show forgot my password activity")
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent) //เปิดหน้า forgot password
         }
-//        tokenReceiver = object : TokenBroadcastReceiver() {
-//            override fun onNewToken(token: String?) {
-//                Log.d(TAG, "onNewToken:$token")
-//                setCustomToken(token.toString())
-//            }
-//        }
         auth = FirebaseAuth.getInstance()
-//            AuthStateListener { firebaseAuth ->
-//                val firebaseUser = firebaseAuth.currentUser
-//                if (firebaseUser != null) {
-//                    val userId = firebaseUser.uid
-//                    val userEmail = firebaseUser.email
-//                    sharedPref = getPreferences(Context.MODE_PRIVATE)
-//                    val editor = sharedPref!!.edit()
-//                    editor.putString("firebasekey", userId)
-//                    editor.commit()
-//                }
-//            }
+            AuthStateListener { firebaseAuth ->
+                val firebaseUser = firebaseAuth.currentUser
+                if (firebaseUser != null) {
+                    val userId = firebaseUser.uid
+                    val userEmail = firebaseUser.email
+                    sharedPref = getPreferences(Context.MODE_PRIVATE)
+                    val editor = sharedPref!!.edit()
+                    editor.putString("firebasekey", userId)
+                    editor.commit()
+                }
+            }
     }
-
-//    public override fun onStart() {
-//        super.onStart()
-//        val currentUser = auth.currentUser
-//        updateUI(currentUser)
-//    }
-//    private fun startSignIn() {
-//        customToken?.let {
-//            auth.signInWithCustomToken(it)
-//                .addOnCompleteListener(this) { task ->
-//                    if (task.isSuccessful) {
-//                        Log.d(TAG, "signInWithCustomToken:success")
-//                        val user = auth.currentUser
-//                        updateUI(user)
-////                        val intent = Intent(this, SetupCompanyProfileActivity::class.java)
-////                        startActivity(intent)
-//                    } else {
-//                        Log.w(TAG, "signInWithCustomToken:failure", task.exception)
-//                        Toast.makeText(baseContext, "Authentication failed.",
-//                            Toast.LENGTH_SHORT).show()
-//                        updateUI(null)
-//
-//
-//                    }
-//                }
-//        }
-//    }
-//
-//    private fun updateUI(user: FirebaseUser?) {
-//        if (user != null) {
-//            Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-//        } else {
-//            // User is signed out
-//            Log.d(TAG, "onAuthStateChanged:signed_out");
-//
-//        }
-//    }
-//
-//    private fun setCustomToken(token: String) {
-//        customToken = token
-//
-//        val status = "Token:$customToken"
-//        loginButton.isEnabled = true
-//    }
-//
-//    override fun onClick(v: View) {
-//        val i = v.id
-//        if (i == R.id.loginButton) {
-//            startSignIn()
-//        }
-//    }
 
     private fun performLogin() {
         val email = usernameTextInput.text.toString()
