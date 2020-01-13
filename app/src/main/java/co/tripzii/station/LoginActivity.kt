@@ -19,9 +19,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private lateinit var auth: FirebaseAuth
-//    private var customToken: String? = null
     private var sharedPref: SharedPreferences? = null
-//    private lateinit var tokenReceiver: TokenBroadcastReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
