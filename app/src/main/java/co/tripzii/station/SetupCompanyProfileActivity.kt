@@ -62,7 +62,7 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
-        val intent = Intent(this,AllTripActivity::class.java)
+        val intent = Intent(this,HotelAccountActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
     }
