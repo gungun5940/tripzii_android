@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
                     sharedPref = getPreferences(Context.MODE_PRIVATE)
                     val editor = sharedPref!!.edit()
                     editor.putString("firebasekey", userId)
-                    editor.commit()
+                    editor.apply()
                 }
             }
     }
