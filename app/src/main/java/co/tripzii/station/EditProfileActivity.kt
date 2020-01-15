@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 class EditProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
+    private val progressBar = ProgressBarActivity()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)

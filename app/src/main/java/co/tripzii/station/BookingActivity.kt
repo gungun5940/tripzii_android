@@ -5,6 +5,7 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -22,6 +23,8 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
     var numberChild = 0
     private var checkOutButton: Button? = null
     private var pickupLocationTextInput: TextInputEditText? = null
+    private val progressBar = ProgressBarActivity()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,6 +102,8 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
                     e.printStackTrace()
                 }
             }
+            progressBar.show(this,"Please Wait...")
+            Handler().postDelayed({}, 4000)
         }
     }
 

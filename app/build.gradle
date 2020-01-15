@@ -51,4 +51,6 @@ dependencies {
     implementation 'com.github.devdhar04:MaterialSpinner:v0.1.2'
     implementation 'com.weiwangcn.betterspinner:library:1.1.0'
     implementation 'com.google.zxing:core:3.4.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
 }

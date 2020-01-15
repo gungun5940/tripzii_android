@@ -24,6 +24,8 @@ class PaymentActivity : AppCompatActivity() {
     internal var bitmap: Bitmap? = null
     private var qrCodeImageView: ImageView? = null
     private var pickupLocationTextInput: TextInputEditText? = null
+    private val progressBar = ProgressBarActivity()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

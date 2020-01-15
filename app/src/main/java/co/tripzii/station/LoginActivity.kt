@@ -4,20 +4,24 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.coroutines.Delay
+import kotlinx.coroutines.delay
 
 
 class LoginActivity : AppCompatActivity() {
 
+    private val progressBar = ProgressBarActivity()
+
     companion object{
         val TAG = "LoginActivity"
     }
-
     private lateinit var auth: FirebaseAuth
     private var sharedPref: SharedPreferences? = null
 
@@ -27,6 +31,8 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.title = "Login"
         loginButton.setOnClickListener{
             performLogin()
+            progressBar.show(this,"Please Wait...")
+            Handler().postDelayed({}, 4000)
         }
         forgotPasswordTextView.setOnClickListener {
             Log.d(TAG, "Try to show forgot my password activity")
@@ -74,4 +80,16 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+//    fun afterOnClick(delay: Long,loginActivity: LoginActivity, process: () -> Unit){
+//        progressBar.show(this,"Please Wait...")
+//        Handler().postDelayed({
+//            loginActivity.runOnUiThread({
+//                Runnable {
+//                    process()
+//                }
+//            })
+//        },4000)
+//
+//    }
 }
+

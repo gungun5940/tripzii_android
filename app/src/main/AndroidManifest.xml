@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.tripzii.station">
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -11,14 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ProgressBarActivity"></activity>
         <activity android:name=".PaymentActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BookingActivity" />
         </activity>
-        <activity android:name=".ChangeLanguagePopupActivity"></activity>
-        <activity android:name=".CurrencyPopupActivity"></activity>
-        <activity android:name=".FilterTripPopupActivity"></activity>
+        <activity android:name=".ChangeLanguagePopupActivity" />
+        <activity android:name=".CurrencyPopupActivity" />
+        <activity android:name=".FilterTripPopupActivity" />
         <activity
             android:name=".MenuBarActivity"
             android:label="@string/title_activity_menubar"
@@ -67,6 +69,7 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

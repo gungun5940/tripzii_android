@@ -12,6 +12,7 @@ class HotelAccountActivity : AppCompatActivity() {
     companion object{
         val TAG = "HotelAccountActivity"
     }
+    private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
