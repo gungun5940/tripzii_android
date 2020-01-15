@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import java.lang.Exception
 
 class SplashScreenActivity : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +15,6 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
-
         val background = object : Thread(){
             override fun run() {
                 try {

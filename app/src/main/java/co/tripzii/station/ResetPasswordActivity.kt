@@ -24,8 +24,7 @@ class ResetPasswordActivity : AppCompatActivity() {
 
     private fun changePassword() {
         if (currentPasswordTextInput.text!!.isNotEmpty() &&
-            newPasswordTextInput.text!!.isNotEmpty()
-        ) {
+            newPasswordTextInput.text!!.isNotEmpty()) {
                 val user = auth.currentUser
                 if (user != null && user.email != null) {
                     val credential = EmailAuthProvider
