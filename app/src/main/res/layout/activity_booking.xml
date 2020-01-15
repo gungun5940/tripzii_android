@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginLeft="-100dp"
+                android:layout_marginLeft="0dp"
                 android:text="price"
 
                 android:textColor="@android:color/black"
@@ -129,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginLeft="-100dp"
+                android:layout_marginLeft="0dp"
                 android:text="price"
 
                 android:textColor="@android:color/black"
@@ -311,7 +311,7 @@
             android:layout_width="414dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginEnd="160dp"
+            android:layout_marginEnd="50dp"
             android:ems="10"
             android:hint="Coupon code"
             android:inputType="text" />

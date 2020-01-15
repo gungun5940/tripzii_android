@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.Delay
 import kotlinx.coroutines.delay
 
-
 class LoginActivity : AppCompatActivity() {
 
     private val progressBar = ProgressBarActivity()
@@ -61,15 +60,15 @@ class LoginActivity : AppCompatActivity() {
             return
         }
         Log.d("login","Login with email/pw: $email/***")
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+        auth.signInWithEmailAndPassword(email,password)
             .addOnCompleteListener { task ->
                 if (!task.isSuccessful){
                     if (password.length < 6){
                         passwordTextInput.error = "Please check your password"
-                        Log.d(TAG,"Enter password less than 6 characters")
+                        Log.w(TAG,"Enter password less than 6 characters")
                     }else{
                         Toast.makeText(this, "Authentication Failed!", Toast.LENGTH_SHORT).show()
-                        Log.d(TAG,"Authentication Failed:"+ task.exception)
+                        Log.w(TAG,"Authentication Failed:"+ task.exception)
                     }
                 }else{
                     Toast.makeText(this, "Sing in successfully!", Toast.LENGTH_SHORT).show()

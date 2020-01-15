@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_reset_password.*
+import kotlinx.coroutines.delay
 
 class ResetPasswordActivity : AppCompatActivity() {
 
@@ -27,20 +28,13 @@ class ResetPasswordActivity : AppCompatActivity() {
 
     private fun changePassword() {
         if (currentPasswordTextInput.text!!.isNotEmpty() &&
-            newPasswordTextInput.text!!.isNotEmpty()
-        ) {
+            newPasswordTextInput.text!!.isNotEmpty()) {
                 val user = auth.currentUser
                 if (user != null && user.email != null) {
                     val credential = EmailAuthProvider
                         .getCredential(user.email!!, currentPasswordTextInput.text.toString())
                     user.reauthenticate(credential)
                         .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                Toast.makeText(
-                                    this,
-                                    "Re-Authentication success.",
-                                    Toast.LENGTH_SHORT
-                                ).show()
                                 user.updatePassword(newPasswordTextInput.text.toString())
                                     .addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
@@ -51,16 +45,9 @@ class ResetPasswordActivity : AppCompatActivity() {
                                             ).show()
                                             auth.signOut()
                                             startActivity(Intent(this, LoginActivity::class.java))
-                                            finish()
+                                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                                         }
                                     }
-                            } else {
-                                Toast.makeText(
-                                    this,
-                                    "Re-Authentication failed.",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
                         }
                 } else {
                     startActivity(Intent(this, LoginActivity::class.java))

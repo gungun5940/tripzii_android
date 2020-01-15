@@ -21,6 +21,7 @@ import java.io.IOException
 import java.util.*
 
 class PaymentActivity : AppCompatActivity() {
+
     internal var bitmap: Bitmap? = null
     private var qrCodeImageView: ImageView? = null
     private var pickupLocationTextInput: TextInputEditText? = null
@@ -32,8 +33,8 @@ class PaymentActivity : AppCompatActivity() {
         setContentView(R.layout.activity_payment)
         supportActionBar?.title = "QR payment"
         qrCodeImageView = findViewById(R.id.qrCodeImageView) as ImageView
-        var intent = getIntent()
-        pickupLocationTextInput!!.setText(intent.getStringExtra("pickupLocation"))
+        val intent = getIntent()
+        pickupLocationTextInput?.setText(intent.getStringExtra("pickupLocation"))
         bitmap = TextToImageEncode(pickupLocationTextInput.toString())
         qrCodeImageView!!.setImageBitmap(bitmap)
         val path = saveImage(bitmap)  //give read write permission

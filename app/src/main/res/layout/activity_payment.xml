@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 <RelativeLayout
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PaymentActivity"
     android:background="#DFE0E0">
     <LinearLayout
         android:id="@+id/qrLinearLayout"
-        android:layout_width="340dp"
-        android:layout_height="390dp"
+        android:layout_width="300dp"
+        android:layout_height="320dp"
         android:layout_marginTop="35dp"
         android:background="@android:color/white"
         android:layout_centerHorizontal="true"
@@ -35,13 +35,9 @@
 
         <ImageView
             android:id="@+id/qrCodeImageView"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/faded_orange"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"/>
     </LinearLayout>
 
     <TextView
@@ -49,11 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/qrLinearLayout"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="240dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="302dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="13dp"
+        android:layout_toStartOf="@+id/timePaymentTextView"
         android:text="Scan in"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
@@ -65,7 +59,7 @@
         android:layout_below="@+id/qrLinearLayout"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="21dp"
-        android:layout_marginEnd="245dp"
+        android:layout_marginEnd="197dp"
         android:text="04:59"
         android:textColor="#F43B44"
         android:textSize="20sp" />
@@ -143,9 +137,10 @@
         android:layout_below="@+id/dateAndTimePaymentTextView">
         <LinearLayout
             android:id="@+id/quantityLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="0dp">
 
             <TextView
                 android:id="@+id/titleQuantityPaymentTextView"
@@ -160,7 +155,7 @@
                 android:id="@+id/priceQuantityPaymentTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="450dp"
+                android:layout_marginStart="330dp"
                 android:layout_marginTop="20dp"
                 android:text="฿ 2,000"
                 android:textColor="@android:color/black"
@@ -171,8 +166,8 @@
 
     <LinearLayout
         android:id="@+id/adultLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/quantityLinearLayout"
         android:orientation="horizontal">
 
@@ -210,7 +205,7 @@
             android:id="@+id/priceAdultPaymentTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="435dp"
+            android:layout_marginStart="315dp"
             android:layout_marginTop="3dp"
             android:text="฿ 2,000"
             android:textColor="@android:color/black"
@@ -260,7 +255,7 @@
             android:id="@+id/priceChildPaymentTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="435dp"
+            android:layout_marginStart="315dp"
             android:layout_marginTop="3dp"
             android:text="฿ 2,000"
             android:textColor="@android:color/black"
