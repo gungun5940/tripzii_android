@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_reset_password.*
+import kotlinx.coroutines.delay
 
 class ResetPasswordActivity : AppCompatActivity() {
 
@@ -31,12 +32,6 @@ class ResetPasswordActivity : AppCompatActivity() {
                         .getCredential(user.email!!, currentPasswordTextInput.text.toString())
                     user.reauthenticate(credential)
                         .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                Toast.makeText(
-                                    this,
-                                    "Re-Authentication success.",
-                                    Toast.LENGTH_SHORT
-                                ).show()
                                 user.updatePassword(newPasswordTextInput.text.toString())
                                     .addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
@@ -50,13 +45,6 @@ class ResetPasswordActivity : AppCompatActivity() {
                                             finish()
                                         }
                                     }
-                            } else {
-                                Toast.makeText(
-                                    this,
-                                    "Re-Authentication failed.",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
                         }
                 } else {
                     startActivity(Intent(this, LoginActivity::class.java))
