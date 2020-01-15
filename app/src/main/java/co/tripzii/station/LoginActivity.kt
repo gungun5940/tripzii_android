@@ -59,10 +59,10 @@ class LoginActivity : AppCompatActivity() {
                 if (!task.isSuccessful){
                     if (password.length < 6){
                         passwordTextInput.error = "Please check your password"
-                        Log.d(TAG,"Enter password less than 6 characters")
+                        Log.w(TAG,"Enter password less than 6 characters")
                     }else{
                         Toast.makeText(this, "Authentication Failed!", Toast.LENGTH_SHORT).show()
-                        Log.d(TAG,"Authentication Failed:"+ task.exception)
+                        Log.w(TAG,"Authentication Failed:"+ task.exception)
                     }
                 }else{
                     Toast.makeText(this, "Sing in successfully!", Toast.LENGTH_SHORT).show()
