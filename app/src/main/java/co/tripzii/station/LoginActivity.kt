@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
             return
         }
         Log.d("login","Login with email/pw: $email/***")
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+        auth.signInWithEmailAndPassword(email,password)
             .addOnCompleteListener { task ->
                 if (!task.isSuccessful){
                     if (password.length < 6){

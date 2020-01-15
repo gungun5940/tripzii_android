@@ -26,6 +26,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
         }
     }
+
     private fun ForgotPassword(username : TextInputEditText) {
         if (username.text.toString().isEmpty()){
             return

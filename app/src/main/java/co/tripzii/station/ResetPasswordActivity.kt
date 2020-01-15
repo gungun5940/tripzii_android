@@ -40,9 +40,9 @@ class ResetPasswordActivity : AppCompatActivity() {
                                                 "Password changed successfully.",
                                                 Toast.LENGTH_SHORT
                                             ).show()
-                                                auth.signOut()
-                                                startActivity(Intent(this, LoginActivity::class.java))
-                                                finish()
+                                            auth.signOut()
+                                            startActivity(Intent(this, LoginActivity::class.java))
+                                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                                         }
                                     }
                         }
