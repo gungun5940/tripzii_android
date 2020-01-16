@@ -29,12 +29,16 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.title = "Login"
         loginButton.setOnClickListener{
             performLogin()
+            progressBar.show(this," logging in...")
+            Handler().postDelayed({
+                progressBar.dialog.dismiss()
+            }, 2000)
+        }
+        forgotPasswordTextView.setOnClickListener {
             progressBar.show(this,"Please Wait...")
             Handler().postDelayed({
                 progressBar.dialog.dismiss()
-            }, 4000)
-        }
-        forgotPasswordTextView.setOnClickListener {
+            }, 2000)
             Log.d(TAG, "Try to show forgot my password activity")
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent) //เปิดหน้า forgot password

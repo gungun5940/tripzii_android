@@ -5,6 +5,7 @@ import android.media.MediaScannerConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
@@ -40,7 +41,8 @@ class PaymentActivity : AppCompatActivity() {
         val path = saveImage(bitmap)  //give read write permission
         Toast.makeText(this, "QRCode saved to -> $path", Toast.LENGTH_SHORT).show()
         conFirmButton.setOnClickListener {
-
+            progressBar.show(this,"Confirming your trip...")
+            Handler().postDelayed({}, 2000)
         }
     }
 
