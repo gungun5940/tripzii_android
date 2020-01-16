@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
@@ -40,7 +41,8 @@ class EditProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
                 view, b -> if(b){editSelectProvinceAutoCompleteTextView.showDropDown()}
         }
         editProileButton.setOnClickListener {
-
+            progressBar.show(this,"Please waiting..")
+            Handler().postDelayed({}, 2000)
         }
     }
 

@@ -43,7 +43,7 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
         setupButton.setOnClickListener {
             progressBar.show(this,"Saving...")
             Handler().postDelayed({}, 2000)
-            val intent = Intent(this, HotelAccountActivity::class.java)
+            val intent = Intent(this, AllTripActivity::class.java)
             startActivity(intent)
         }
     }
