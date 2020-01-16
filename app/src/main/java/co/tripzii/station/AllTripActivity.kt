@@ -65,7 +65,7 @@ class AllTripActivity : AppCompatActivity() {
         super.onPostCreate(savedInstanceState)
         actionBarDrawerToggle.syncState()
     }
-    
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true

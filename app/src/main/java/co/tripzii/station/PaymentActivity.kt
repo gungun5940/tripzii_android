@@ -79,11 +79,8 @@ class PaymentActivity : AppCompatActivity() {
             bitMatrix = MultiFormatWriter().encode(
                 Value,
                 BarcodeFormat.QR_CODE,
-                QRcodeWidth, QRcodeWidth, null
-            )
-
+                QRcodeWidth, QRcodeWidth, null)
         } catch (Illegalargumentexception: IllegalArgumentException) {
-
             return null
         }
         val bitMatrixWidth = bitMatrix.getWidth()
