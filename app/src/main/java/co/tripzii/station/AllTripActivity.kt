@@ -49,6 +49,7 @@ class AllTripActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
     private fun setHumburgerButton() {
         drawerLayout = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(this
@@ -59,10 +60,12 @@ class AllTripActivity : AppCompatActivity() {
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         actionBarDrawerToggle.syncState()
     }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true
