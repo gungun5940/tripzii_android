@@ -25,8 +25,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
         val username = findViewById<TextInputEditText>(R.id.emailForgotTextInput)
         forgotResetButton.setOnClickListener {
             ForgotPassword(username)
-            progressBar.show(this,"Confirming your trip...")
-            Handler().postDelayed({}, 2000)
+            progressBar.show(this,"Sending to email...")
+            Handler().postDelayed({
+                progressBar.dialog.dismiss()
+            }, 2000)
         }
     }
     private fun ForgotPassword(username : TextInputEditText) {
