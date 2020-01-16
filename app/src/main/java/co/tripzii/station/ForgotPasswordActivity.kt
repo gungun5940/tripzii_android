@@ -3,6 +3,7 @@ package co.tripzii.station
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Patterns
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
@@ -14,6 +15,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
     companion object{
         val TAG = "ForgotPasswordActivity"
     }
+    private val progressBar = ProgressBarActivity()
     val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +25,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
         val username = findViewById<TextInputEditText>(R.id.emailForgotTextInput)
         forgotResetButton.setOnClickListener {
             ForgotPassword(username)
+            progressBar.show(this,"Confirming your trip...")
+            Handler().postDelayed({}, 2000)
         }
     }
-
     private fun ForgotPassword(username : TextInputEditText) {
         if (username.text.toString().isEmpty()){
             return
