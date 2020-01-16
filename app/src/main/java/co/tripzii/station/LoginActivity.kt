@@ -30,7 +30,9 @@ class LoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener{
             performLogin()
             progressBar.show(this,"Please Wait...")
-            Handler().postDelayed({}, 4000)
+            Handler().postDelayed({
+                progressBar.dialog.dismiss()
+            }, 4000)
         }
         forgotPasswordTextView.setOnClickListener {
             Log.d(TAG, "Try to show forgot my password activity")
@@ -78,5 +80,6 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+
 }
 

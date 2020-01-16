@@ -22,7 +22,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         resetButton.setOnClickListener {
             changePassword()
             progressBar.show(this,"Please Wait...")
-            Handler().postDelayed({}, 4000)
+            Handler().postDelayed({}, 2000)
         }
     }
 
