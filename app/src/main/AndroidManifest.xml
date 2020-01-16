@@ -24,8 +24,15 @@
         <activity
             android:name=".MenuBarActivity"
             android:label="@string/title_activity_menubar"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AllTripActivity" />
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name=".AllTripActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".BookingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
