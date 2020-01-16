@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.drawerlayout.widget.DrawerLayout
 import kotlinx.android.synthetic.main.nav_menu.*
 
@@ -22,12 +23,26 @@ class AllTripActivity : AppCompatActivity() {
             startActivity(intent)
         }
         moneyMenuTextView.setOnClickListener {
-            val intent = Intent(this, CurrencyPopupActivity::class.java)
-            startActivity(intent)
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Choose Currency")
+            val currency = resources.getStringArray(R.array.currency_arrays)
+            val checkedItem = 1 // cow
+            builder.setSingleChoiceItems(currency, checkedItem) { dialog, which ->}
+            builder.setPositiveButton("OK") { dialog, which ->}
+            builder.setNegativeButton("Cancel", null)
+            val dialog = builder.create()
+            dialog.show()
         }
         translateMenuTextView.setOnClickListener {
-            val intent = Intent(this, ChangeLanguagePopupActivity::class.java)
-            startActivity(intent)
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Language")
+            val language = resources.getStringArray(R.array.language_arrys)
+            val checkedItem = 1 // cow
+            builder.setSingleChoiceItems(language, checkedItem) { dialog, which -> }
+            builder.setPositiveButton("OK") { dialog, which -> }
+            builder.setNegativeButton("Cancel", null)
+            val dialog = builder.create()
+            dialog.show()
         }
         adminMenuTextView.setOnClickListener {
             val intent = Intent(this, HotelAccountActivity::class.java)

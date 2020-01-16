@@ -18,8 +18,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BookingActivity" />
         </activity>
-        <activity android:name=".ChangeLanguagePopupActivity" />
-        <activity android:name=".CurrencyPopupActivity" />
         <activity android:name=".FilterTripPopupActivity" />
         <activity
             android:name=".MenuBarActivity"
@@ -27,11 +25,6 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity android:name=".AllTripActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".BookingActivity">
             <meta-data
