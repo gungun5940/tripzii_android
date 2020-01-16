@@ -39,6 +39,9 @@ class EditProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         editSelectProvinceAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
                 view, b -> if(b){editSelectProvinceAutoCompleteTextView.showDropDown()}
         }
+        editProileButton.setOnClickListener {
+
+        }
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {

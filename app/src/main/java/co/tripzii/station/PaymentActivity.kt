@@ -14,6 +14,7 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
+import kotlinx.android.synthetic.main.activity_payment.*
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -27,7 +28,6 @@ class PaymentActivity : AppCompatActivity() {
     private var pickupLocationTextInput: TextInputEditText? = null
     private val progressBar = ProgressBarActivity()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
@@ -39,6 +39,9 @@ class PaymentActivity : AppCompatActivity() {
         qrCodeImageView!!.setImageBitmap(bitmap)
         val path = saveImage(bitmap)  //give read write permission
         Toast.makeText(this, "QRCode saved to -> $path", Toast.LENGTH_SHORT).show()
+        conFirmButton.setOnClickListener {
+
+        }
     }
 
     fun saveImage(myBitmap: Bitmap?): String {

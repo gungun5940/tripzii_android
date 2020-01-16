@@ -25,7 +25,6 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
     private var pickupLocationTextInput: TextInputEditText? = null
     private val progressBar = ProgressBarActivity()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)

@@ -23,7 +23,6 @@ class ForgotPasswordActivity : AppCompatActivity() {
         val username = findViewById<TextInputEditText>(R.id.emailForgotTextInput)
         forgotResetButton.setOnClickListener {
             ForgotPassword(username)
-
         }
     }
 

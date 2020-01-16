@@ -13,17 +13,10 @@ class ChangeLanguagePopupActivity : AppCompatActivity() {
         builder.setTitle("Language")
         val language = resources.getStringArray(R.array.language_arrys)
         val checkedItem = 1 // cow
-
-        builder.setSingleChoiceItems(language, checkedItem) { dialog, which ->
-
-        }
-        builder.setPositiveButton("OK") { dialog, which ->
-        }
+        builder.setSingleChoiceItems(language, checkedItem) { dialog, which -> }
+        builder.setPositiveButton("OK") { dialog, which -> }
         builder.setNegativeButton("Cancel", null)
-
         val dialog = builder.create()
         dialog.show()
-
-
     }
 }

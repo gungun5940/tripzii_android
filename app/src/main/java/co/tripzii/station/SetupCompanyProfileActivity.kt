@@ -41,10 +41,10 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
                 view, b -> if(b){selectProvinceAutoCompleteTextView.showDropDown()}
         }
         setupButton.setOnClickListener {
-            val intent = Intent(this, HotelAccountActivity::class.java)
-            startActivity(intent)
             progressBar.show(this,"Please Wait...")
             Handler().postDelayed({}, 4000)
+            val intent = Intent(this, HotelAccountActivity::class.java)
+            startActivity(intent)
         }
     }
 

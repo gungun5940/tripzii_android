@@ -16,13 +16,12 @@ import kotlinx.coroutines.delay
 
 class LoginActivity : AppCompatActivity() {
 
-    private val progressBar = ProgressBarActivity()
-
     companion object{
         val TAG = "LoginActivity"
     }
     private lateinit var auth: FirebaseAuth
     private var sharedPref: SharedPreferences? = null
+    private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,16 +78,5 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
-//    fun afterOnClick(delay: Long,loginActivity: LoginActivity, process: () -> Unit){
-//        progressBar.show(this,"Please Wait...")
-//        Handler().postDelayed({
-//            loginActivity.runOnUiThread({
-//                Runnable {
-//                    process()
-//                }
-//            })
-//        },4000)
-//
-//    }
 }
 
