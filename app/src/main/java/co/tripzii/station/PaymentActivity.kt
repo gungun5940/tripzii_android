@@ -5,6 +5,7 @@ import android.media.MediaScannerConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
@@ -14,6 +15,7 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
+import kotlinx.android.synthetic.main.activity_payment.*
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -38,6 +40,10 @@ class PaymentActivity : AppCompatActivity() {
         qrCodeImageView!!.setImageBitmap(bitmap)
         val path = saveImage(bitmap)  //give read write permission
         Toast.makeText(this, "QRCode saved to -> $path", Toast.LENGTH_SHORT).show()
+        conFirmButton.setOnClickListener {
+            progressBar.show(this,"Confirming your trip...")
+            Handler().postDelayed({}, 2000)
+        }
     }
 
     fun saveImage(myBitmap: Bitmap?): String {

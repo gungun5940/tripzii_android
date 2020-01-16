@@ -102,8 +102,8 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
                     e.printStackTrace()
                 }
             }
-            progressBar.show(this,"Please Wait...")
-            Handler().postDelayed({}, 4000)
+            progressBar.show(this,"Checking out...")
+            Handler().postDelayed({}, 2000)
         }
     }
 
