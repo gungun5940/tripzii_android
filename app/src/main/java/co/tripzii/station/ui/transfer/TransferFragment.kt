@@ -22,7 +22,7 @@ class TransferFragment : Fragment() {
         transferViewModel =
             ViewModelProviders.of(this).get(TransferViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_transfer, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
+        val textView: TextView = root.findViewById(R.id.text_transfer)
         transferViewModel.text.observe(this, Observer {
             textView.text = it
         })
