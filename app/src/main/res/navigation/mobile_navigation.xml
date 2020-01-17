@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigationActivities">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="co.tripzii.station.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigationActivities"
+        android:name="co.tripzii.station.ui.activities.ActivitiesFragment"
+        android:label="@string/title_activities"
+        tools:layout="@layout/fragment_activities" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="co.tripzii.station.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigationTicket"
+        android:name="co.tripzii.station.ui.ticket.TicketFragment"
+        android:label="@string/title_ticket"
+        tools:layout="@layout/fragment_ticket" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="co.tripzii.station.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigationTransfer"
+        android:name="co.tripzii.station.ui.transfer.TransferFragment"
+        android:label="@string/title_transfer"
+        tools:layout="@layout/fragment_transfer" />
 </navigation>

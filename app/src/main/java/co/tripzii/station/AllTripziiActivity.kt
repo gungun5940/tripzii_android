@@ -26,7 +26,7 @@ class AllTripziiActivity : AppCompatActivity() {
         val navController = findNavController(R.id.navFragment)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_activities, R.id.navigation_ticket, R.id.navigation_transfer
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

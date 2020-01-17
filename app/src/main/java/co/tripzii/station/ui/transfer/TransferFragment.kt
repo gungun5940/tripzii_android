@@ -1,4 +1,4 @@
-package co.tripzii.station.ui.dashboard
+package co.tripzii.station.ui.transfer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import co.tripzii.station.R
 
-class DashboardFragment : Fragment() {
+class TransferFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var transferViewModel: TransferViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(this, Observer {
+        transferViewModel =
+            ViewModelProviders.of(this).get(TransferViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_transfer, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        transferViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
