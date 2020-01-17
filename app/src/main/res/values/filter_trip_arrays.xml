@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="filter_trip">
+        <item>Tripzii Recommand</item>
+        <item>Popularity</item>
+        <item>Price:Low to High</item>
+    </array>
+</resources>

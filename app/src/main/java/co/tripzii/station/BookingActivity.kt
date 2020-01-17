@@ -5,25 +5,32 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputEditText
+import com.google.zxing.WriterException
 import kotlinx.android.synthetic.main.activity_booking.*
 import java.util.*
-
 
 class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     var numberAdults = 0
     var numberChild = 0
+    private var checkOutButton: Button? = null
+    private var pickupLocationTextInput: TextInputEditText? = null
+    private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)
         supportActionBar?.title = "Booking"
+        pickupLocationTextInput = findViewById(R.id.pickupLocationTextInput) as TextInputEditText
+        checkOutButton = findViewById(R.id.checkOutButton) as Button
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
@@ -80,6 +87,22 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         }
         minus.setOnClickListener {
             decreaseInteger(minus)
+        }
+        checkOutButton!!.setOnClickListener {
+            if (pickupLocationTextInput!!.text.toString().trim { it <= ' ' }.length == 0) {
+                Toast.makeText(this, "Enter String!", Toast.LENGTH_SHORT).show()
+            } else {
+                try {
+                    val intent = Intent(this, PaymentActivity::class.java)
+                    intent.putExtra("pickupLocation",""+ pickupLocationTextInput!!.getText().toString())
+                    startActivity(intent)
+
+                } catch (e: WriterException) {
+                    e.printStackTrace()
+                }
+            }
+            progressBar.show(this,"Checking out...")
+            Handler().postDelayed({}, 2000)
         }
     }
 

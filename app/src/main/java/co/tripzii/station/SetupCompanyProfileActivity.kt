@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
@@ -13,6 +14,8 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_setup_company_profile.*
 
 class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+
+    private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +41,9 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
                 view, b -> if(b){selectProvinceAutoCompleteTextView.showDropDown()}
         }
         setupButton.setOnClickListener {
-            val intent = Intent(this, HotelAccountActivity::class.java)
+            progressBar.show(this,"Saving...")
+            Handler().postDelayed({}, 2000)
+            val intent = Intent(this, AllTripActivity::class.java)
             startActivity(intent)
         }
     }
@@ -58,5 +63,12 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
     fun Context.hideKeyboard(view: View) {
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+        val intent = Intent(this,HotelAccountActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 }

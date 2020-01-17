@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
@@ -12,6 +13,8 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 class EditProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+
+    private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +39,10 @@ class EditProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         }
         editSelectProvinceAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
                 view, b -> if(b){editSelectProvinceAutoCompleteTextView.showDropDown()}
+        }
+        editProileButton.setOnClickListener {
+            progressBar.show(this,"Please waiting..")
+            Handler().postDelayed({}, 2000)
         }
     }
 

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.tripzii.station">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,15 +12,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ProgressBarActivity"></activity>
+        <activity android:name=".PaymentActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BookingActivity" />
+        </activity>
+        <activity android:name=".FilterTripPopupActivity" />
         <activity
             android:name=".MenuBarActivity"
             android:label="@string/title_activity_menubar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".AllTripActivity" />
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name=".AllTripActivity" >
+        </activity>
         <activity android:name=".BookingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HotelAccountActivity"/>
+                android:value=".HotelAccountActivity" />
         </activity>
         <activity android:name=".EditProfileActivity">
             <meta-data
@@ -25,13 +37,15 @@
                 android:value=".HotelAccountActivity" />
         </activity>
         <activity android:name=".SetupCompanyProfileActivity" />
+
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
+
         <activity android:name=".HotelAccountActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".AllTripActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AllTripActivity" />
         </activity>
         <activity android:name=".ResetPasswordActivity">
             <meta-data
@@ -45,9 +59,9 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".ReportCommissionActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".HotelAccountActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HotelAccountActivity" />
         </activity>
         <activity
             android:name=".SplashScreenActivity"
