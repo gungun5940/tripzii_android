@@ -2,6 +2,7 @@ package co.tripzii.station
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Display
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -12,6 +13,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import co.tripzii.station.ui.activities.ActivitiesFragment
+import kotlinx.android.synthetic.main.activity_all_tripzii.*
 import kotlinx.android.synthetic.main.nav_menu.*
 
 class AllTripziiActivity : AppCompatActivity() {
