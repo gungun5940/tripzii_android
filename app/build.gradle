@@ -22,6 +22,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility = "1.8"
+    }
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
 }
 
 dependencies {
@@ -52,5 +60,4 @@ dependencies {
     implementation 'com.weiwangcn.betterspinner:library:1.1.0'
     implementation 'com.google.zxing:core:3.4.0'
     implementation 'androidx.cardview:cardview:1.0.0'
-
 }
