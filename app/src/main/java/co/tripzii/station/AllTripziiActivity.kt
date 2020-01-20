@@ -2,24 +2,21 @@ package co.tripzii.station
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Display
-import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import co.tripzii.station.ui.activities.ActivitiesFragment
+import androidx.navigation.ui.*
 import kotlinx.android.synthetic.main.activity_all_tripzii.*
+import kotlinx.android.synthetic.main.hamberger_bar.imgMenu
 import kotlinx.android.synthetic.main.nav_menu.*
 
 class AllTripziiActivity : AppCompatActivity() {
 
-    lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+    private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
     lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +26,8 @@ class AllTripziiActivity : AppCompatActivity() {
         val navController = findNavController(R.id.navFragment)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_activities, R.id.navigation_ticket, R.id.navigation_transfer
-            )
+                R.id.navigation_activities,R.id.navigation_ticket,R.id.navigation_transfer
+                )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -69,24 +66,22 @@ class AllTripziiActivity : AppCompatActivity() {
 
     private fun setHumburgerButton() {
         drawerLayout = findViewById(R.id.drawerLayout)
-        actionBarDrawerToggle = ActionBarDrawerToggle(this
-            ,drawerLayout
-            ,R.string.navigation_drawer_open
-            ,R.string.navigation_drawer_close)
-        drawerLayout.addDrawerListener(actionBarDrawerToggle)
-        supportActionBar?.setHomeButtonEnabled(true)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBarDrawerToggle = ActionBarDrawerToggle(
+            this
+            , drawerLayout
+            , R.string.navigation_drawer_open
+            , R.string.navigation_drawer_close
+        )
+        actionBarDrawerToggle?.apply { drawerLayout.addDrawerListener(this) }
+        imgMenu.setOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
     }
 
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
-        actionBarDrawerToggle.syncState()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (actionBarDrawerToggle.onOptionsItemSelected(item))
-            return true
-        return super.onOptionsItemSelected(item)
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }else {
+            super.onBackPressed()
+        }
     }
 }
 

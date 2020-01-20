@@ -32,7 +32,6 @@
             android:name=".MenuBarActivity"
             android:label="@string/title_activity_menubar"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".AllTripActivity"></activity>
         <activity android:name=".BookingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -52,7 +51,7 @@
         <activity android:name=".HotelAccountActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".AllTripActivity" />
+                android:value=".AllTripziiActivity" />
         </activity>
         <activity android:name=".ResetPasswordActivity">
             <meta-data
