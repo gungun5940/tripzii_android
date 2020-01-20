@@ -27,7 +27,8 @@
             android:paddingLeft="5dp"
             android:text="Home"
             android:textStyle="bold"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:textSize="16sp"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </LinearLayout>
     <LinearLayout
@@ -53,7 +54,8 @@
                 android:paddingLeft="5dp"
                 android:text="USD"
                 android:textStyle="bold"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:textSize="16sp"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </LinearLayout>
@@ -80,7 +82,8 @@
                 android:paddingTop="5dp"
                 android:text="English"
                 android:textColor="#000000"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="16sp"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </LinearLayout>
     <LinearLayout
@@ -107,7 +110,8 @@
                     android:paddingLeft="5dp"
                     android:textStyle="bold"
                     android:textColor="#000000"
-                    android:text="Admin" />
+                    android:text="Admin"
+                    android:textSize="16sp"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </FrameLayout>
     </LinearLayout>

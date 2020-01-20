@@ -3,7 +3,9 @@ package co.tripzii.station
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_hotel_account.*
 
 class HotelAccountActivity : AppCompatActivity() {
@@ -11,6 +13,7 @@ class HotelAccountActivity : AppCompatActivity() {
     companion object{
         val TAG = "HotelAccountActivity"
     }
+    private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +32,13 @@ class HotelAccountActivity : AppCompatActivity() {
         commissionTextView.setOnClickListener {
             Log.d(TAG, "Try to show report commission activity")
             val intent = Intent(this, ReportCommissionActivity::class.java)
+            startActivity(intent)
+        }
+        logoutButton.setOnClickListener {
+            progressBar.show(this,"Logging out...")
+            Handler().postDelayed({}, 2000)
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
