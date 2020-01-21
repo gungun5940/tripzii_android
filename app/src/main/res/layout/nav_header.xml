@@ -7,14 +7,14 @@
     android:background="@drawable/bg_nav_header"
     android:orientation="vertical"
     android:gravity="bottom"
-    android:paddingLeft="15dp"
+    android:paddingStart="15dp"
     android:paddingBottom="15dp">
     <TextView
         android:id="@+id/nameHotelMenuTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ressident Hotel"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:paddingBottom="30dp"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />

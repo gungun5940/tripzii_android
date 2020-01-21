@@ -6,11 +6,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
-import kotlinx.android.synthetic.main.activity_all_tripzii.*
+import kotlinx.android.synthetic.main.app_bar.*
+import kotlinx.android.synthetic.main.hamberger_bar.*
 import kotlinx.android.synthetic.main.hamberger_bar.imgMenu
 import kotlinx.android.synthetic.main.nav_menu.*
 
