@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".AllTripziiActivity"
-            android:label="@string/title_activity_all_tripzii">
+            android:label="@string/title_activity_all_tripzii"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +32,8 @@
         <activity
             android:name=".MenuBarActivity"
             android:label="@string/title_activity_menubar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".BookingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

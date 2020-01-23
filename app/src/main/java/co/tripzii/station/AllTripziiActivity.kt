@@ -2,17 +2,20 @@ package co.tripzii.station
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
-import kotlinx.android.synthetic.main.app_bar.*
-import kotlinx.android.synthetic.main.hamberger_bar.*
+import co.tripzii.station.ui.activities.ActivitiesFragment
+import co.tripzii.station.ui.ticket.TicketFragment
+import co.tripzii.station.ui.transfer.TransferFragment
+import kotlinx.android.synthetic.main.activity_all_tripzii.*
 import kotlinx.android.synthetic.main.hamberger_bar.imgMenu
 import kotlinx.android.synthetic.main.nav_menu.*
 
@@ -24,15 +27,15 @@ class AllTripziiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_tripzii)
-        val navView: BottomNavigationView = findViewById(R.id.navBottomNavigation)
-        val navController = findNavController(R.id.navFragment)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_activities,R.id.navigation_ticket,R.id.navigation_transfer
-                )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+//        val navView: BottomNavigationView = findViewById(R.id.navBottomNavigation)
+//        val navController = findNavController(R.id.navFragment)
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(
+//                R.id.navigation_activities,R.id.navigation_ticket,R.id.navigation_transfer
+//                )
+//        )
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+//        navView.setupWithNavController(navController)
         setHumburgerButton()
         homeMenuTextView.setOnClickListener {
             val intent = Intent(this, AllTripziiActivity::class.java)
@@ -64,6 +67,23 @@ class AllTripziiActivity : AppCompatActivity() {
             val intent = Intent(this, HotelAccountActivity::class.java)
             startActivity(intent)
         }
+        navBottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_activities -> {
+                    replaceFragment(ActivitiesFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_ticket -> {
+                    replaceFragment(TicketFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_transfer -> {
+                    replaceFragment(TransferFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+            false
+        }
     }
 
     private fun setHumburgerButton() {
@@ -76,6 +96,11 @@ class AllTripziiActivity : AppCompatActivity() {
         )
         actionBarDrawerToggle?.apply { drawerLayout.addDrawerListener(this) }
         imgMenu.setOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
+    }
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.container , fragment)
+        fragmentTransaction.commit()
     }
 
     override fun onBackPressed() {
