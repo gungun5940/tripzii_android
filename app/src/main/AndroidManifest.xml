@@ -12,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProgressBarActivity"></activity>
+        <activity android:name=".TripDetailsActivity"
+                  android:value=".AllTripActivity">
+
+        </activity>
+        <activity android:name=".ProgressBarActivity" />
         <activity android:name=".PaymentActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -22,10 +26,8 @@
         <activity
             android:name=".MenuBarActivity"
             android:label="@string/title_activity_menubar"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity android:name=".AllTripActivity" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".AllTripActivity"></activity>
         <activity android:name=".BookingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
