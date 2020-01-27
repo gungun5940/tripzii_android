@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DFE0E0"
-    tools:context=".AllTripziiActivity">
+    android:orientation="vertical">
+
+    <include layout="@layout/view_pager"></include>
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawerLayout"
