@@ -1,6 +1,6 @@
 package co.tripzii.station.model
 
 class TimelineDAO (
-    val timeevent: String = "",
+    val timeEvent: String = "",
     val eventDetails: String =""
 )

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 <LinearLayout
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -68,6 +68,7 @@
             android:background="@drawable/ic_star">
         </ImageView>
         <TextView
+            android:id="@+id/tripRateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
@@ -83,15 +84,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginBottom="20dp"
-            android:text="THB ฿ 3,900">
-        </TextView>
+            android:text="THB ฿"/>
+        <TextView
+            android:id="@+id/tripPriceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginRight="30dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="20dp"
+            android:text="3900"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -116,7 +128,26 @@
                 android:layout_marginLeft="10dp"
                 android:paddingTop="15dp"
                 android:paddingLeft="5dp"
-                android:text="Duration : 1 day"
+                android:text="Duration :"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tripDayTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:paddingTop="15dp"
+                android:text="1"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:paddingTop="15dp"
+                android:text="day"
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:textSize="16sp"/>
@@ -192,7 +223,7 @@
             android:layout_marginTop="15dp"
             android:background="@color/linegray" />
         <TextView
-            android:id="@+id/descriptionTextView"
+            android:id="@+id/tripDescriptionTextView"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:padding="10dp"
@@ -205,35 +236,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/descDetailsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:textColor="@color/black"
             android:layout_marginBottom="30dp"
-            android:text="Wachira Tarn Waterfall Siritarn Waterfall Doi Inthanon – The highest peak in Thailand King and Queen’s PagodasHmong marketKarenhilltribe village"/>
+            />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/top_line">
+
         <View
             android:layout_width="5dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:background="@color/linegray" />
+
         <TextView
             android:id="@+id/durationTextView"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:padding="10dp"
             android:layout_marginTop="@dimen/dp_15"
-            android:textStyle="bold"
+            android:padding="10dp"
+            android:text="Duration"
             android:textColor="@color/black"
-            android:text="Duration"/>
+            android:textStyle="bold" />
     </LinearLayout>
-<LinearLayout
+
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
@@ -244,6 +280,7 @@
         android:textStyle="bold"
         android:text="Running Schedule :"/>
     <TextView
+        android:id="@+id/scheduleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
@@ -262,6 +299,7 @@
             android:textStyle="bold"
             android:text="Duration :"/>
         <TextView
+            android:id="@id/durationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -270,7 +308,8 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_line">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -279,35 +318,40 @@
             android:textStyle="bold"
             android:text="Type :"/>
         <TextView
+            android:id="@+id/typeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="20dp"
             android:textColor="@color/black"
-            android:text="Join in group"/>
+            android:text="Join in group"
+            />
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/top_line">
+        android:layout_marginBottom="10dp"
+        >
 
         <View
             android:layout_width="5dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@color/linegray" />
 
         <TextView
             android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginTop="@dimen/dp_15"
             android:padding="10dp"
             android:text="Itinerary"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -316,7 +360,8 @@
             android:id="@+id/timelineRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffff">
+            android:layout_marginBottom="10dp"
+            >
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
     <LinearLayout
@@ -344,6 +389,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/includeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -377,6 +423,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/remarkTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -405,6 +452,34 @@
             android:text="Map"
             android:textColor="@color/black"
             android:textStyle="bold" />
+    </LinearLayout>
+    <include
+        layout="@layout/activity_location">
+    </include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_line">
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/linegray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/dp_15"
+            android:padding="10dp"
+            android:text=" Other interesting"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     </LinearLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

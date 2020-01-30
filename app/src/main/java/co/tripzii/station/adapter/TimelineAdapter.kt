@@ -29,7 +29,7 @@ class TimelineAdapter ( val dataTimeline : List<TimelineDAO>) : RecyclerView.Ada
     class TimelineViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(report: TimelineDAO) {
             itemView.apply {
-                timeTextView.text = report.timeevent
+                timeTextView.text = report.timeEvent
                 timeLineDetailTextView.text = report.eventDetails
             }
         }
