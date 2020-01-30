@@ -11,6 +11,7 @@ class TripDeailsDAO (
     val duration: String ="",
     val tripType: String ="",
     val tripInclude: String ="",
-    val tripRemark: String =""
+    val tripRemark: String ="",
+    val tripLocation: String =""
 
 )

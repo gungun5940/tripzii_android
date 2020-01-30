@@ -8,7 +8,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.tripzii.station.adapter.ReportCommissionAdapter
 import co.tripzii.station.adapter.TimelineAdapter
-import co.tripzii.station.adapter.TripDetailsAdapter
+//import co.tripzii.station.adapter.TripDetailsAdapter
 import co.tripzii.station.model.ReportCommissionDAO
 import co.tripzii.station.model.TimelineDAO
 import co.tripzii.station.model.TripDeailsDAO
@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_trip_details.*
 class TripDetailsActivity : AppCompatActivity() {
 
     lateinit var adapter: TimelineAdapter
-    lateinit var adapter2: TripDetailsAdapter
+//    lateinit var adapter2: TripDetailsAdapter
     lateinit var action: View.OnClickListener
 
     @SuppressLint("WrongConstant")
@@ -61,5 +61,5 @@ class TripDetailsActivity : AppCompatActivity() {
         includeTextView.text = reportTripDetails.tripInclude
         remarkTextView.text = reportTripDetails.tripRemark
 
-}
+    }
 }
