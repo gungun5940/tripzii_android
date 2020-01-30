@@ -18,7 +18,7 @@ class BasicMapDemoActivity :
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
         val mapFragment : SupportMapFragment? =
-            supportFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
+            supportFragmentManager.findFragmentById(R.id.locationMapView) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
     }
     override fun onMapReady(googleMap: GoogleMap?) {
