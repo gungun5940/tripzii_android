@@ -453,14 +453,27 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
     </LinearLayout>
-    <include
-        layout="@layout/activity_location">
-    </include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+            <include
+                layout="@layout/activity_maps">
+            </include>
+        </FrameLayout>
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/top_line">
-
         <View
             android:layout_width="5dp"
             android:layout_height="match_parent"
@@ -471,7 +484,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginTop="@dimen/dp_15"
             android:padding="10dp"
             android:text=" Other interesting"
             android:textColor="@color/black"
