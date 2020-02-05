@@ -7,37 +7,33 @@
 
         <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="260dp"
             android:id="@+id/viewPager"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="50dp"
             android:layout_alignParentTop="true">
 
         </androidx.viewpager.widget.ViewPager>
+    <com.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="bottom"
+        android:padding="10dip"
+        app:centered="true"
+        app:fillColor="#df0623"
+        app:pageColor="@android:color/darker_gray"
+        app:snap="false"
+        android:layout_below="@id/viewPager"
+        android:layout_marginTop="-30dp"/>
 
-        <com.viewpagerindicator.CirclePageIndicator
-            android:id="@+id/indicator"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="bottom"
-            android:padding="10dip"
-            app:centered="true"
-            app:fillColor="#df0623"
-            app:pageColor="#fff"
-            app:snap="false" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView"
+        android:layout_below="@+id/viewPager">
 
-<!--        <AdapterViewFlipper-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="300dp"-->
-<!--            android:id="@+id/viewFlipper"-->
-<!--            android:layout_marginTop="70dp">-->
-
-<!--        </AdapterViewFlipper>-->
-<!--        <androidx.viewpager.widget.ViewPager-->
-<!--            android:id="@+id/pager"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="fill_parent"-->
-<!--            android:layout_alignParentTop="true" />-->
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>
