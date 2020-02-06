@@ -1,6 +1,6 @@
 package co.tripzii.station.model
 
 class ImageDAO(
-    var imgID: String? = null,
-    var imgURL: String? = null
+    var imgId: String? = null,
+    var url: String? = null
 )

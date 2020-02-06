@@ -11,9 +11,5 @@ class InterestingTripActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interesting_trip)
 
-        val storage = FirebaseStorage.getInstance()
-// Create a reference to a file from a Google Cloud Storage URI
-        val gsReference = storage.getReferenceFromUrl("img")
-
     }
 }

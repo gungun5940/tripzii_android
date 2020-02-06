@@ -11,14 +11,14 @@
     android:theme="@style/AppTheme.NoActionBar">
 <FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:background="@drawable/bottom_line">
+    android:layout_height="300dp">
 
-    <ImageView
+    <ViewFlipper
         android:id="@+id/tripDetailsImageView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:src="@drawable/forest" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:autoStart="true"
+        android:flipInterval="3000" />
 </FrameLayout>
 
     <LinearLayout
@@ -258,7 +258,7 @@
             android:background="@color/linegray" />
 
         <TextView
-            android:id="@+id/durationTextView"
+            android:id="@+id/durationTitleTextView"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginTop="@dimen/dp_15"
@@ -302,7 +302,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@id/durationTextView"
+            android:id="@+id/durationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
