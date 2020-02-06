@@ -1,6 +1,6 @@
 package co.tripzii.station.model
 
 data class TimelineDAO (
-    var timeEvent: String? = null,
-    var eventDetails: String? = null
+    var time: String? = null,
+    var detail: String? = null
 )

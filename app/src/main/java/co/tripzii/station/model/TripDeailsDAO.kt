@@ -1,17 +1,20 @@
 package co.tripzii.station.model
 
 class TripDeailsDAO (
-    var tripNameDetail  : String? = null ,
-    var triprating  : String? = null ,
-    var tripPrice  : String? = null ,
-    var tripDay: String? = null ,
-    var tripDesc  : String? = null ,
-    var tripSchedule: String? = null ,
-    var duration: String? = null ,
-    var tripPartyType:String? = null ,
-    var tripInclude: String? = null ,
-    var tripRemark: String? = null ,
-    var tripLocation: String? = null,
+    var tripId: String? = null ,
+    var category: String? = null,
+    var nametrip: String? = null,
+    var rate: String? = null,
+    var price: String? = null,
+    var countDate: String? = null,
+    var description: String? = null,
+    var durationSchedule: String? = null,
+    var duration: String? = null,
+    var durationType:String? = null,
+    var include: String? = null,
+    var remark: String? = null,
+    var provice: String? = null,
     var timeline : List<TimelineDAO>? = null
+
 
 )

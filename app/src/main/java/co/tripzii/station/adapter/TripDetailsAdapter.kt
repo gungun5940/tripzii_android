@@ -28,7 +28,7 @@ class TripDetailsAdapter ( val dataTripDetails : List<TripDeailsDAO>) : Recycler
     class TripDetailsViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(report: TripDeailsDAO) {
             itemView.apply {
-                tripNameDetailsTextView.text = report.tripNameDetail
+                tripNameDetailsTextView.text = report.nametrip
             }
         }
     }
