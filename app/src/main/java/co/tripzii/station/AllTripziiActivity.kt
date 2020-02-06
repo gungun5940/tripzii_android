@@ -21,7 +21,6 @@ import co.tripzii.station.ui.ticket.TicketFragment
 import co.tripzii.station.ui.transfer.TransferFragment
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
 import com.viewpagerindicator.CirclePageIndicator
 import kotlinx.android.synthetic.main.activity_all_tripzii.*
 import kotlinx.android.synthetic.main.hamberger_bar.*
@@ -43,8 +42,6 @@ class AllTripziiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_tripzii)
-        imageModelArrayList = ArrayList()
-        imageModelArrayList = populateList()
         val trip : MutableList<TripModel> = mutableListOf()
         val getData = db.collection("alltrip")
         getData.get()
@@ -59,7 +56,6 @@ class AllTripziiActivity : AppCompatActivity() {
                             val items = trip.filter { it.tripId == item.tripId }
                             if (items.isEmpty()) item.let { trip.add(it) }
                         }
-
                         DocumentChange.Type.MODIFIED -> {
                             val index = trip.indexOfFirst { it.tripId == item.tripId }
                             item.apply { trip[index] = this }
@@ -68,12 +64,26 @@ class AllTripziiActivity : AppCompatActivity() {
                     }
 
                 }
-
                 val tripAdapter = TripAdapter(trip)
-                recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+                recyclerView.layoutManager = LinearLayoutManager(this,
+                    RecyclerView.HORIZONTAL, false)
                 recyclerView.adapter = tripAdapter
                 tripAdapter.notifyDataSetChanged()
+
+                val tripPopularAdapter = TripAdapter(trip)
+                popularRecyclerView.layoutManager = LinearLayoutManager(this,
+                    RecyclerView.HORIZONTAL, false)
+                popularRecyclerView.adapter = tripPopularAdapter
+                tripPopularAdapter.notifyDataSetChanged()
+
+                val tripRecommendedAdapter = TripAdapter(trip)
+                recommendedRecyclerView.layoutManager = LinearLayoutManager(this,
+                    RecyclerView.HORIZONTAL, false)
+                recommendedRecyclerView.adapter = tripRecommendedAdapter
+                tripRecommendedAdapter.notifyDataSetChanged()
             }
+        imageModelArrayList = ArrayList()
+        imageModelArrayList = populateList()
         init()
 //        if(trip.size != 0) {
 //            Log.d("tripZZZZ", trip.toString())
@@ -138,6 +148,20 @@ class AllTripziiActivity : AppCompatActivity() {
         )
         actionBarDrawerToggle?.apply { drawerLayout.addDrawerListener(this) }
         imgMenu.setOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
+        imgFilter.setOnClickListener { val builder = AlertDialog.Builder(this)
+            builder.setTitle("Sorted by")
+            val tripFilter = resources.getStringArray(R.array.filter_trip)
+            val checkedItem = 1 // cow
+
+            builder.setSingleChoiceItems(tripFilter, checkedItem) { dialog, which ->
+
+            }
+            builder.setPositiveButton("OK") { dialog, which ->
+            }
+            builder.setNegativeButton("Cancel", null)
+
+            val dialog = builder.create()
+            dialog.show() }
     }
 
     private fun replaceFragment(fragment: Fragment){

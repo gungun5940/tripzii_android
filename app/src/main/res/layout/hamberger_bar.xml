@@ -24,5 +24,19 @@
             android:background="@drawable/ic_tripzii"
             android:gravity="center_horizontal">
         </TextView>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgFilter"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_filter"
+            android:layout_marginStart="270dp">
+        </androidx.appcompat.widget.AppCompatImageView>
     </androidx.appcompat.widget.Toolbar>
+
+    <include
+        layout="@layout/view_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"></include>
+
 </RelativeLayout>
