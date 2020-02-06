@@ -20,11 +20,11 @@ import kotlinx.android.synthetic.main.activity_trip_details.*
 class TripDetailsActivity : AppCompatActivity() {
 
     lateinit var adapter: TimelineAdapter
-//    lateinit var adapter2: TripDetailsAdapter
     lateinit var action: View.OnClickListener
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
     val tripDetails = TripDeailsDAO()
     val timelines : MutableList<TimelineDAO> = mutableListOf()
+
 
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,21 +32,30 @@ class TripDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_trip_details)
 
 
-        val timeline = db.collection("AllTrip")
+//        val timeline = db.collection("alltrip")
+//            .document("01")
+//            .collection("timeline")
+//            .document("001")
+//        timeline.get()
+//            .addOnSuccessListener { doc ->
+//                if (doc != null){
+//                    Log.d("get arrays","c data : ${doc}")
+//                    timelines.timeEvent = doc.getString("event")
+//                }
+//            }
+
+        val timeline = db.collection("alltrip")
             .document("01")
-            .collection("Category")
-            .document("001")
-            .collection("Trip")
-            .document("0001")
-            .collection("timeline")
+            .collection("")
 
         timeline.get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    for (ds in task.getResult()!!.getDocumentChanges()) {
+                    for (ds in task.getResult()!!.documentChanges) {
                         val item = ds?.document?.toObject(TimelineDAO::class.java)?.apply {
-                            timeEvent = ds.document.getString("time")
                             eventDetails = ds.document.getString("detail")
+                            timeEvent = ds.document.getString("time")
+
                         }
                         when(ds.type) {
                             DocumentChange.Type.ADDED -> {
@@ -69,20 +78,17 @@ class TripDetailsActivity : AppCompatActivity() {
                     timelineRecyclerView.adapter = reportAdapter
                 }
             }
-        val docRef = db.collection("AllTrip")
+        val docRef = db.collection("alltrip")
             .document("01")
-            .collection("Category")
-            .document("001")
-            .collection("Trip")
-            .document("0001")
+
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
-                    Log.d("1", "c data: ${document}")
+                    Log.d("get string", "c data: ${document}")
                     tripDetails.tripNameDetail = document.getString("nametrip")
                     tripDetails.triprating = document.getString("rate")
                     tripDetails.tripPrice = document.getString("price")
-                    tripDetails.tripLocation = document.getString("location")
+                    tripDetails.tripLocation = document.getString("provice")
                     tripDetails.tripPartyType = document.getString("partytype")
                     tripDetails.tripDay = document.getString("duration")
                     tripDetails.tripSchedule = document.getString("schedule")
@@ -90,7 +96,7 @@ class TripDetailsActivity : AppCompatActivity() {
                     tripDetails.tripDesc = document.getString("description")
                     tripDetails.duration = document.getString("durationtype")
                     tripDetails.tripInclude = document.getString("include")
-//                    tripDetails.timeline = document.getString("timeline")
+
                     bindDataTripDetails(tripDetails)
                 } else {
                     Log.d("2", "No such document")
@@ -100,10 +106,9 @@ class TripDetailsActivity : AppCompatActivity() {
                 Log.d("3", "get failed with ", exception)
             }
     }
-
     fun bindDataTripDetails(tripDeailsDAO: TripDeailsDAO){
         tripNameDetailsTextView.text = tripDeailsDAO.tripNameDetail
-        tripDetailsLocationTextView.text = tripDeailsDAO.triplocation
+        tripDetailsLocationTextView.text = tripDeailsDAO.tripLocation
         tripRateTextView.text = tripDeailsDAO.triprating
         tripPriceTextView.text = tripDeailsDAO.tripPrice
         tripDayTextView.text = tripDeailsDAO.tripDay

@@ -2,7 +2,6 @@ package co.tripzii.station.model
 
 class TripDeailsDAO (
     var tripNameDetail  : String? = null ,
-    var triplocation: String? = null ,
     var triprating  : String? = null ,
     var tripPrice  : String? = null ,
     var tripDay: String? = null ,
@@ -14,4 +13,5 @@ class TripDeailsDAO (
     var tripRemark: String? = null ,
     var tripLocation: String? = null,
     var timeline : List<TimelineDAO>? = null
+
 )
