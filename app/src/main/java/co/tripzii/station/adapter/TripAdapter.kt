@@ -1,12 +1,15 @@
 package co.tripzii.station.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.R
 import co.tripzii.station.model.TripModel
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.trip_item.view.*
+
 
 class TripAdapter( private var dataTrip : List<TripModel>) : RecyclerView.Adapter<TripAdapter.TripHolder>(){
 
@@ -31,6 +34,10 @@ class TripAdapter( private var dataTrip : List<TripModel>) : RecyclerView.Adapte
                 nameTripTextView.text = report.nametrip
                 rateTextView.text = report.rate
                 priceTripTextView.text = report.price
+                Log.d("image", report.toString())
+                if (report.image.size != 0) {
+                    Picasso.get().load(report.image.first().url).into(tripImageView)
+                }
             }
         }
     }

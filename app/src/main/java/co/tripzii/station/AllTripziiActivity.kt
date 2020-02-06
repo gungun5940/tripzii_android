@@ -3,7 +3,6 @@ package co.tripzii.station
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +21,7 @@ import co.tripzii.station.ui.ticket.TicketFragment
 import co.tripzii.station.ui.transfer.TransferFragment
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.viewpagerindicator.CirclePageIndicator
 import kotlinx.android.synthetic.main.activity_all_tripzii.*
 import kotlinx.android.synthetic.main.hamberger_bar.*
@@ -38,34 +38,15 @@ class AllTripziiActivity : AppCompatActivity() {
     private var imageModelArrayList: ArrayList<ImageModel>? = null
     private val myImageList = intArrayOf(R.drawable.img_doiinthanon, R.drawable.img_mist,
         R.drawable.img_sea,R.drawable.img_temple,R.drawable.img_phiphi_island)
-//    lateinit var recyclerViews: RecyclerView
-
     private val db = FirebaseFirestore.getInstance()
-//    private val tripRef = db.collection("alltrip")
-//        .document("01")
-//        .collection("Category")
-//        .get()
-//        .addOnSuccessListener { result ->
-//        for (document in result) {
-//            println("${document.id} => ${document.data}")
-//            }
-//        }
-//        .addOnFailureListener { exception ->
-//            Log.d(this.toString(), "Error getting documents: ", exception)
-//        }
-
-//    private var adapter: TripAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_tripzii)
         imageModelArrayList = ArrayList()
         imageModelArrayList = populateList()
-        init()
-
         val trip : MutableList<TripModel> = mutableListOf()
         val getData = db.collection("alltrip")
-
         getData.get()
             .addOnCompleteListener { task ->
                 for (ds in task.result?.documentChanges!!) {
@@ -83,24 +64,21 @@ class AllTripziiActivity : AppCompatActivity() {
                             val index = trip.indexOfFirst { it.tripId == item.tripId }
                             item.apply { trip[index] = this }
                         }
-
                         else ->{}
                     }
 
-                    Log.d("tripZ", trip.toString())
-                    val allTrip = TripAdapter(trip)
-                    recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-                    recyclerView.adapter = allTrip
                 }
+
+                val tripAdapter = TripAdapter(trip)
+                recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+                recyclerView.adapter = tripAdapter
+                tripAdapter.notifyDataSetChanged()
             }
-        if(trip.size != 0) {
-            Log.d("tripZZZZ", trip.toString())
-        }
-
-
-//        initRecycler()
+        init()
+//        if(trip.size != 0) {
+//            Log.d("tripZZZZ", trip.toString())
+//        }
         setHumburgerButton()
-//        setUpRecyclerView()
         homeMenuTextView.setOnClickListener {
             val intent = Intent(this, AllTripziiActivity::class.java)
             startActivity(intent)
@@ -215,45 +193,11 @@ class AllTripziiActivity : AppCompatActivity() {
         })
     }
 
-//    private fun setUpRecyclerView() {
-//        val tripRef = db.collection("alltrip")
-//        val query: Query = tripRef.orderBy("price",Query.Direction.DESCENDING)
-//        val options: FirestoreRecyclerOptions<Trip> = FirestoreRecyclerOptions.Builder<Trip>()
-//            .setQuery(query, Trip::class.java)
-//            .build()
-//        adapter = TripAdapter(options)
-//        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-//        recyclerView.setHasFixedSize(true)
-//        recyclerView.layoutManager = LinearLayoutManager(this@AllTripziiActivity,
-//            RecyclerView.HORIZONTAL, false)
-//        recyclerView.adapter = adapter
-//    }
-//
-//    override fun onStart() {
-//        super.onStart()
-//        adapter!!.startListening()
-//    }
-//
-//    override fun onStop() {
-//        super.onStop()
-//        adapter!!.stopListening()
-//    }
-
     companion object {
         private var mPager: ViewPager? = null
         private var currentPage = 0
         private var NUM_PAGES = 0
     }
-
-//    private fun initRecycler(){
-//        recyclerViews = recyclerView
-//
-//        recyclerViews.apply {
-//            layoutManager = LinearLayoutManager(this@AllTripziiActivity,
-//                RecyclerView.VERTICAL, false)
-//            adapter = ParentAdapter(Trip)
-//        }
-//    }
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){

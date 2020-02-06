@@ -21,7 +21,6 @@
 
             <include layout="@layout/hamberger_bar"></include>
 
-            <include layout="@layout/view_pager"></include>
             <com.google.android.material.navigation.NavigationView
                 android:id="@+id/navView"
                 android:layout_width="wrap_content"
@@ -30,6 +29,7 @@
                 android:fitsSystemWindows="true">
                 <include layout="@layout/activity_menu_bar"></include>
             </com.google.android.material.navigation.NavigationView>
+            <include layout="@layout/view_pager"></include>
         </androidx.drawerlayout.widget.DrawerLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
