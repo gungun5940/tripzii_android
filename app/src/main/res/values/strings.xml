@@ -6,7 +6,6 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
@@ -14,4 +13,11 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_maps">Map</string>
+    <string name="menu_money">THB</string>
+    <string name="menu_language">Language</string>
+    <string name="menu_admin">Admin</string>
+    <string name="title_activity_all_tripzii">AllTripziiActivity</string>
+    <string name="title_activities">ACTIVITIES</string>
+    <string name="title_ticket">ATTRACTION TICKET</string>
+    <string name="title_transfer">TRANSFER SERVICE</string>
 </resources>

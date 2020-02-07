@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.tripzii.station">
 
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ImgSliderActivity">
-        </activity>
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -30,18 +34,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AllTripziiActivity"
+            android:label="@string/title_activity_all_tripzii"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".ProgressBarActivity" />
         <activity android:name=".PaymentActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BookingActivity" />
         </activity>
-        <activity android:name=".FilterTripPopupActivity" />
         <activity
             android:name=".MenuBarActivity"
             android:label="@string/title_activity_menubar"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AllTripActivity" />
         <activity android:name=".BookingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -61,7 +68,7 @@
         <activity android:name=".HotelAccountActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".AllTripActivity" />
+                android:value=".AllTripziiActivity" />
         </activity>
         <activity android:name=".ResetPasswordActivity">
             <meta-data

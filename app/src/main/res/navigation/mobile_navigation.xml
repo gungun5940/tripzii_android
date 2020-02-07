@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_activities">
+
+    <fragment
+        android:id="@+id/navigation_activities"
+        android:name="co.tripzii.station.ui.activities.ActivitiesFragment"
+        android:label="@string/title_activities"
+        tools:layout="@layout/fragment_activities" />
+
+    <fragment
+        android:id="@+id/navigation_ticket"
+        android:name="co.tripzii.station.ui.ticket.TicketFragment"
+        android:label="@string/title_ticket"
+        tools:layout="@layout/fragment_ticket" />
+
+    <fragment
+        android:id="@+id/navigation_transfer"
+        android:name="co.tripzii.station.ui.transfer.TransferFragment"
+        android:label="@string/title_transfer"
+        tools:layout="@layout/fragment_transfer" />
+</navigation>
