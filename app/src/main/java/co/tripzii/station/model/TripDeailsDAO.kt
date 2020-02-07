@@ -13,6 +13,8 @@ class TripDeailsDAO (
     var durationType:String? = null,
     var include: String? = null,
     var remark: String? = null,
+    var longitude: String? = null,
+    var latitude: String? = null,
     var provice: String? = null,
     var timeline : List<TimelineDAO>? = null
 

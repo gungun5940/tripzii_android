@@ -17,18 +17,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import co.tripzii.station.adapter.TimelineAdapter
 import co.tripzii.station.model.TimelineDAO
 import co.tripzii.station.model.TripDeailsDAO
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_trip_details.*
-
 class TripDetailsActivity : AppCompatActivity() {
 
     lateinit var timelineAdapter: TimelineAdapter
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private var imageList = intArrayOf(R.drawable.forest, R.drawable.p2, R.drawable.p3)
     var tripDetail : TripDeailsDAO? = null
-
-
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,11 +54,6 @@ class TripDetailsActivity : AppCompatActivity() {
                 viewFlipper.addView(imageView)
             }
         }
-
-
-
-
-
         val docRef = db.collection("alltrip")
             .document("01")
         docRef.get()
@@ -91,4 +88,6 @@ class TripDetailsActivity : AppCompatActivity() {
         remarkTextView.text = tripDeailsDAO.remark
         totalPriceTextView.text = tripDeailsDAO.price
     }
+
 }
+
