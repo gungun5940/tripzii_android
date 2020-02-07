@@ -9,6 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
@@ -19,6 +23,7 @@ import co.tripzii.station.model.TripModel
 import co.tripzii.station.ui.activities.ActivitiesFragment
 import co.tripzii.station.ui.ticket.TicketFragment
 import co.tripzii.station.ui.transfer.TransferFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.viewpagerindicator.CirclePageIndicator
@@ -28,7 +33,6 @@ import kotlinx.android.synthetic.main.nav_menu.*
 import kotlinx.android.synthetic.main.view_pager.*
 import java.util.*
 import kotlin.collections.ArrayList
-
 
 class AllTripziiActivity : AppCompatActivity() {
 
@@ -62,20 +66,17 @@ class AllTripziiActivity : AppCompatActivity() {
                         }
                         else ->{}
                     }
-
                 }
                 val tripAdapter = TripAdapter(trip)
                 recyclerView.layoutManager = LinearLayoutManager(this,
                     RecyclerView.HORIZONTAL, false)
                 recyclerView.adapter = tripAdapter
                 tripAdapter.notifyDataSetChanged()
-
                 val tripPopularAdapter = TripAdapter(trip)
                 popularRecyclerView.layoutManager = LinearLayoutManager(this,
                     RecyclerView.HORIZONTAL, false)
                 popularRecyclerView.adapter = tripPopularAdapter
                 tripPopularAdapter.notifyDataSetChanged()
-
                 val tripRecommendedAdapter = TripAdapter(trip)
                 recommendedRecyclerView.layoutManager = LinearLayoutManager(this,
                     RecyclerView.HORIZONTAL, false)
@@ -85,9 +86,6 @@ class AllTripziiActivity : AppCompatActivity() {
         imageModelArrayList = ArrayList()
         imageModelArrayList = populateList()
         init()
-//        if(trip.size != 0) {
-//            Log.d("tripZZZZ", trip.toString())
-//        }
         setHumburgerButton()
         homeMenuTextView.setOnClickListener {
             val intent = Intent(this, AllTripziiActivity::class.java)
@@ -122,7 +120,7 @@ class AllTripziiActivity : AppCompatActivity() {
         navBottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_activities -> {
-                    replaceFragment(ActivitiesFragment())
+                    AllTripziiActivity()
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_ticket -> {
@@ -153,10 +151,10 @@ class AllTripziiActivity : AppCompatActivity() {
             val tripFilter = resources.getStringArray(R.array.filter_trip)
             val checkedItem = 1 // cow
 
-            builder.setSingleChoiceItems(tripFilter, checkedItem) { dialog, which ->
+            builder.setSingleChoiceItems(tripFilter, checkedItem) { _, _ ->
 
             }
-            builder.setPositiveButton("OK") { dialog, which ->
+            builder.setPositiveButton("OK") { _, _ ->
             }
             builder.setNegativeButton("Cancel", null)
 
@@ -181,19 +179,19 @@ class AllTripziiActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        mPager = findViewById(R.id.viewPager)
-        mPager!!.adapter = SliderImageAdapter(this, imageModelArrayList!!)
+        viewPage = findViewById(R.id.viewPager)
+        viewPage!!.adapter = SliderImageAdapter(this, imageModelArrayList!!)
         val indicator = findViewById(R.id.indicator) as CirclePageIndicator
         indicator.setViewPager(viewPager)
         val density = resources.displayMetrics.density
         indicator.setRadius(4 * density)
-        NUM_PAGES = imageModelArrayList!!.size
+        NumPage = imageModelArrayList!!.size
         val handler = Handler() // Auto start of viewpager
         val update = Runnable {
-            if (currentPage == NUM_PAGES) {
+            if (currentPage == NumPage) {
                 currentPage = 0
             }
-            mPager!!.setCurrentItem(currentPage++, true)
+            viewPage!!.setCurrentItem(currentPage++, true)
         }
         val swipeTimer = Timer()
         swipeTimer.schedule(object : TimerTask() {
@@ -218,9 +216,9 @@ class AllTripziiActivity : AppCompatActivity() {
     }
 
     companion object {
-        private var mPager: ViewPager? = null
+        private var viewPage: ViewPager? = null
         private var currentPage = 0
-        private var NUM_PAGES = 0
+        private var NumPage = 0
     }
 
     override fun onBackPressed() {

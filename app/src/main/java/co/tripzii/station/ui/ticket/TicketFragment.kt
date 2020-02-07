@@ -22,10 +22,6 @@ class TicketFragment : Fragment() {
         ticketViewModel =
             ViewModelProviders.of(this).get(TicketViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_ticket, container, false)
-        val textView: TextView = root.findViewById(R.id.text_ticket)
-        ticketViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
         return root
     }
 }
