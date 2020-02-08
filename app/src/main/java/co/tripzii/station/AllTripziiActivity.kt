@@ -3,6 +3,7 @@ package co.tripzii.station
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +49,6 @@ class AllTripziiActivity : AppCompatActivity() {
                     val item = ds.document.toObject(TripModel::class.java).apply {
                         tripId = ds.document.id
                     }
-
                     when(ds.type) {
                         DocumentChange.Type.ADDED -> {
                             val items = trip.filter { it.tripId == item.tripId }
@@ -61,17 +61,32 @@ class AllTripziiActivity : AppCompatActivity() {
                         else ->{}
                     }
                 }
-                val tripAdapter = TripAdapter(trip)
+                val tripAdapter = TripAdapter(trip, onSelectItem = { trip ->
+                    Log.d("alltrip", trip.toString())
+                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
+                    intent.putExtra("trip", trip)
+                    startActivity(intent)
+                })
                 recyclerView.layoutManager = LinearLayoutManager(this,
                     RecyclerView.HORIZONTAL, false)
                 recyclerView.adapter = tripAdapter
                 tripAdapter.notifyDataSetChanged()
-                val tripPopularAdapter = TripAdapter(trip)
+                val tripPopularAdapter = TripAdapter(trip, onSelectItem = {trip ->
+                    Log.d("PopularTrip", trip.toString())
+                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
+                    intent.putExtra("trip", trip)
+                    startActivity(intent)
+                })
                 popularRecyclerView.layoutManager = LinearLayoutManager(this,
                     RecyclerView.HORIZONTAL, false)
                 popularRecyclerView.adapter = tripPopularAdapter
                 tripPopularAdapter.notifyDataSetChanged()
-                val tripRecommendedAdapter = TripAdapter(trip)
+                val tripRecommendedAdapter = TripAdapter(trip, onSelectItem = {trip ->
+                    Log.d("RecommendedTrip", trip.toString())
+                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
+                    intent.putExtra("trip", trip)
+                    startActivity(intent)
+                })
                 recommendedRecyclerView.layoutManager = LinearLayoutManager(this,
                     RecyclerView.HORIZONTAL, false)
                 recommendedRecyclerView.adapter = tripRecommendedAdapter
@@ -129,7 +144,6 @@ class AllTripziiActivity : AppCompatActivity() {
             false
         }
     }
-
     private fun setHumburgerButton() {
         drawerLayout = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
@@ -155,7 +169,6 @@ class AllTripziiActivity : AppCompatActivity() {
             val dialog = builder.create()
             dialog.show() }
     }
-
     private fun replaceFragment(fragment: Fragment){
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.container , fragment)
@@ -171,7 +184,6 @@ class AllTripziiActivity : AppCompatActivity() {
         }
         return list
     }
-
     private fun init() {
         viewPage = findViewById(R.id.viewPager)
         viewPage!!.adapter = SliderImageAdapter(this, imageModelArrayList!!)
@@ -192,29 +204,23 @@ class AllTripziiActivity : AppCompatActivity() {
             override fun run() {
                 handler.post(update)
             }
-        }, 2000, 2000)
+        }, 3500, 3500)
         indicator.setOnPageChangeListener(object : ViewPager.OnPageChangeListener { // Pager listener over indicator
 
             override fun onPageSelected(position: Int) {
                 currentPage = position
             }
-
             override fun onPageScrolled(pos: Int, arg1: Float, arg2: Int) {
-
             }
-
             override fun onPageScrollStateChanged(pos: Int) {
-
             }
         })
     }
-
     companion object {
         private var viewPage: ViewPager? = null
         private var currentPage = 0
         private var NumPage = 0
     }
-
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START)

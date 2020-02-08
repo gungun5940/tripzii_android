@@ -24,7 +24,6 @@ class TimelineAdapter ( val dataTimeline : List<TimelineDAO>) : RecyclerView.Ada
         holder.bind(dataTimeline[position])
         holder.itemView.setOnClickListener{
         }
-
     }
     class TimelineViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(report: TimelineDAO) {

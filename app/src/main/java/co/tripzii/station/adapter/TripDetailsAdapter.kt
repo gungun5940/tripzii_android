@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.R
 import co.tripzii.station.model.TripDeailsDAO
+import co.tripzii.station.model.TripModel
 import kotlinx.android.synthetic.main.activity_trip_details.view.*
 import kotlinx.android.synthetic.main.timeline.view.*
 
-class TripDetailsAdapter ( val dataTripDetails : List<TripDeailsDAO>) : RecyclerView.Adapter<TripDetailsAdapter.TripDetailsViewHolder>(){
+class TripDetailsAdapter ( val dataTripDetails : List<TripModel>) : RecyclerView.Adapter<TripDetailsAdapter.TripDetailsViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripDetailsViewHolder {
         return TripDetailsViewHolder(
@@ -26,10 +27,12 @@ class TripDetailsAdapter ( val dataTripDetails : List<TripDeailsDAO>) : Recycler
 
     }
     class TripDetailsViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(report: TripDeailsDAO) {
+        fun bind(report: TripModel) {
             itemView.apply {
                 tripNameDetailsTextView.text = report.nametrip
             }
         }
+
+        class Trip
     }
 }

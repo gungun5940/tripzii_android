@@ -11,21 +11,16 @@ import co.tripzii.station.R
 import co.tripzii.station.model.ImageModel
 
 class SliderImageAdapter(private val context: Context, private val myImageList: ArrayList<ImageModel>) : PagerAdapter() {
-//    private val inflater: LayoutInflater
       private var inflater: LayoutInflater? = null
-
     init {
         inflater = LayoutInflater.from(context)
     }
-
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return view == `object`
     }
-
     override fun getCount(): Int {
         return myImageList.size
     }
-
     override fun instantiateItem(view: ViewGroup, position: Int): Any {
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val imageLayout = inflater!!.inflate(R.layout.slider_images_layout, view, false)
