@@ -29,7 +29,7 @@ class TripDetailsActivity : AppCompatActivity() {
 
     lateinit var timelineAdapter: TimelineAdapter
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private var imageList = List()
+    private var imageList = arrayListOf<ImageModel>()
     private var tripModel : TripModel? = null
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,11 +60,11 @@ class TripDetailsActivity : AppCompatActivity() {
                 layoutParams.setMargins(10, 10, 10, 10)
                 layoutParams.gravity = Gravity.CENTER
                 imageView.layoutParams = layoutParams
-                imageView.setImageResource(image)
+//                imageView.setImageResource()
                 viewFlipper.addView(imageView)
             }
         }
-        Picasso.get().load("image").into.(R.id.tripDetailsImageView)
+        Picasso.get().load("image")
         val getData = db.collection("alltrip")
         getData.get()
             .addOnCompleteListener { task ->
