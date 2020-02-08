@@ -37,7 +37,6 @@ class AllTripziiActivity : AppCompatActivity() {
     private val myImageList = intArrayOf(R.drawable.img_doiinthanon, R.drawable.img_mist,
         R.drawable.img_sea,R.drawable.img_temple,R.drawable.img_phiphi_island)
     private val db = FirebaseFirestore.getInstance()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_tripzii)
