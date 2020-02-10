@@ -169,7 +169,6 @@ class AllTripziiActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
-
     override fun onStart() {
         super.onStart()
         val trip : MutableList<TripModel> = mutableListOf()
