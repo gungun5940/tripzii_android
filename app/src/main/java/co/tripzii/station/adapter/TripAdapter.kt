@@ -30,7 +30,6 @@ class TripAdapter(
         holder.itemView.setOnClickListener{
             onSelectItem.invoke(dataTrip[position])
         }
-
     }
 
     class TripHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
