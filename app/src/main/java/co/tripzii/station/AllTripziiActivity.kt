@@ -40,65 +40,7 @@ class AllTripziiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_tripzii)
-        val trip : MutableList<TripModel> = mutableListOf()
-        val getData = db.collection("alltrip")
-        getData.get()
-            .addOnCompleteListener { task ->
-                for (ds in task.result?.documentChanges!!) {
-                    val item = ds.document.toObject(TripModel::class.java).apply {
-                        tripId = ds.document.id
-                    }
-                    when(ds.type) {
-                        DocumentChange.Type.ADDED -> {
-                            val items = trip.filter { it.tripId == item.tripId }
-                            if (items.isEmpty()) item.let { trip.add(it) }
-                        }
-                        DocumentChange.Type.MODIFIED -> {
-                            val index = trip.indexOfFirst { it.tripId == item.tripId }
-                            item.apply { trip[index] = this }
-                        }
-                        else ->{}
-                    }
-                }
-                val tripAdapter = TripAdapter(trip, onSelectItem = { trip ->
-                    Log.d("alltrip", trip.toString())
-                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
-                    intent.putExtra("trip", trip)
-                    startActivity(intent)
-                })
-                recyclerView.layoutManager = LinearLayoutManager(this,
-                    RecyclerView.HORIZONTAL, false)
-                recyclerView.adapter = tripAdapter
-                tripAdapter.notifyDataSetChanged()
-                val tripPopularAdapter = TripAdapter(trip, onSelectItem = {trip ->
-                    Log.d("PopularTrip", trip.toString())
-                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
-                    intent.putExtra("trip", trip)
-                    startActivity(intent)
-                })
-                popularRecyclerView.layoutManager = LinearLayoutManager(this,
-                    RecyclerView.HORIZONTAL, false)
-                popularRecyclerView.adapter = tripPopularAdapter
-                tripPopularAdapter.notifyDataSetChanged()
-                val tripRecommendedAdapter = TripAdapter(trip, onSelectItem = {trip ->
-                    Log.d("RecommendedTrip", trip.toString())
-                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
-                    intent.putExtra("trip", trip)
-                    startActivity(intent)
-                })
-                recommendedRecyclerView.layoutManager = LinearLayoutManager(this,
-                    RecyclerView.HORIZONTAL, false)
-                recommendedRecyclerView.adapter = tripRecommendedAdapter
-                tripRecommendedAdapter.notifyDataSetChanged()
-            }
-        imageModelArrayList = ArrayList()
-        imageModelArrayList = populateList()
-        init()
-        setHumburgerButton()
-        homeMenuTextView.setOnClickListener {
-            val intent = Intent(this, AllTripziiActivity::class.java)
-            startActivity(intent)
-        }
+
         moneyMenuTextView.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Choose Currency")
@@ -226,6 +168,70 @@ class AllTripziiActivity : AppCompatActivity() {
         }else {
             super.onBackPressed()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val trip : MutableList<TripModel> = mutableListOf()
+        val getData = db.collection("alltrip")
+        getData.get()
+            .addOnCompleteListener { task ->
+                for (ds in task.result?.documentChanges!!) {
+                    val item = ds.document.toObject(TripModel::class.java).apply {
+                        tripId = ds.document.id
+                    }
+                    when(ds.type) {
+                        DocumentChange.Type.ADDED -> {
+                            val items = trip.filter { it.tripId == item.tripId }
+                            if (items.isEmpty()) item.let { trip.add(it) }
+                        }
+                        DocumentChange.Type.MODIFIED -> {
+                            val index = trip.indexOfFirst { it.tripId == item.tripId }
+                            item.apply { trip[index] = this }
+                        }
+                        else ->{}
+                    }
+                }
+                val tripAdapter = TripAdapter(trip, onSelectItem = { trip ->
+                    Log.d("alltrip", trip.toString())
+                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
+                    intent.putExtra("trip", trip)
+                    startActivity(intent)
+                })
+                recyclerView.layoutManager = LinearLayoutManager(this,
+                    RecyclerView.HORIZONTAL, false)
+                recyclerView.adapter = tripAdapter
+                tripAdapter.notifyDataSetChanged()
+                val tripPopularAdapter = TripAdapter(trip, onSelectItem = {trip ->
+                    Log.d("PopularTrip", trip.toString())
+                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
+                    intent.putExtra("trip", trip)
+                    startActivity(intent)
+                })
+                popularRecyclerView.layoutManager = LinearLayoutManager(this,
+                    RecyclerView.HORIZONTAL, false)
+                popularRecyclerView.adapter = tripPopularAdapter
+                tripPopularAdapter.notifyDataSetChanged()
+                val tripRecommendedAdapter = TripAdapter(trip, onSelectItem = {trip ->
+                    Log.d("RecommendedTrip", trip.toString())
+                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
+                    intent.putExtra("trip", trip)
+                    startActivity(intent)
+                })
+                recommendedRecyclerView.layoutManager = LinearLayoutManager(this,
+                    RecyclerView.HORIZONTAL, false)
+                recommendedRecyclerView.adapter = tripRecommendedAdapter
+                tripRecommendedAdapter.notifyDataSetChanged()
+            }
+        imageModelArrayList = ArrayList()
+        imageModelArrayList = populateList()
+        init()
+        setHumburgerButton()
+        homeMenuTextView.setOnClickListener {
+            val intent = Intent(this, AllTripziiActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
 
