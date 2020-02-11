@@ -7,21 +7,27 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import co.tripzii.station.R
 
 class TransferFragment : Fragment() {
 
-    private lateinit var transferViewModel: TransferViewModel
+//    private lateinit var transferViewModel: TransferViewModel
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        transferViewModel = ViewModelProvider(this).get(TransferViewModel::class.java)
+//        val root = inflater.inflate(R.layout.fragment_transfer, container, false)
+//        return root
+//    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+    inflater.inflate(R.layout.fragment_transfer, container, false)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        transferViewModel =
-            ViewModelProviders.of(this).get(TransferViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_transfer, container, false)
-        return root
+    companion object {
+        fun newInstance(): TransferFragment = TransferFragment()
     }
 }

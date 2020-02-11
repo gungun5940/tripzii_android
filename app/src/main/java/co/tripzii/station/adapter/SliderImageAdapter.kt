@@ -15,12 +15,15 @@ class SliderImageAdapter(private val context: Context, private val myImageList: 
     init {
         inflater = LayoutInflater.from(context)
     }
+
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return view == `object`
     }
+
     override fun getCount(): Int {
         return myImageList.size
     }
+
     override fun instantiateItem(view: ViewGroup, position: Int): Any {
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val imageLayout = inflater!!.inflate(R.layout.slider_images_layout, view, false)
@@ -29,6 +32,7 @@ class SliderImageAdapter(private val context: Context, private val myImageList: 
         view.addView(imageLayout, 0)
         return imageLayout
     }
+
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as View)
     }
