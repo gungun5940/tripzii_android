@@ -12,6 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="260dp"
             android:id="@+id/viewPager"
+            android:autoStart="true"
             android:layout_alignParentTop="true">
 
         </androidx.viewpager.widget.ViewPager>

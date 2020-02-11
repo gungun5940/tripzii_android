@@ -16,9 +16,9 @@
     <ViewFlipper
         android:id="@+id/tripDetailsImageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:autoStart="true"
-        android:flipInterval="3000" />
+        android:flipInterval="3000"/>
 </FrameLayout>
 
     <LinearLayout

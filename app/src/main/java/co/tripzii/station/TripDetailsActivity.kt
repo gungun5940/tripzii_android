@@ -54,13 +54,12 @@ class TripDetailsActivity : AppCompatActivity() {
             for (image in imageList) {
                 val imageView = ImageView(this)
                 val layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.FILL_PARENT,
-                    ViewGroup.LayoutParams.FILL_PARENT
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
                 )
                 layoutParams.setMargins(10, 10, 10, 10)
                 layoutParams.gravity = Gravity.CENTER
                 imageView.layoutParams = layoutParams
-//                imageView.setImageResource()
                 viewFlipper.addView(imageView)
             }
         }
