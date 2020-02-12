@@ -2,12 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.tripzii.station">
 
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,30 +15,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PicassoMainActivity"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-        <activity android:name=".InterestingTripActivity" />
-        <activity android:name=".LocationActivity"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".LocationActivity" />
         <activity
-            android:name=".TripDetailsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".AllTripziiActivity" />
+            android:name=".TripDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            //
         </activity>
         <activity
             android:name=".AllTripziiActivity"
-            android:label="@string/title_activity_all_tripzii"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/title_activity_all_tripzii">
+            
         </activity>
+
         <activity android:name=".ProgressBarActivity" />
         <activity android:name=".PaymentActivity">
             <meta-data
@@ -85,9 +81,8 @@
         <activity android:name=".ReportCommissionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HotelAccountActivity"
                 android:theme="@style/AppTheme.AppBarOverlay"
-                />
+                android:value=".HotelAccountActivity" />
         </activity>
         <activity
             android:name=".SplashScreenActivity"
@@ -100,5 +95,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

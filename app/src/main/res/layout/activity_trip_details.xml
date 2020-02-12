@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 <LinearLayout
+    android:id="@+id/idLinear"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:theme="@style/AppTheme.NoActionBar">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="300dp">
-
-    <ViewFlipper
-        android:id="@+id/tripDetailsImageView"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autoStart="true"
-        android:flipInterval="3000"/>
-</FrameLayout>
+        android:layout_height="match_parent">
+        <ViewFlipper
+            android:id="@+id/tripDetailsImageViewFlipper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autoStart="true"
+            android:layout_gravity="fill"
+            android:flipInterval="5000"/>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/top_line">
         <TextView
             android:id="@+id/tripNameDetailsTextView"
