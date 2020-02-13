@@ -5,8 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
-import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,14 +31,10 @@ class TripDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trip_details)
-//        ic_btn_back.setOnClickListener{
-//            val intent = Intent(this@TripDetailsActivity,AllTripziiActivity::class.java)
-//            startActivity(intent)
-//        }
-        val getImgData = db.collection("alltrip")
-        getImgData.whereArrayContains("image","id")
-
-
+        ic_btn_back.setOnClickListener{
+            val intent = Intent(this@TripDetailsActivity,AllTripziiActivity::class.java)
+            startActivity(intent)
+        }
         tripModel = intent?.getParcelableExtra("trip") as? TripModel
         Log.d("alltrip", tripModel.toString())
         bindDataTripDetails(tripModel)
@@ -51,27 +45,24 @@ class TripDetailsActivity : AppCompatActivity() {
             timelineRecyclerView.adapter = timelineAdapter
         }
         val trip: MutableList<TripModel> = mutableListOf()
-        val viewFlipper = findViewById<ViewFlipper>(R.id.tripDetailsImageViewFlipper)
-        if (viewFlipper != null) {
-            viewFlipper.setInAnimation(applicationContext, android.R.anim.slide_in_left)
-            viewFlipper.setOutAnimation(applicationContext, android.R.anim.slide_out_right)
-
-        }
-        if (viewFlipper != null){
-            if (tripModel?.image != null){
-                for (image in tripModel?.image!!) {
-                    val imageView = ImageView(this)
-                    val layoutParams = viewFlipper.layoutParams
-//                    val layoutParams = RelativeLayout.LayoutParams(
-//                        ViewGroup.LayoutParams.MATCH_PARENT,
-//                        ViewGroup.LayoutParams.MATCH_PARENT
-//                    )
-                    Picasso.get().load(image.url).into(imageView)
-                    imageView.layoutParams = layoutParams
-                    viewFlipper.addView(imageView)
-                }
-            }
-        }
+//        val viewFlipper = findViewById<ViewFlipper>(R.id.tripDetailsImageView)
+//        if (viewFlipper != null) {
+//            viewFlipper.setInAnimation(this,R.anim.slide_in_rigth )
+//            viewFlipper.setOutAnimation(this,R.anim.slide_out_left)
+//        }
+//        if (viewFlipper != null){
+//            if (tripModel?.image != null){
+//                for (image in tripModel?.image!!) {
+//                    val imageView = ImageView(this)
+//                    val layoutParams = viewFlipper.layoutParams
+//                    Picasso.get().load(image.url).into(imageView)
+//                    imageView.layoutParams = layoutParams
+//                    viewFlipper.addView(imageView)
+//                    imageView.maxHeight
+//                    imageView.maxWidth
+//                }
+//            }
+//        }
         val getData = db.collection("alltrip")
         getData.get()
             .addOnCompleteListener { task ->
@@ -123,7 +114,6 @@ class TripDetailsActivity : AppCompatActivity() {
         guideTextView.text = trip?.serviceGuide
         accidentTextView.text = trip?.serviceAccident
     }
-
 }
 
 

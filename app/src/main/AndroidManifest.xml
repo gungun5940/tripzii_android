@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PicassoMainActivity"></activity>
+        <activity android:name=".ImageDetailsActivity">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -24,13 +26,13 @@
         <activity android:name=".LocationActivity" />
         <activity
             android:name=".TripDetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             //
         </activity>
         <activity
             android:name=".AllTripziiActivity"
             android:label="@string/title_activity_all_tripzii"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ProgressBarActivity" />
         <activity android:name=".PaymentActivity">
             <meta-data
@@ -90,5 +92,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
