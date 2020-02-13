@@ -39,7 +39,6 @@ class TripDetailsActivity : AppCompatActivity() {
         }
         val getImgData = db.collection("alltrip")
         getImgData.whereArrayContains("image","id")
-
         tripModel = intent?.getParcelableExtra("trip") as? TripModel
         Log.d("alltrip", tripModel.toString())
         bindDataTripDetails(tripModel)
@@ -54,10 +53,8 @@ class TripDetailsActivity : AppCompatActivity() {
         if (viewFlipper != null) {
             viewFlipper.setInAnimation(this,R.anim.slide_in_rigth)
             viewFlipper.setOutAnimation(this,R.anim.slide_out_left)
-
         }
         if (viewFlipper != null){
-
             if (tripModel?.image != null){
                 for (image in tripModel?.image!!) {
                     val imageView = ImageView(this)
