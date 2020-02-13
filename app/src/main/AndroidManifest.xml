@@ -17,9 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,RtlEnable">
-        <activity android:name=".ImageDetailsActivity">
-
-        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -34,13 +31,10 @@
         <activity
             android:name=".AllTripziiActivity"
             android:label="@string/title_activity_all_tripzii"
-<<<<<<< HEAD
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-=======
-            android:theme="@style/AppTheme" />
->>>>>>> trip-details
+
         <activity android:name=".ProgressBarActivity" />
         <activity android:name=".PaymentActivity">
             <meta-data
