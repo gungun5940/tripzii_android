@@ -10,11 +10,11 @@
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="260dp"
-        android:id="@+id/viewPager"
+        android:id="@+id/viewPagerTicket"
         android:layout_alignParentTop="true">
     </androidx.viewpager.widget.ViewPager>
     <com.viewpagerindicator.CirclePageIndicator
-        android:id="@+id/indicator"
+        android:id="@+id/indicatorTicket"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -28,16 +28,16 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/containerActivity"
+        android:id="@+id/containerActivityTicket"
         android:orientation="horizontal"
-        android:layout_below="@id/viewPager"
+        android:layout_below="@id/viewPagerTicket"
         android:layout_marginTop="@dimen/dp_15"
         android:layout_marginStart="8dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/titleActivityTextView"
-        android:text="Activities in"
+        android:id="@+id/titleActivityTicketTextView"
+        android:text="Attraction Ticket in"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:layout_marginRight="8dp"
@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/activityTextView"
+            android:id="@+id/activityTicketTextView"
             android:text="ChiangMai"
             android:textColor="@android:color/black"
             android:textSize="18sp"
@@ -55,8 +55,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/recyclerView"
-        android:layout_below="@+id/containerActivity"
+        android:id="@+id/recyclerViewTicket"
+        android:layout_below="@+id/containerActivityTicket"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginStart="8dp">
 
@@ -65,15 +65,15 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/containerPopular"
+        android:id="@+id/containerPopularTicket"
         android:orientation="horizontal"
-        android:layout_below="@id/recyclerView"
+        android:layout_below="@id/recyclerViewTicket"
         android:layout_marginTop="@dimen/dp_15"
         android:layout_marginStart="8dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/titlePopularTextView"
+            android:id="@+id/titlePopularTicketTextView"
             android:text="Popular"
             android:textColor="@android:color/black"
             android:textSize="18sp"
@@ -84,8 +84,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/popularRecyclerView"
-        android:layout_below="@+id/containerPopular"
+        android:id="@+id/popularTicketRecyclerView"
+        android:layout_below="@+id/containerPopularTicket"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginStart="8dp">
 
@@ -94,15 +94,15 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/containerRecommended"
+        android:id="@+id/containerRecommendedTicket"
         android:orientation="horizontal"
-        android:layout_below="@id/popularRecyclerView"
+        android:layout_below="@id/popularTicketRecyclerView"
         android:layout_marginTop="@dimen/dp_15"
         android:layout_marginStart="8dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/titleRecommendedTextView"
+            android:id="@+id/titleRecommendedTicketTextView"
             android:text="Our Recommended"
             android:textColor="@android:color/black"
             android:textSize="18sp"
@@ -113,14 +113,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/recommendedRecyclerView"
-        android:layout_below="@+id/containerRecommended"
+        android:id="@+id/recommendedTicketRecyclerView"
+        android:layout_below="@+id/containerRecommendedTicket"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginStart="8dp">
     </androidx.recyclerview.widget.RecyclerView>
     <View
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@+id/recommendedRecyclerView"/>
+        android:layout_below="@+id/recommendedTicketRecyclerView"/>
 </RelativeLayout>
 </ScrollView>

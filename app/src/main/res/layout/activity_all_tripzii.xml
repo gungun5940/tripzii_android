@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/contain">
+        android:id="@+id/container">
 
         <androidx.drawerlayout.widget.DrawerLayout
             android:id="@+id/drawerLayout"
@@ -18,9 +18,45 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             tools:openDrawer="start">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <include layout="@layout/hamberger_bar"></include>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgMenu"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_hamberger_bar">
+                </androidx.appcompat.widget.AppCompatImageView>
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/ic_tripzii"
+                    android:gravity="center_horizontal">
+                </TextView>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgFilter"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_filter"
+                    android:layout_marginStart="270dp">
+                </androidx.appcompat.widget.AppCompatImageView>
+            </androidx.appcompat.widget.Toolbar>
+                <include
+                    layout="@layout/view_pager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/toolbar"></include>
+            </RelativeLayout>
 
+<!--            <include layout="@layout/hamberger_bar"></include>-->
             <com.google.android.material.navigation.NavigationView
                 android:id="@+id/navView"
                 android:layout_width="wrap_content"

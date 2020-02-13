@@ -41,6 +41,14 @@ class AllTripziiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_tripzii)
+        imageModelArrayList = ArrayList()
+        imageModelArrayList = populateList()
+        init()
+        setHumburgerButton()
+        homeMenuTextView.setOnClickListener {
+            val intent = Intent(this, AllTripziiActivity::class.java)
+            startActivity(intent)
+        }
         moneyMenuTextView.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Choose Currency")
@@ -51,14 +59,6 @@ class AllTripziiActivity : AppCompatActivity() {
             builder.setNegativeButton("Cancel", null)
             val dialog = builder.create()
             dialog.show()
-        }
-        imageModelArrayList = ArrayList()
-        imageModelArrayList = populateList()
-        init()
-        setHumburgerButton()
-        homeMenuTextView.setOnClickListener {
-            val intent = Intent(this, AllTripziiActivity::class.java)
-            startActivity(intent)
         }
         translateMenuTextView.setOnClickListener {
             val builder = AlertDialog.Builder(this)
@@ -78,26 +78,21 @@ class AllTripziiActivity : AppCompatActivity() {
         navBottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_activities -> {
-//                    replaceFragment(ActivitiesFragment())
+                    replaceFragment(ActivitiesFragment())
 //                    val intent = Intent (getActivity(), ActivitiesFragment::class.java)
 //                    startActivity(intent)
-                    val activitiesFragment = ActivitiesFragment.newInstance()
-                    replaceFragment(activitiesFragment)
+//                    val activitiesFragment = ActivitiesFragment.newInstance()
+//                    replaceFragment(activitiesFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_ticket -> {
-//                    replaceFragment(TicketFragment())
-//                    val intent = Intent (getActivity(), TicketFragment::class.java)
-//                    startActivity(intent)
-//                    TicketFragment()
-                    val ticketFragment = TicketFragment.newInstance()
-                    replaceFragment(ticketFragment)
+                    replaceFragment(TicketFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_transfer -> {
-//                    replaceFragment(TransferFragment())
-                    val transferFragment = TransferFragment.newInstance()
-                    replaceFragment(transferFragment)
+                    replaceFragment(TransferFragment())
+//                    val transferFragment = TransferFragment.newInstance()
+//                    replaceFragment(transferFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
             }
@@ -119,7 +114,6 @@ class AllTripziiActivity : AppCompatActivity() {
             builder.setTitle("Sorted by")
             val tripFilter = resources.getStringArray(R.array.filter_trip)
             val checkedItem = 1 // cow
-
             builder.setSingleChoiceItems(tripFilter, checkedItem) { _, _ -> }
             builder.setPositiveButton("OK") { _, _ -> }
             builder.setNegativeButton("Cancel", null)
@@ -128,9 +122,6 @@ class AllTripziiActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment){
-//        val fragmentTransaction = supportFragmentManager.beginTransaction()
-//        fragmentTransaction.replace(R.id.container , fragment)
-//        fragmentTransaction.commit()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.drawerLayout, fragment)
         transaction.addToBackStack(null)
