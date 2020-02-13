@@ -33,13 +33,12 @@ class TripDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trip_details)
-//        ic_btn_back.setOnClickListener{
-//            val intent = Intent(this@TripDetailsActivity,AllTripziiActivity::class.java)
-//            startActivity(intent)
-//        }
+        arrow_back.setOnClickListener{
+            val intent = Intent(this@TripDetailsActivity,AllTripziiActivity::class.java)
+            startActivity(intent)
+        }
         val getImgData = db.collection("alltrip")
         getImgData.whereArrayContains("image","id")
-
 
         tripModel = intent?.getParcelableExtra("trip") as? TripModel
         Log.d("alltrip", tripModel.toString())
@@ -53,8 +52,8 @@ class TripDetailsActivity : AppCompatActivity() {
         val trip: MutableList<TripModel> = mutableListOf()
         val viewFlipper = findViewById<ViewFlipper>(R.id.tripDetailsImageViewFlipper)
         if (viewFlipper != null) {
-            viewFlipper.setInAnimation(applicationContext, android.R.anim.slide_in_left)
-            viewFlipper.setOutAnimation(applicationContext, android.R.anim.slide_out_right)
+            viewFlipper.setInAnimation(this,R.anim.slide_in_rigth)
+            viewFlipper.setOutAnimation(this,R.anim.slide_out_left)
 
         }
         if (viewFlipper != null){
@@ -62,13 +61,11 @@ class TripDetailsActivity : AppCompatActivity() {
             if (tripModel?.image != null){
                 for (image in tripModel?.image!!) {
                     val imageView = ImageView(this)
-                    val layoutParams = viewFlipper.layoutParams
-//                    val layoutParams = RelativeLayout.LayoutParams(
-//                        ViewGroup.LayoutParams.MATCH_PARENT,
-//                        ViewGroup.LayoutParams.MATCH_PARENT
-//                    )
-                    Picasso.get().load(image.url).into(imageView)
+                    val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                    layoutParams.gravity = Gravity.CENTER
                     imageView.layoutParams = layoutParams
+                    Picasso.get().load(image.url).into(imageView)
+                    imageView.scaleType = ImageView.ScaleType.FIT_XY
                     viewFlipper.addView(imageView)
                 }
             }
@@ -124,7 +121,6 @@ class TripDetailsActivity : AppCompatActivity() {
         guideTextView.text = trip?.serviceGuide
         accidentTextView.text = trip?.serviceAccident
     }
-
 }
 
 

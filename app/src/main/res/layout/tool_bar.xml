@@ -13,7 +13,7 @@
             android:id="@+id/ic_btn_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/ic__btn_back">
+            android:background="@drawable/ic_btn_back">
         </androidx.appcompat.widget.AppCompatImageView>
     </androidx.appcompat.widget.Toolbar>
 </RelativeLayout>
