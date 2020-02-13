@@ -28,12 +28,11 @@
         <activity
             android:name=".TripDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            //
         </activity>
         <activity
             android:name=".AllTripziiActivity"
-            android:label="@string/title_activity_all_tripzii">
-            
+            android:label="@string/title_activity_all_tripzii"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity android:name=".ProgressBarActivity" />

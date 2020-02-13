@@ -128,9 +128,9 @@ class AllTripziiActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment){
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.container , fragment)
-        fragmentTransaction.commit()
+//        val fragmentTransaction = supportFragmentManager.beginTransaction()
+//        fragmentTransaction.replace(R.id.container , fragment)
+//        fragmentTransaction.commit()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.drawerLayout, fragment)
         transaction.addToBackStack(null)
