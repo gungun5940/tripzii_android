@@ -61,13 +61,13 @@ class TripDetailsActivity : AppCompatActivity() {
             if (tripModel?.image != null){
                 for (image in tripModel?.image!!) {
                     val imageView = ImageView(this)
-//                    val layoutParams = viewFlipper.layoutParams
+                    val layoutParams = viewFlipper.layoutParams
 //                    val layoutParams = RelativeLayout.LayoutParams(
 //                        ViewGroup.LayoutParams.MATCH_PARENT,
 //                        ViewGroup.LayoutParams.MATCH_PARENT
 //                    )
                     Picasso.get().load(image.url).into(imageView)
-//                    imageView.layoutParams = layoutParams
+                    imageView.layoutParams = layoutParams
                     viewFlipper.addView(imageView)
                 }
             }
