@@ -33,10 +33,10 @@ class TripDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trip_details)
-//        ic_btn_back.setOnClickListener{
-//            val intent = Intent(this@TripDetailsActivity,AllTripziiActivity::class.java)
-//            startActivity(intent)
-//        }
+        ic_btn_back.setOnClickListener{
+            val intent = Intent(this@TripDetailsActivity,AllTripziiActivity::class.java)
+            startActivity(intent)
+        }
         val getImgData = db.collection("alltrip")
         getImgData.whereArrayContains("image","id")
 
@@ -50,28 +50,28 @@ class TripDetailsActivity : AppCompatActivity() {
             timelineRecyclerView.adapter = timelineAdapter
         }
         val trip: MutableList<TripModel> = mutableListOf()
-//        val viewFlipper = findViewById<ViewFlipper>(R.id.tripDetailsImageViewFlipper)
-//        if (viewFlipper != null) {
-//            viewFlipper.setInAnimation(applicationContext, android.R.anim.slide_in_left)
-//            viewFlipper.setOutAnimation(applicationContext, android.R.anim.slide_out_right)
-//
-//        }
-//        if (viewFlipper != null){
-//
-//            if (tripModel?.image != null){
-//                for (image in tripModel?.image!!) {
-//                    val imageView = ImageView(this)
+        val viewFlipper = findViewById<ViewFlipper>(R.id.tripDetailsImageViewFlipper)
+        if (viewFlipper != null) {
+            viewFlipper.setInAnimation(this,R.anim.slide_in_rigth)
+            viewFlipper.setOutAnimation(this,R.anim.slide_out_left)
+
+        }
+        if (viewFlipper != null){
+
+            if (tripModel?.image != null){
+                for (image in tripModel?.image!!) {
+                    val imageView = ImageView(this)
 //                    val layoutParams = viewFlipper.layoutParams
-////                    val layoutParams = RelativeLayout.LayoutParams(
-////                        ViewGroup.LayoutParams.MATCH_PARENT,
-////                        ViewGroup.LayoutParams.MATCH_PARENT
-////                    )
-//                    Picasso.get().load(image.url).into(imageView)
+//                    val layoutParams = RelativeLayout.LayoutParams(
+//                        ViewGroup.LayoutParams.MATCH_PARENT,
+//                        ViewGroup.LayoutParams.MATCH_PARENT
+//                    )
+                    Picasso.get().load(image.url).into(imageView)
 //                    imageView.layoutParams = layoutParams
-//                    viewFlipper.addView(imageView)
-//                }
-//            }
-//        }
+                    viewFlipper.addView(imageView)
+                }
+            }
+        }
         val getData = db.collection("alltrip")
         getData.get()
             .addOnCompleteListener { task ->
