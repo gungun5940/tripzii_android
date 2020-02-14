@@ -91,7 +91,6 @@ class TicketFragment : Fragment() {
             val intent = Intent(activity, HotelAccountActivity::class.java)
             startActivity(intent)
         }
-
     }
 
     private fun setHumburgerButton() {
