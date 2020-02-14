@@ -19,22 +19,22 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_trip_details.*
-import kotlinx.android.synthetic.main.tool_bar.*
-
 
 class TripDetailsActivity : AppCompatActivity() {
 
     lateinit var timelineAdapter: TimelineAdapter
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private var imageList = arrayListOf(R.drawable.p1, R.drawable.p2, R.drawable.p3)
     private var tripModel : TripModel? = null
-    private var imageDerails :ImageDAO? = null
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trip_details)
         arrow_back.setOnClickListener{
             val intent = Intent(this@TripDetailsActivity,AllTripziiActivity::class.java)
+            startActivity(intent)
+        }
+        bookingButton.setOnClickListener{
+            val intent = Intent(this@TripDetailsActivity,BookingActivity::class.java)
             startActivity(intent)
         }
         val getImgData = db.collection("alltrip")
