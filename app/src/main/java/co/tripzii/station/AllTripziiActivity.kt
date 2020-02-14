@@ -78,24 +78,16 @@ class AllTripziiActivity : AppCompatActivity() {
         navBottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_activities -> {
-//                    replaceFragment(ActivitiesFragment())
-//                    val intent = Intent (getActivity(), ActivitiesFragment::class.java)
-//                    startActivity(intent)
                     val activitiesFragment = ActivitiesFragment.newInstance()
                     replaceFragment(activitiesFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_ticket -> {
-//                    replaceFragment(TicketFragment())
-//                    val intent = Intent (getActivity(), TicketFragment::class.java)
-//                    startActivity(intent)
-//                    TicketFragment()
                     val ticketFragment = TicketFragment.newInstance()
                     replaceFragment(ticketFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_transfer -> {
-//                    replaceFragment(TransferFragment())
                     val transferFragment = TransferFragment.newInstance()
                     replaceFragment(transferFragment)
                     return@setOnNavigationItemSelectedListener true
@@ -128,9 +120,6 @@ class AllTripziiActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment){
-//        val fragmentTransaction = supportFragmentManager.beginTransaction()
-//        fragmentTransaction.replace(R.id.container , fragment)
-//        fragmentTransaction.commit()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.drawerLayout, fragment)
         transaction.addToBackStack(null)
