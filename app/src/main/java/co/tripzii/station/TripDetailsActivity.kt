@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.adapter.TimelineAdapter
 import co.tripzii.station.adapter.TripAdapter
-import co.tripzii.station.model.ImageDAO
 import co.tripzii.station.model.TripModel
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
