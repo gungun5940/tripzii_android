@@ -47,7 +47,7 @@
         <activity android:name=".BookingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HotelAccountActivity" />
+                android:value=".TripDetailsActivity" />
         </activity>
         <activity android:name=".EditProfileActivity">
             <meta-data
