@@ -13,17 +13,6 @@ import co.tripzii.station.R
 
 class TransferFragment : Fragment() {
 
-//    private lateinit var transferViewModel: TransferViewModel
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        transferViewModel = ViewModelProvider(this).get(TransferViewModel::class.java)
-//        val root = inflater.inflate(R.layout.fragment_transfer, container, false)
-//        return root
-//    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
     inflater.inflate(R.layout.fragment_transfer, container, false)
 

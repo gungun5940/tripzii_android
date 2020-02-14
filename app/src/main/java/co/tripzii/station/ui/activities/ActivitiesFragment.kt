@@ -13,17 +13,6 @@ import co.tripzii.station.R
 
 class ActivitiesFragment : Fragment() {
 
-//    private lateinit var activitiesViewModel: ActivitiesViewModel
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        activitiesViewModel = ViewModelProvider(this).get(ActivitiesViewModel::class.java)
-//        val root = inflater.inflate(R.layout.fragment_activities, container, false)
-//        return root
-//    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_activities, container, false)
 
