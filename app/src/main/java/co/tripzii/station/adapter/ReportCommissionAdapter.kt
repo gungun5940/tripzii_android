@@ -8,7 +8,7 @@ import co.tripzii.station.R
 import co.tripzii.station.model.ReportCommissionDAO
 import kotlinx.android.synthetic.main.list_commission.view.*
 
-class ReportCommissionAdapter ( val dataCommision : List<ReportCommissionDAO>) : RecyclerView.Adapter<ReportCommissionAdapter.CommissionViewHolder>(){
+class ReportCommissionAdapter(val dataCommision: List<ReportCommissionDAO>) : RecyclerView.Adapter<ReportCommissionAdapter.CommissionViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommissionViewHolder {
         return CommissionViewHolder(
@@ -20,12 +20,11 @@ class ReportCommissionAdapter ( val dataCommision : List<ReportCommissionDAO>) :
 
     override fun onBindViewHolder(holder: CommissionViewHolder, position: Int) {
         holder.bind(dataCommision[position])
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
         }
-
     }
 
-    class CommissionViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class CommissionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(report: ReportCommissionDAO) {
             itemView.apply {
                 tripNameCommissionTextView.text = report.name
@@ -36,4 +35,3 @@ class ReportCommissionAdapter ( val dataCommision : List<ReportCommissionDAO>) :
         }
     }
 }
-
