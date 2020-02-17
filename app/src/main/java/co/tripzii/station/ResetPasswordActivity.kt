@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_reset_password.*
 class ResetPasswordActivity : AppCompatActivity() {
 
     private var auth = FirebaseAuth.getInstance()
+
     private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {

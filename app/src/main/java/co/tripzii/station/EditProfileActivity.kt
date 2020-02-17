@@ -20,8 +20,8 @@ class EditProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
         supportActionBar?.title = "Edit Profile"
-        var province = resources.getStringArray(R.array.province)
-        var adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, province)
+        val province = resources.getStringArray(R.array.province)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, province)
         editSelectProvinceAutoCompleteTextView.threshold = 0
         editSelectProvinceAutoCompleteTextView.setAdapter(adapter)
         editSelectProvinceAutoCompleteTextView.setOnClickListener {
@@ -54,11 +54,11 @@ class EditProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     }
 
-    fun Activity.hideKeyboard() {
+    private fun Activity.hideKeyboard() {
         hideKeyboard(currentFocus ?: View(this))
     }
 
-    fun Context.hideKeyboard(view: View) {
+    private fun Context.hideKeyboard(view: View) {
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }

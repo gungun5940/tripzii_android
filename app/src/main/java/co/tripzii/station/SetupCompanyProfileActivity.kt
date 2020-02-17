@@ -21,8 +21,8 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setup_company_profile)
         supportActionBar?.title = "Setup Company Profile"
-        var province = resources.getStringArray(R.array.province)
-        var adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, province)
+        val province = resources.getStringArray(R.array.province)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, province)
         selectProvinceAutoCompleteTextView.threshold = 0
         selectProvinceAutoCompleteTextView.setAdapter(adapter)
         selectProvinceAutoCompleteTextView.setOnClickListener {
@@ -43,7 +43,7 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
         setupButton.setOnClickListener {
             progressBar.show(this, "Saving...")
             Handler().postDelayed({}, 2000)
-            val intent = Intent(this, AllTripziiActivity::class.java)
+            val intent = Intent(this, AllTripActivity::class.java)
             startActivity(intent)
         }
     }
@@ -56,14 +56,15 @@ class SetupCompanyProfileActivity : AppCompatActivity(), AdapterView.OnItemSelec
         TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     }
 
-    fun Activity.hideKeyboard() {
+    private fun Activity.hideKeyboard() {
         hideKeyboard(currentFocus ?: View(this))
     }
 
-    fun Context.hideKeyboard(view: View) {
+    private fun Context.hideKeyboard(view: View) {
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
     override fun onBackPressed() {
         super.onBackPressed()
         finish()

@@ -1,5 +1,6 @@
 package co.tripzii.station
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.media.MediaScannerConnection
 import android.os.Bundle
@@ -23,19 +24,22 @@ import kotlinx.android.synthetic.main.activity_payment.*
 
 class PaymentActivity : AppCompatActivity() {
 
-    internal var bitmap: Bitmap? = null
+    private var bitmap: Bitmap? = null
+
     private var qrCodeImageView: ImageView? = null
+
     private var pickupLocationTextInput: TextInputEditText? = null
+
     private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
         supportActionBar?.title = "QR payment"
-        qrCodeImageView = findViewById(R.id.qrCodeImageView) as ImageView
-        val intent = getIntent()
+        qrCodeImageView = findViewById(R.id.qrCodeImageView)
+        val intent = Intent()
         pickupLocationTextInput?.setText(intent.getStringExtra("pickupLocation"))
-        bitmap = TextToImageEncode(pickupLocationTextInput.toString())
+        bitmap = textToImageEncode(pickupLocationTextInput.toString())
         qrCodeImageView!!.setImageBitmap(bitmap)
         val path = saveImage(bitmap) // give read write permission
         Toast.makeText(this, "QRCode saved to -> $path", Toast.LENGTH_SHORT).show()
@@ -45,7 +49,7 @@ class PaymentActivity : AppCompatActivity() {
         }
     }
 
-    fun saveImage(myBitmap: Bitmap?): String {
+    private fun saveImage(myBitmap: Bitmap?): String {
         val bytes = ByteArrayOutputStream()
         myBitmap!!.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
         val wallpaperDirectory = File(
@@ -65,21 +69,21 @@ class PaymentActivity : AppCompatActivity() {
                 arrayOf(f.path),
                 arrayOf("image/jpeg"), null)
             fo.close()
-            Log.d("TAG", "File Saved : --->" + f.absolutePath)
+            Log.d("TAG", "" + f.absolutePath)
             return f.absolutePath
         } catch (e1: IOException) { e1.printStackTrace() }
         return ""
     }
 
     @Throws(WriterException::class)
-    private fun TextToImageEncode(Value: String): Bitmap? {
+    private fun textToImageEncode(Value: String): Bitmap? {
         val bitMatrix: BitMatrix
         try {
             bitMatrix = MultiFormatWriter().encode(
                 Value,
                 BarcodeFormat.QR_CODE,
-                QRcodeWidth, QRcodeWidth, null)
-        } catch (Illegalargumentexception: IllegalArgumentException) {
+                QrCodeWidth, QrCodeWidth, null)
+        } catch (Illumination: IllegalArgumentException) {
             return null
         }
         val bitMatrixWidth = bitMatrix.getWidth()
@@ -103,7 +107,7 @@ class PaymentActivity : AppCompatActivity() {
     }
 
     companion object {
-        val QRcodeWidth = 500
-        private val IMAGE_DIRECTORY = "/QRcodeDemonuts"
+        var QrCodeWidth = 500
+        private var IMAGE_DIRECTORY = "/QrCodeDocument"
     }
 }

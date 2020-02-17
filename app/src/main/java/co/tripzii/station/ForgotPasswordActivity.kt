@@ -12,11 +12,9 @@ import kotlinx.android.synthetic.main.activity_forgot_password.*
 
 class ForgotPasswordActivity : AppCompatActivity() {
 
-    companion object {
-        val TAG = "ForgotPasswordActivity"
-    }
     private val progressBar = ProgressBarActivity()
-    val auth = FirebaseAuth.getInstance()
+
+    private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,14 +22,15 @@ class ForgotPasswordActivity : AppCompatActivity() {
         supportActionBar?.title = "Forgot password"
         val username = findViewById<TextInputEditText>(R.id.emailForgotTextInput)
         forgotResetButton.setOnClickListener {
-            ForgotPassword(username)
+            forGotPassword(username)
             progressBar.show(this, "Sending to email...")
             Handler().postDelayed({
                 progressBar.dialog.dismiss()
             }, 2000)
         }
     }
-    private fun ForgotPassword(username: TextInputEditText) {
+
+    private fun forGotPassword(username: TextInputEditText) {
         if (username.text.toString().isEmpty()) {
             return
         }

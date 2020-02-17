@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity() {
 
     companion object {
-        val TAG = "LoginActivity"
+        var TAG = "LoginActivity"
     }
     private lateinit var auth: FirebaseAuth
     private var sharedPref: SharedPreferences? = null

@@ -11,8 +11,9 @@ import kotlinx.android.synthetic.main.activity_hotel_account.*
 class HotelAccountActivity : AppCompatActivity() {
 
     companion object {
-        val TAG = "HotelAccountActivity"
+        var TAG = "HotelAccountActivity"
     }
+
     private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {

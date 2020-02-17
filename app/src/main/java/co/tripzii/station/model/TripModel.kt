@@ -2,6 +2,7 @@ package co.tripzii.station.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+
 @Parcelize
 data class TripModel(
     var tripId: String? = null,
@@ -25,6 +26,7 @@ data class TripModel(
     var provice: String? = null,
     var timeline: List<TimelineDAO>? = null
 ) : Parcelable
+
 @Parcelize
 data class Image(
     var id: String? = null,

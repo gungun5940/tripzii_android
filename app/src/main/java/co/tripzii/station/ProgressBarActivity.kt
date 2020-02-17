@@ -23,7 +23,7 @@ class ProgressBarActivity : AppCompatActivity() {
     }
 
     fun show(context: Context, title: CharSequence?): Dialog {
-        val inflator = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        var inflator = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflator.inflate(R.layout.activity_progress_bar, null)
         if (title != null) {
             view.cp_title.text = title
@@ -34,8 +34,7 @@ class ProgressBarActivity : AppCompatActivity() {
             view.cp_pbar.indeterminateDrawable,
             ResourcesCompat.getColor(context.resources, R.color.colorPrimary, null)
         )
-        view.cp_title.setTextColor(Color.WHITE) // Text Color
-
+        view.cp_title.setTextColor(Color.WHITE)
         dialog = Dialog(context, R.style.CustomProgressBarTheme)
         dialog.setContentView(view)
         dialog.show()
@@ -43,7 +42,7 @@ class ProgressBarActivity : AppCompatActivity() {
         return dialog
     }
 
-    fun setColorFilter(@NonNull drawable: Drawable, color: Int) {
+   private fun setColorFilter(@NonNull drawable: Drawable, color: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             drawable.colorFilter = BlendModeColorFilter(color, BlendMode.SRC_ATOP)
         } else {

@@ -10,7 +10,9 @@ import androidx.viewpager.widget.PagerAdapter
 import co.tripzii.station.R
 import co.tripzii.station.model.ImageModel
 
-class SliderImageAdapter(private val context: Context, private val myImageList: ArrayList<ImageModel>) : PagerAdapter() {
+class SliderImageAdapter(private val context: Context, private val myImageList: ArrayList<ImageModel>)
+    : PagerAdapter() {
+
       private var inflater: LayoutInflater? = null
     init {
         inflater = LayoutInflater.from(context)
