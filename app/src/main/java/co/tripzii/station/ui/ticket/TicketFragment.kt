@@ -19,7 +19,7 @@ import co.tripzii.station.AllTripziiActivity
 import co.tripzii.station.HotelAccountActivity
 import co.tripzii.station.R
 import co.tripzii.station.TripDetailsActivity
-import co.tripzii.station.adapter.SliderImageAdapter
+import co.tripzii.station.adapter.SliderImageTicketAdapter
 import co.tripzii.station.adapter.TripTicketAdapter
 import co.tripzii.station.model.ImageModel
 import co.tripzii.station.model.TicketModel
@@ -37,8 +37,6 @@ class TicketFragment : Fragment() {
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
     lateinit var drawerLayout: DrawerLayout
     private var imageModelArrayList: ArrayList<ImageModel>? = null
-    lateinit var inflater: LayoutInflater
-//    val container: ViewGroup? = null
     private val myImageList = intArrayOf(R.drawable.img_art, R.drawable.img_chiangmaizoo,
         R.drawable.img_temple,R.drawable.img_thesea,R.drawable.img_fish)
     private val db = FirebaseFirestore.getInstance()
@@ -56,7 +54,6 @@ class TicketFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        inflater.inflate(R.layout.fragment_ticket, drawerLayoutTicket, true)
         imageModelArrayList = ArrayList()
         imageModelArrayList = populateList()
         init()
@@ -115,18 +112,18 @@ class TicketFragment : Fragment() {
     }
 
     private fun populateList(): ArrayList<ImageModel> {
-        val list = ArrayList<ImageModel>()
+        val listimg = ArrayList<ImageModel>()
         for (i in 0..4) {
             val imageModel = ImageModel()
             imageModel.setImageDrawables(myImageList[i])
-            list.add(imageModel)
+            listimg.add(imageModel)
         }
-        return list
+        return listimg
     }
 
     private fun init() {
         viewPageTicket = view?.findViewById(R.id.viewPagerTicket)
-        viewPageTicket!!.adapter = SliderImageAdapter(activity!!.applicationContext, imageModelArrayList!!)
+        viewPageTicket!!.adapter = SliderImageTicketAdapter(activity, imageModelArrayList!!)
         val indicatorTicket = view?.findViewById(R.id.indicatorTicket) as CirclePageIndicator
         indicatorTicket.setViewPager(viewPagerTicket)
         val density = resources.displayMetrics.density
