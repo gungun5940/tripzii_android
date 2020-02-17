@@ -1,8 +1,7 @@
 package co.tripzii.station
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -22,8 +21,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val Pinlocation = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(Pinlocation).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Pinlocation))
+        val location = LatLng(-34.0, 151.0)
+        mMap.addMarker(MarkerOptions().position(location).title("Marker in Sydney"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location))
     }
 }

@@ -2,25 +2,24 @@ package co.tripzii.station
 
 import android.graphics.Bitmap
 import android.media.MediaScannerConnection
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
 import android.util.Log
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
-import kotlinx.android.synthetic.main.activity_payment.*
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
+import kotlinx.android.synthetic.main.activity_payment.*
 
 class PaymentActivity : AppCompatActivity() {
 
@@ -38,10 +37,10 @@ class PaymentActivity : AppCompatActivity() {
         pickupLocationTextInput?.setText(intent.getStringExtra("pickupLocation"))
         bitmap = TextToImageEncode(pickupLocationTextInput.toString())
         qrCodeImageView!!.setImageBitmap(bitmap)
-        val path = saveImage(bitmap)  //give read write permission
+        val path = saveImage(bitmap) // give read write permission
         Toast.makeText(this, "QRCode saved to -> $path", Toast.LENGTH_SHORT).show()
         conFirmButton.setOnClickListener {
-            progressBar.show(this,"Confirming your trip...")
+            progressBar.show(this, "Confirming your trip...")
             Handler().postDelayed({}, 2000)
         }
     }
@@ -59,7 +58,7 @@ class PaymentActivity : AppCompatActivity() {
         try {
             val f = File(wallpaperDirectory, Calendar.getInstance()
                 .timeInMillis.toString() + ".jpg")
-            f.createNewFile()   //give read write permission
+            f.createNewFile() // give read write permission
             val fo = FileOutputStream(f)
             fo.write(bytes.toByteArray())
             MediaScannerConnection.scanFile(this,
@@ -68,7 +67,7 @@ class PaymentActivity : AppCompatActivity() {
             fo.close()
             Log.d("TAG", "File Saved : --->" + f.absolutePath)
             return f.absolutePath
-        } catch (e1: IOException) { e1.printStackTrace()}
+        } catch (e1: IOException) { e1.printStackTrace() }
         return ""
     }
 

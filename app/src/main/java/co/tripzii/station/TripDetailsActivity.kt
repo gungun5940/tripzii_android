@@ -1,9 +1,8 @@
 package co.tripzii.station
 
-
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
@@ -23,38 +22,42 @@ class TripDetailsActivity : AppCompatActivity() {
 
     lateinit var timelineAdapter: TimelineAdapter
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private var tripModel : TripModel? = null
-    @SuppressLint("WrongConstant")
+    private var tripModel: TripModel? = null
+    private val progressBar = ProgressBarActivity()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trip_details)
-        arrow_back.setOnClickListener{
-            val intent = Intent(this@TripDetailsActivity,AllTripziiActivity::class.java)
+        btnBackToHomePage.setOnClickListener {
+            val intent = Intent(this@TripDetailsActivity, AllTripziiActivity::class.java)
             startActivity(intent)
+            progressBar.show(this, "Please Wait...")
+            Handler().postDelayed({}, 2000)
         }
-        bookingButton.setOnClickListener{
-            val intent = Intent(this@TripDetailsActivity,BookingActivity::class.java)
+        bookingButton.setOnClickListener {
+            val intent = Intent(this@TripDetailsActivity, BookingActivity::class.java)
             startActivity(intent)
+            progressBar.show(this, "Booking...")
+            Handler().postDelayed({}, 2000)
         }
         val getImgData = db.collection("alltrip")
-        getImgData.whereArrayContains("image","id")
+        getImgData.whereArrayContains("image", "id")
         tripModel = intent?.getParcelableExtra("trip") as? TripModel
         Log.d("alltrip", tripModel.toString())
         bindDataTripDetails(tripModel)
         if (tripModel?.timeline != null) {
             timelineAdapter = TimelineAdapter(tripModel?.timeline!!)
             timelineRecyclerView.layoutManager =
-                LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+                LinearLayoutManager(this, RecyclerView.VERTICAL, false)
             timelineRecyclerView.adapter = timelineAdapter
         }
         val trip: MutableList<TripModel> = mutableListOf()
         val viewFlipper = findViewById<ViewFlipper>(R.id.tripDetailsImageViewFlipper)
         if (viewFlipper != null) {
-            viewFlipper.setInAnimation(this,R.anim.slide_in_rigth)
-            viewFlipper.setOutAnimation(this,R.anim.slide_out_left)
+            viewFlipper.setInAnimation(this, R.anim.slide_in_rigth)
+            viewFlipper.setOutAnimation(this, R.anim.slide_out_left)
         }
-        if (viewFlipper != null){
-            if (tripModel?.image != null){
+        if (viewFlipper != null) {
+            if (tripModel?.image != null) {
                 for (image in tripModel?.image!!) {
                     val imageView = ImageView(this)
                     val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -86,11 +89,14 @@ class TripDetailsActivity : AppCompatActivity() {
                         }
                     }
                 }
-                val interesthingTripAdapter = TripAdapter(trip, onSelectItem = {trip ->
+                val interesthingTripAdapter = TripAdapter(trip, onSelectItem = { trip ->
                     Log.d("interesthingTrip", trip.toString())
-                    val intent = Intent(this@TripDetailsActivity,TripDetailsActivity::class.java)
+                    val intent = Intent(this@TripDetailsActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
+                    progressBar.show(this, "Please Wait...")
+                    Handler().postDelayed({}, 2000)
+
                 })
                 interesthingTripRecycleView.layoutManager = LinearLayoutManager(
                     this,
@@ -100,7 +106,7 @@ class TripDetailsActivity : AppCompatActivity() {
                 interesthingTripAdapter.notifyDataSetChanged()
             }
     }
-    fun bindDataTripDetails(trip: TripModel?) {
+    private fun bindDataTripDetails(trip: TripModel?) {
         tripNameDetailsTextView.text = trip?.nametrip
         tripDetailsLocationTextView.text = trip?.provice
         tripRateTextView.text = trip?.rate
@@ -118,6 +124,3 @@ class TripDetailsActivity : AppCompatActivity() {
         accidentTextView.text = trip?.serviceAccident
     }
 }
-
-
-

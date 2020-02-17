@@ -42,5 +42,4 @@ class SliderImageAdapter(private val context: Context, private val myImageList: 
     override fun saveState(): Parcelable? {
         return null
     }
-
 }
