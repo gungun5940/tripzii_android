@@ -54,11 +54,11 @@ class EditProfileActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     }
 
-    fun Activity.hideKeyboard() {
+    private fun Activity.hideKeyboard() {
         hideKeyboard(currentFocus ?: View(this))
     }
 
-    fun Context.hideKeyboard(view: View) {
+    private fun Context.hideKeyboard(view: View) {
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }

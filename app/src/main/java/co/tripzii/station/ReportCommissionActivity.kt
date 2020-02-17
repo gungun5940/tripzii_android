@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_report_commission.*
 class ReportCommissionActivity : AppCompatActivity() {
 
     lateinit var adapter: ReportCommissionAdapter
-    lateinit var action: View.OnClickListener
 
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {

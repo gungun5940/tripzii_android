@@ -34,6 +34,8 @@ class AllTripActivity : AppCompatActivity() {
 
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
 
+    private val progressBar = ProgressBarActivity()
+
     lateinit var drawerLayout: DrawerLayout
 
     private var imageModelArrayList: ArrayList<ImageModel>? = null
@@ -213,6 +215,9 @@ class AllTripActivity : AppCompatActivity() {
                     val intent = Intent(this@AllTripActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
+                    progressBar.show(this, "Checking out...")
+                    Handler().postDelayed({}, 2000)
+
                 })
                 recyclerView.layoutManager = LinearLayoutManager(this,
                     RecyclerView.HORIZONTAL, false)
@@ -223,6 +228,8 @@ class AllTripActivity : AppCompatActivity() {
                     val intent = Intent(this@AllTripActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
+                    progressBar.show(this, "Checking out...")
+                    Handler().postDelayed({}, 2000)
                 })
                 popularRecyclerView.layoutManager = LinearLayoutManager(this,
                     RecyclerView.HORIZONTAL, false)
@@ -233,6 +240,8 @@ class AllTripActivity : AppCompatActivity() {
                     val intent = Intent(this@AllTripActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
+                    progressBar.show(this, "Checking out...")
+                    Handler().postDelayed({}, 2000)
                 })
                 recommendedRecyclerView.layoutManager = LinearLayoutManager(this,
                     RecyclerView.HORIZONTAL, false)

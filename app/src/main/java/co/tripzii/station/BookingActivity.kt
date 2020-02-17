@@ -21,6 +21,7 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
 
     var numberAdults = 0
     var numberChild = 0
+
     private var checkOutButton: Button? = null
 
     private var pickupLocationTextInput: TextInputEditText? = null
@@ -103,7 +104,9 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
                 }
             }
             progressBar.show(this, "Checking out...")
-            Handler().postDelayed({}, 2000)
+            Handler().postDelayed({
+                progressBar.dialog.dismiss()
+            }, 2000)
         }
     }
 
@@ -115,11 +118,11 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         TODO("Select item") // To change body of created functions use File | Settings | File Templates.
     }
 
-    fun Activity.hideKeyboard() {
+    private fun Activity.hideKeyboard() {
         hideKeyboard(currentFocus ?: View(this))
     }
 
-    fun Context.hideKeyboard(view: View) {
+    private fun Context.hideKeyboard(view: View) {
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }

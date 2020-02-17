@@ -22,7 +22,6 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".LocationActivity" />
         <activity
             android:name=".TripDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -40,10 +39,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BookingActivity" />
         </activity>
-        <activity
-            android:name=".MenuBarActivity"
-            android:label="@string/title_activity_menubar"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".BookingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
