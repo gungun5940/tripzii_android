@@ -32,6 +32,7 @@
             android:layout_marginStart="270dp">
         </androidx.appcompat.widget.AppCompatImageView>
     </androidx.appcompat.widget.Toolbar>
+    
     <include
         layout="@layout/view_pager"
         android:layout_width="wrap_content"

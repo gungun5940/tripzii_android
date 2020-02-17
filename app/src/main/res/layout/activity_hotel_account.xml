@@ -83,6 +83,7 @@
             android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
+
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="match_parent"
