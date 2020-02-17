@@ -1,5 +1,6 @@
 package co.tripzii.station
 
+import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -47,15 +48,6 @@ class AllTripActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-<<<<<<< HEAD:app/src/main/java/co/tripzii/station/AllTripziiActivity.kt
-        setContentView(R.layout.activity_all_tripzii)
-        imageModelArrayList = ArrayList()
-        imageModelArrayList = populateList()
-        init()
-        setHumburgerButton()
-        homeMenuTextView.setOnClickListener {
-            val intent = Intent(this, AllTripziiActivity::class.java)
-=======
         setContentView(R.layout.activity_all_trip)
         imageModelArrayList = ArrayList()
         imageModelArrayList = populateList()
@@ -63,7 +55,6 @@ class AllTripActivity : AppCompatActivity() {
         setHamburgerButton()
         homeMenuTextView.setOnClickListener {
             val intent = Intent(this, AllTripActivity::class.java)
->>>>>>> ba7acc1ab221489ed4aad90e1cbf64ce8874a088:app/src/main/java/co/tripzii/station/AllTripActivity.kt
             startActivity(intent)
         }
         moneyMenuTextView.setOnClickListener {
@@ -95,36 +86,21 @@ class AllTripActivity : AppCompatActivity() {
         navBottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_activities -> {
-<<<<<<< HEAD:app/src/main/java/co/tripzii/station/AllTripziiActivity.kt
                     replaceFragment(ActivitiesFragment())
-//                    val intent = Intent (getActivity(), ActivitiesFragment::class.java)
-//                    startActivity(intent)
 //                    val activitiesFragment = ActivitiesFragment.newInstance()
 //                    replaceFragment(activitiesFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_ticket -> {
-                    replaceFragment(TicketFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.navigation_transfer -> {
-                    replaceFragment(TransferFragment())
-//                    val transferFragment = TransferFragment.newInstance()
-//                    replaceFragment(transferFragment)
-=======
-                    val activitiesFragment = ActivitiesFragment.newInstance()
-                    replaceFragment(activitiesFragment)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.navigation_ticket -> {
                     val ticketFragment = TicketFragment.newInstance()
                     replaceFragment(ticketFragment)
+                    setHamburgerButton()
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_transfer -> {
                     val transferFragment = TransferFragment.newInstance()
                     replaceFragment(transferFragment)
->>>>>>> ba7acc1ab221489ed4aad90e1cbf64ce8874a088:app/src/main/java/co/tripzii/station/AllTripActivity.kt
+                    setHamburgerButton()
                     return@setOnNavigationItemSelectedListener true
                 }
             }
@@ -135,7 +111,8 @@ class AllTripActivity : AppCompatActivity() {
     private fun setHamburgerButton() {
         drawerLayout = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
-            this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this,
+            drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
         actionBarDrawerToggle?.apply { drawerLayout.addDrawerListener(this) }
         imgMenu.setOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
@@ -150,13 +127,9 @@ class AllTripActivity : AppCompatActivity() {
             dialog.show() }
     }
 
-<<<<<<< HEAD:app/src/main/java/co/tripzii/station/AllTripziiActivity.kt
-    private fun replaceFragment(fragment: Fragment){
-=======
     private fun replaceFragment(fragment: Fragment) {
->>>>>>> ba7acc1ab221489ed4aad90e1cbf64ce8874a088:app/src/main/java/co/tripzii/station/AllTripActivity.kt
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.drawerLayout, fragment)
+        transaction.replace(R.id.container, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }

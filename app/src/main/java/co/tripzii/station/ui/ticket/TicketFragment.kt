@@ -35,7 +35,7 @@ import kotlin.collections.ArrayList
 
 class TicketFragment : Fragment() {
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
-    lateinit var drawerLayout: DrawerLayout
+    var drawerLayout: DrawerLayout? = null
     private var imageModelArrayList: ArrayList<ImageModel>? = null
     private val myImageList = intArrayOf(R.drawable.img_art, R.drawable.img_chiangmaizoo,
         R.drawable.img_temple,R.drawable.img_thesea,R.drawable.img_fish)
@@ -45,6 +45,7 @@ class TicketFragment : Fragment() {
         private var viewPageTicket: ViewPager? = null
         private var currentPageTicket = 0
         private var NumPageTicket = 0
+        fun newInstance(): TicketFragment = TicketFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -63,7 +64,7 @@ class TicketFragment : Fragment() {
             startActivity(intent)
         }
         moneyMenuTextView.setOnClickListener {
-            val builder = AlertDialog.Builder(AllTripActivity())
+            val builder = AlertDialog.Builder(activity!!)
             builder.setTitle("Choose Currency")
             val currency = resources.getStringArray(R.array.currency_arrays)
             val checkedItem = 1 // cow
@@ -74,7 +75,7 @@ class TicketFragment : Fragment() {
             dialog.show()
         }
         translateMenuTextView.setOnClickListener {
-            val builder = AlertDialog.Builder(AllTripActivity())
+            val builder = AlertDialog.Builder(activity!!)
             builder.setTitle("Language")
             val language = resources.getStringArray(R.array.language_arrys)
             val checkedItem = 1 // cow
@@ -98,8 +99,8 @@ class TicketFragment : Fragment() {
             , R.string.navigation_drawer_open
             , R.string.navigation_drawer_close
         )
-        actionBarDrawerToggle?.apply { drawerLayout.addDrawerListener(this) }
-        imgMenu.setOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
+        actionBarDrawerToggle?.apply { drawerLayout?.addDrawerListener(this) }
+        imgMenu.setOnClickListener { drawerLayout?.openDrawer(GravityCompat.START) }
         imgFilter.setOnClickListener { val builder = AlertDialog.Builder(AllTripActivity())
             builder.setTitle("Sorted by")
             val tripFilter = resources.getStringArray(R.array.filter_trip)
@@ -112,19 +113,19 @@ class TicketFragment : Fragment() {
     }
 
     private fun populateList(): ArrayList<ImageModel> {
-        val listimg = ArrayList<ImageModel>()
+        val listImg = ArrayList<ImageModel>()
         for (i in 0..4) {
             val imageModel = ImageModel()
             imageModel.setImageDrawables(myImageList[i])
-            listimg.add(imageModel)
+            listImg.add(imageModel)
         }
-        return listimg
+        return listImg
     }
 
     private fun init() {
         viewPageTicket = view?.findViewById(R.id.viewPagerTicket)
-        viewPageTicket!!.adapter = SliderImageTicketAdapter(activity, imageModelArrayList!!)
-        val indicatorTicket = view?.findViewById(R.id.indicatorTicket) as CirclePageIndicator
+        viewPageTicket?.adapter = SliderImageTicketAdapter(activity, imageModelArrayList!!)
+        val indicatorTicket = view!!.findViewById(R.id.indicatorTicket) as CirclePageIndicator
         indicatorTicket.setViewPager(viewPagerTicket)
         val density = resources.displayMetrics.density
         indicatorTicket.setRadius(4 * density)
@@ -158,7 +159,7 @@ class TicketFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val tripticket : MutableList<TicketModel> = mutableListOf()
+        val tripTicket : MutableList<TicketModel> = mutableListOf()
         val getDataTicket = db.collection("attraction ticket")
         getDataTicket.get()
             .addOnCompleteListener { task ->
@@ -168,38 +169,38 @@ class TicketFragment : Fragment() {
                     }
                     when(ds.type) {
                         DocumentChange.Type.ADDED -> {
-                            val items = tripticket.filter { it.ticketId == item.ticketId }
-                            if (items.isEmpty()) item.let { tripticket.add(it) }
+                            val items = tripTicket.filter { it.ticketId == item.ticketId }
+                            if (items.isEmpty()) item.let { tripTicket.add(it) }
                         }
                         DocumentChange.Type.MODIFIED -> {
-                            val indexTicket = tripticket.indexOfFirst { it.ticketId == item.ticketId }
-                            item.apply { tripticket[indexTicket] = this }
+                            val indexTicket = tripTicket.indexOfFirst { it.ticketId == item.ticketId }
+                            item.apply { tripTicket[indexTicket] = this }
                         }
                         else ->{}
                     }
                 }
-                val tripTicketAdapter = TripTicketAdapter(tripticket, onSelectItem = { tripticket ->
+                val tripTicketAdapter = TripTicketAdapter(tripTicket, onSelectItem = { tripTicket ->
                     val intent = Intent(activity, TripDetailsActivity::class.java)
-                    intent.putExtra("trip", tripticket)
+                    intent.putExtra("trip", tripTicket)
                     startActivity(intent)
                 })
                 recyclerViewTicket.layoutManager = LinearLayoutManager(activity,
                     RecyclerView.HORIZONTAL, false)
                 recyclerViewTicket.adapter = tripTicketAdapter
                 tripTicketAdapter.notifyDataSetChanged()
-                val tripTicketPopularAdapter = TripTicketAdapter(tripticket, onSelectItem = {tripticket ->
-                    Log.d("PopularTrip", tripticket.toString())
+                val tripTicketPopularAdapter = TripTicketAdapter(tripTicket, onSelectItem = {tripTicket ->
+                    Log.d("PopularTrip", tripTicket.toString())
                     val intent = Intent(activity, TripDetailsActivity::class.java)
-                    intent.putExtra("trip", tripticket)
+                    intent.putExtra("trip", tripTicket)
                     startActivity(intent)
                 })
                 popularTicketRecyclerView.layoutManager = LinearLayoutManager(activity,
                     RecyclerView.HORIZONTAL, false)
                 popularTicketRecyclerView.adapter = tripTicketPopularAdapter
                 tripTicketPopularAdapter.notifyDataSetChanged()
-                val tripRecommendedTicketAdapter = TripTicketAdapter(tripticket, onSelectItem = {tripticket ->
+                val tripRecommendedTicketAdapter = TripTicketAdapter(tripTicket, onSelectItem = {tripTicket ->
                     val intent = Intent(activity, TripDetailsActivity::class.java)
-                    intent.putExtra("trip", tripticket)
+                    intent.putExtra("trip", tripTicket)
                     startActivity(intent)
                 })
                 recommendedTicketRecyclerView.layoutManager = LinearLayoutManager(activity,
