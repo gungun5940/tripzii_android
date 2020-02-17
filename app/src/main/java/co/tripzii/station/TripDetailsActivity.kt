@@ -28,7 +28,7 @@ class TripDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trip_details)
         arrow_back.setOnClickListener {
-            val intent = Intent(this@TripDetailsActivity, AllTripziiActivity::class.java)
+            val intent = Intent(this@TripDetailsActivity, AllTripActivity::class.java)
             startActivity(intent)
         }
         bookingButton.setOnClickListener {

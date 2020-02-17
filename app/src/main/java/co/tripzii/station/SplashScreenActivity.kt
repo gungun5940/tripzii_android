@@ -20,7 +20,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 try {
                     Thread.sleep(1000)
                     if (user != null) {
-                        val intent = Intent(baseContext, AllTripziiActivity::class.java)
+                        val intent = Intent(baseContext, AllTripActivity::class.java)
                         startActivity(intent)
                     } else {
                         val intent = Intent(baseContext, LoginActivity::class.java)

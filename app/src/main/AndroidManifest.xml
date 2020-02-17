@@ -28,7 +28,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".AllTripziiActivity"
+            android:name=".AllTripActivity"
             android:label="@string/title_activity_all_tripzii"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -62,7 +62,7 @@
         <activity android:name=".HotelAccountActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".AllTripziiActivity" />
+                android:value=".AllTripActivity" />
         </activity>
         <activity android:name=".ResetPasswordActivity">
             <meta-data

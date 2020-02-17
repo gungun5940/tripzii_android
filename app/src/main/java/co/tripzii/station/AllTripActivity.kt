@@ -25,12 +25,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.viewpagerindicator.CirclePageIndicator
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlinx.android.synthetic.main.activity_all_tripzii.*
+import kotlinx.android.synthetic.main.activity_all_trip.*
 import kotlinx.android.synthetic.main.hamberger_bar.*
 import kotlinx.android.synthetic.main.nav_menu.*
 import kotlinx.android.synthetic.main.view_pager.*
 
-class AllTripziiActivity : AppCompatActivity() {
+class AllTripActivity : AppCompatActivity() {
 
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
 
@@ -45,13 +45,13 @@ class AllTripziiActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_all_tripzii)
+        setContentView(R.layout.activity_all_trip)
         imageModelArrayList = ArrayList()
         imageModelArrayList = populateList()
         init()
         setHamburgerButton()
         homeMenuTextView.setOnClickListener {
-            val intent = Intent(this, AllTripziiActivity::class.java)
+            val intent = Intent(this, AllTripActivity::class.java)
             startActivity(intent)
         }
         moneyMenuTextView.setOnClickListener {
@@ -210,7 +210,7 @@ class AllTripziiActivity : AppCompatActivity() {
                 }
                 val tripAdapter = TripAdapter(trip, onSelectItem = { trip ->
                     Log.d("alltrip", trip.toString())
-                    val intent = Intent(this@AllTripziiActivity, TripDetailsActivity::class.java)
+                    val intent = Intent(this@AllTripActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
                 })
@@ -220,7 +220,7 @@ class AllTripziiActivity : AppCompatActivity() {
                 tripAdapter.notifyDataSetChanged()
                 val tripPopularAdapter = TripAdapter(trip, onSelectItem = { trip ->
                     Log.d("PopularTrip", trip.toString())
-                    val intent = Intent(this@AllTripziiActivity, TripDetailsActivity::class.java)
+                    val intent = Intent(this@AllTripActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
                 })
@@ -230,7 +230,7 @@ class AllTripziiActivity : AppCompatActivity() {
                 tripPopularAdapter.notifyDataSetChanged()
                 val tripRecommendedAdapter = TripAdapter(trip, onSelectItem = { trip ->
                     Log.d("RecommendedTrip", trip.toString())
-                    val intent = Intent(this@AllTripziiActivity, TripDetailsActivity::class.java)
+                    val intent = Intent(this@AllTripActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
                 })

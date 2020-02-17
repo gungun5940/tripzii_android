@@ -2,6 +2,7 @@ package co.tripzii.station.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+
 @Parcelize
 data class TripModel(
     var tripId: String? = null,
