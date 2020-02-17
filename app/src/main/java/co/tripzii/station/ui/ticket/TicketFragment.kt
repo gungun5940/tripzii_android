@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
-import co.tripzii.station.AllTripziiActivity
+import co.tripzii.station.AllTripActivity
 import co.tripzii.station.HotelAccountActivity
 import co.tripzii.station.R
 import co.tripzii.station.TripDetailsActivity
@@ -57,13 +57,13 @@ class TicketFragment : Fragment() {
         imageModelArrayList = ArrayList()
         imageModelArrayList = populateList()
         init()
-        setHumburgerButton()
+        setHamburgerButton()
         homeMenuTextView.setOnClickListener {
-            val intent = Intent(activity, AllTripziiActivity::class.java)
+            val intent = Intent(activity, AllTripActivity::class.java)
             startActivity(intent)
         }
         moneyMenuTextView.setOnClickListener {
-            val builder = AlertDialog.Builder(AllTripziiActivity())
+            val builder = AlertDialog.Builder(AllTripActivity())
             builder.setTitle("Choose Currency")
             val currency = resources.getStringArray(R.array.currency_arrays)
             val checkedItem = 1 // cow
@@ -74,7 +74,7 @@ class TicketFragment : Fragment() {
             dialog.show()
         }
         translateMenuTextView.setOnClickListener {
-            val builder = AlertDialog.Builder(AllTripziiActivity())
+            val builder = AlertDialog.Builder(AllTripActivity())
             builder.setTitle("Language")
             val language = resources.getStringArray(R.array.language_arrys)
             val checkedItem = 1 // cow
@@ -90,7 +90,7 @@ class TicketFragment : Fragment() {
         }
     }
 
-    private fun setHumburgerButton() {
+    private fun setHamburgerButton() {
         drawerLayout = view!!.findViewById(R.id.drawerLayoutTicket)
         actionBarDrawerToggle = ActionBarDrawerToggle(
             activity
@@ -100,7 +100,7 @@ class TicketFragment : Fragment() {
         )
         actionBarDrawerToggle?.apply { drawerLayout.addDrawerListener(this) }
         imgMenu.setOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
-        imgFilter.setOnClickListener { val builder = AlertDialog.Builder(AllTripziiActivity())
+        imgFilter.setOnClickListener { val builder = AlertDialog.Builder(AllTripActivity())
             builder.setTitle("Sorted by")
             val tripFilter = resources.getStringArray(R.array.filter_trip)
             val checkedItem = 1 // cow

@@ -1,18 +1,18 @@
 package co.tripzii.station
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_reset_password.*
-import kotlinx.coroutines.delay
 
 class ResetPasswordActivity : AppCompatActivity() {
 
     private var auth = FirebaseAuth.getInstance()
+
     private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         supportActionBar?.title = "Reset my password"
         resetButton.setOnClickListener {
             changePassword()
-            progressBar.show(this,"Please Wait...")
+            progressBar.show(this, "Please Wait...")
             Handler().postDelayed({}, 2000)
         }
     }

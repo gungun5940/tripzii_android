@@ -1,8 +1,8 @@
 package co.tripzii.station
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import java.lang.Exception
 
@@ -15,18 +15,18 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
-        val background = object : Thread(){
+        val background = object : Thread() {
             override fun run() {
                 try {
                     Thread.sleep(1000)
-                    if (user != null){
-                        val intent = Intent(baseContext, AllTripziiActivity::class.java)
+                    if (user != null) {
+                        val intent = Intent(baseContext, AllTripActivity::class.java)
                         startActivity(intent)
-                    }else{
+                    } else {
                         val intent = Intent(baseContext, LoginActivity::class.java)
                         startActivity(intent)
                     }
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }

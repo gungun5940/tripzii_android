@@ -1,22 +1,20 @@
 package co.tripzii.station
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.tripzii.station.adapter.ReportCommissionAdapter
 import co.tripzii.station.model.ReportCommissionDAO
 import kotlinx.android.synthetic.main.activity_report_commission.*
 
-
 class ReportCommissionActivity : AppCompatActivity() {
 
     lateinit var adapter: ReportCommissionAdapter
-    lateinit var action: View.OnClickListener
 
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,10 +30,10 @@ class ReportCommissionActivity : AppCompatActivity() {
         )
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
         monthSpinner.adapter = adapter
-        monthSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent:AdapterView<*>, view: View, position: Int, id: Long){
+        monthSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
             }
-            override fun onNothingSelected(parent: AdapterView<*>){
+            override fun onNothingSelected(parent: AdapterView<*>) {
             }
         }
         val report = ArrayList<ReportCommissionDAO>()
