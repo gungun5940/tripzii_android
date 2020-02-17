@@ -1,6 +1,5 @@
 package co.tripzii.station
 
-
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -23,21 +22,21 @@ class TripDetailsActivity : AppCompatActivity() {
 
     lateinit var timelineAdapter: TimelineAdapter
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private var tripModel : TripModel? = null
+    private var tripModel: TripModel? = null
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trip_details)
-        arrow_back.setOnClickListener{
-            val intent = Intent(this@TripDetailsActivity,AllTripziiActivity::class.java)
+        arrow_back.setOnClickListener {
+            val intent = Intent(this@TripDetailsActivity, AllTripziiActivity::class.java)
             startActivity(intent)
         }
-        bookingButton.setOnClickListener{
-            val intent = Intent(this@TripDetailsActivity,BookingActivity::class.java)
+        bookingButton.setOnClickListener {
+            val intent = Intent(this@TripDetailsActivity, BookingActivity::class.java)
             startActivity(intent)
         }
         val getImgData = db.collection("alltrip")
-        getImgData.whereArrayContains("image","id")
+        getImgData.whereArrayContains("image", "id")
         tripModel = intent?.getParcelableExtra("trip") as? TripModel
         Log.d("alltrip", tripModel.toString())
         bindDataTripDetails(tripModel)
@@ -50,11 +49,11 @@ class TripDetailsActivity : AppCompatActivity() {
         val trip: MutableList<TripModel> = mutableListOf()
         val viewFlipper = findViewById<ViewFlipper>(R.id.tripDetailsImageViewFlipper)
         if (viewFlipper != null) {
-            viewFlipper.setInAnimation(this,R.anim.slide_in_rigth)
-            viewFlipper.setOutAnimation(this,R.anim.slide_out_left)
+            viewFlipper.setInAnimation(this, R.anim.slide_in_rigth)
+            viewFlipper.setOutAnimation(this, R.anim.slide_out_left)
         }
-        if (viewFlipper != null){
-            if (tripModel?.image != null){
+        if (viewFlipper != null) {
+            if (tripModel?.image != null) {
                 for (image in tripModel?.image!!) {
                     val imageView = ImageView(this)
                     val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -86,9 +85,9 @@ class TripDetailsActivity : AppCompatActivity() {
                         }
                     }
                 }
-                val interesthingTripAdapter = TripAdapter(trip, onSelectItem = {trip ->
+                val interesthingTripAdapter = TripAdapter(trip, onSelectItem = { trip ->
                     Log.d("interesthingTrip", trip.toString())
-                    val intent = Intent(this@TripDetailsActivity,TripDetailsActivity::class.java)
+                    val intent = Intent(this@TripDetailsActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
                 })
@@ -118,6 +117,3 @@ class TripDetailsActivity : AppCompatActivity() {
         accidentTextView.text = trip?.serviceAccident
     }
 }
-
-
-

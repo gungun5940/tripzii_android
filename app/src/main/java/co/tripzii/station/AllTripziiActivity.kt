@@ -23,42 +23,47 @@ import co.tripzii.station.ui.transfer.TransferFragment
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.viewpagerindicator.CirclePageIndicator
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlinx.android.synthetic.main.activity_all_tripzii.*
 import kotlinx.android.synthetic.main.hamberger_bar.*
 import kotlinx.android.synthetic.main.nav_menu.*
 import kotlinx.android.synthetic.main.view_pager.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class AllTripziiActivity : AppCompatActivity() {
 
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
+
     lateinit var drawerLayout: DrawerLayout
+
     private var imageModelArrayList: ArrayList<ImageModel>? = null
+
     private val myImageList = intArrayOf(R.drawable.img_doiinthanon, R.drawable.img_mist,
-        R.drawable.img_sea,R.drawable.img_temple,R.drawable.img_phiphi_island)
+        R.drawable.img_sea, R.drawable.img_temple, R.drawable.img_phiphi_island)
+
     private val db = FirebaseFirestore.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_tripzii)
+        imageModelArrayList = ArrayList()
+        imageModelArrayList = populateList()
+        init()
+        setHamburgerButton()
+        homeMenuTextView.setOnClickListener {
+            val intent = Intent(this, AllTripziiActivity::class.java)
+            startActivity(intent)
+        }
         moneyMenuTextView.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Choose Currency")
             val currency = resources.getStringArray(R.array.currency_arrays)
             val checkedItem = 1 // cow
             builder.setSingleChoiceItems(currency, checkedItem) { _, _ -> }
-            builder.setPositiveButton("OK") { _, _ ->}
+            builder.setPositiveButton("OK") { _, _ -> }
             builder.setNegativeButton("Cancel", null)
             val dialog = builder.create()
             dialog.show()
-        }
-        imageModelArrayList = ArrayList()
-        imageModelArrayList = populateList()
-        init()
-        setHumburgerButton()
-        homeMenuTextView.setOnClickListener {
-            val intent = Intent(this, AllTripziiActivity::class.java)
-            startActivity(intent)
         }
         translateMenuTextView.setOnClickListener {
             val builder = AlertDialog.Builder(this)
@@ -97,13 +102,10 @@ class AllTripziiActivity : AppCompatActivity() {
         }
     }
 
-    private fun setHumburgerButton() {
+    private fun setHamburgerButton() {
         drawerLayout = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
-            this
-            , drawerLayout
-            , R.string.navigation_drawer_open
-            , R.string.navigation_drawer_close
+            this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
         actionBarDrawerToggle?.apply { drawerLayout.addDrawerListener(this) }
         imgMenu.setOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
@@ -111,7 +113,6 @@ class AllTripziiActivity : AppCompatActivity() {
             builder.setTitle("Sorted by")
             val tripFilter = resources.getStringArray(R.array.filter_trip)
             val checkedItem = 1 // cow
-
             builder.setSingleChoiceItems(tripFilter, checkedItem) { _, _ -> }
             builder.setPositiveButton("OK") { _, _ -> }
             builder.setNegativeButton("Cancel", null)
@@ -119,7 +120,7 @@ class AllTripziiActivity : AppCompatActivity() {
             dialog.show() }
     }
 
-    private fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.drawerLayout, fragment)
         transaction.addToBackStack(null)
@@ -178,16 +179,16 @@ class AllTripziiActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
-        }else {
+        } else {
             super.onBackPressed()
         }
     }
 
     override fun onStart() {
         super.onStart()
-        val trip : MutableList<TripModel> = mutableListOf()
+        val trip: MutableList<TripModel> = mutableListOf()
         val getData = db.collection("alltrip")
         getData.get()
             .addOnCompleteListener { task ->
@@ -195,7 +196,7 @@ class AllTripziiActivity : AppCompatActivity() {
                     val item = ds.document.toObject(TripModel::class.java).apply {
                         tripId = ds.document.id
                     }
-                    when(ds.type) {
+                    when (ds.type) {
                         DocumentChange.Type.ADDED -> {
                             val items = trip.filter { it.tripId == item.tripId }
                             if (items.isEmpty()) item.let { trip.add(it) }
@@ -204,12 +205,12 @@ class AllTripziiActivity : AppCompatActivity() {
                             val index = trip.indexOfFirst { it.tripId == item.tripId }
                             item.apply { trip[index] = this }
                         }
-                        else ->{}
+                        else -> {}
                     }
                 }
                 val tripAdapter = TripAdapter(trip, onSelectItem = { trip ->
                     Log.d("alltrip", trip.toString())
-                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
+                    val intent = Intent(this@AllTripziiActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
                 })
@@ -217,9 +218,9 @@ class AllTripziiActivity : AppCompatActivity() {
                     RecyclerView.HORIZONTAL, false)
                 recyclerView.adapter = tripAdapter
                 tripAdapter.notifyDataSetChanged()
-                val tripPopularAdapter = TripAdapter(trip, onSelectItem = {trip ->
+                val tripPopularAdapter = TripAdapter(trip, onSelectItem = { trip ->
                     Log.d("PopularTrip", trip.toString())
-                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
+                    val intent = Intent(this@AllTripziiActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
                 })
@@ -227,9 +228,9 @@ class AllTripziiActivity : AppCompatActivity() {
                     RecyclerView.HORIZONTAL, false)
                 popularRecyclerView.adapter = tripPopularAdapter
                 tripPopularAdapter.notifyDataSetChanged()
-                val tripRecommendedAdapter = TripAdapter(trip, onSelectItem = {trip ->
+                val tripRecommendedAdapter = TripAdapter(trip, onSelectItem = { trip ->
                     Log.d("RecommendedTrip", trip.toString())
-                    val intent = Intent(this@AllTripziiActivity,TripDetailsActivity::class.java)
+                    val intent = Intent(this@AllTripziiActivity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)
                 })
@@ -240,4 +241,3 @@ class AllTripziiActivity : AppCompatActivity() {
             }
     }
 }
-

@@ -14,15 +14,17 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.zxing.WriterException
-import kotlinx.android.synthetic.main.activity_booking.*
 import java.util.*
+import kotlinx.android.synthetic.main.activity_booking.*
 
 class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     var numberAdults = 0
     var numberChild = 0
     private var checkOutButton: Button? = null
+
     private var pickupLocationTextInput: TextInputEditText? = null
+
     private val progressBar = ProgressBarActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,48 +38,48 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         selectDateAutoCompleteTextView.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(this,DatePickerDialog.OnDateSetListener
+            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener
             { datePicker, i, i2, i3 ->
-            selectDateAutoCompleteTextView.setText("" + i+ "/" + i2 + "/" + i3) },year,month,day)
+            selectDateAutoCompleteTextView.setText("" + i + "/" + i2 + "/" + i3) }, year, month, day)
             datePickerDialog.show()
         }
-        var packages = resources.getStringArray(R.array.packages)
-        var adapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,packages)
-        selectPackageAutoCompleteTextView.threshold=0
+        val packages = resources.getStringArray(R.array.packages)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, packages)
+        selectPackageAutoCompleteTextView.threshold = 0
         selectPackageAutoCompleteTextView.setAdapter(adapter)
         selectPackageAutoCompleteTextView.setOnClickListener {
             selectPackageAutoCompleteTextView.showDropDown() }
-        selectPackageAutoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
-                parent,view,position,id->
+        selectPackageAutoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener {
+                parent, view, position, id ->
             hideKeyboard()
             selectPackageAutoCompleteTextView.dismissDropDown()
             val selectedItem = parent.getItemAtPosition(position).toString()
-            Toast.makeText(applicationContext,"Selected : $selectedItem",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Selected : $selectedItem", Toast.LENGTH_SHORT).show()
         }
         selectPackageAutoCompleteTextView.setOnDismissListener {
-            Toast.makeText(applicationContext,"Suggestion closed.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Suggestion closed.", Toast.LENGTH_SHORT).show()
         }
-        selectPackageAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
-                view, b -> if(b){selectPackageAutoCompleteTextView.showDropDown()}
+        selectPackageAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener {
+                view, b -> if (b) { selectPackageAutoCompleteTextView.showDropDown() }
         }
-        var nationality = resources.getStringArray(R.array.nationality)
-        var nationailtyadapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,nationality)
-        nationalityAutoCompleteTextView.threshold=0
-        nationalityAutoCompleteTextView.setAdapter(nationailtyadapter)
+        val nationality = resources.getStringArray(R.array.nationality)
+        val nationalityAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, nationality)
+        nationalityAutoCompleteTextView.threshold = 0
+        nationalityAutoCompleteTextView.setAdapter(nationalityAdapter)
         nationalityAutoCompleteTextView.setOnClickListener {
             nationalityAutoCompleteTextView.showDropDown() }
-        nationalityAutoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener{
-                parent,view,position,id->
+        nationalityAutoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener {
+                parent, view, position, id ->
             hideKeyboard()
             nationalityAutoCompleteTextView.dismissDropDown()
             val selectedItem = parent.getItemAtPosition(position).toString()
-            Toast.makeText(applicationContext,"Selected : $selectedItem",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Selected : $selectedItem", Toast.LENGTH_SHORT).show()
         }
         nationalityAutoCompleteTextView.setOnDismissListener {
-            Toast.makeText(applicationContext,"Suggestion closed.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Suggestion closed.", Toast.LENGTH_SHORT).show()
         }
-        nationalityAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener{
-                view, b -> if(b){nationalityAutoCompleteTextView.showDropDown()}
+        nationalityAutoCompleteTextView.onFocusChangeListener = View.OnFocusChangeListener {
+                view, b -> if (b) { nationalityAutoCompleteTextView.showDropDown() }
         }
         val plus = findViewById<Button>(R.id.increaseAdultsButton)
         val minus = findViewById<Button>(R.id.decreaseAdultsButton)
@@ -89,29 +91,28 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
             decreaseInteger(minus)
         }
         checkOutButton!!.setOnClickListener {
-            if (pickupLocationTextInput!!.text.toString().trim { it <= ' ' }.length == 0) {
+            if (pickupLocationTextInput!!.text.toString().isEmpty()) {
                 Toast.makeText(this, "Enter String!", Toast.LENGTH_SHORT).show()
             } else {
                 try {
                     val intent = Intent(this, PaymentActivity::class.java)
-                    intent.putExtra("pickupLocation",""+ pickupLocationTextInput!!.getText().toString())
+                    intent.putExtra("pickupLocation", "" + pickupLocationTextInput!!.getText().toString())
                     startActivity(intent)
-
                 } catch (e: WriterException) {
                     e.printStackTrace()
                 }
             }
-            progressBar.show(this,"Checking out...")
+            progressBar.show(this, "Checking out...")
             Handler().postDelayed({}, 2000)
         }
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Please select") //To change body of created functions use File | Settings | File Templates.
+        TODO("Please select") // To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("Select item") //To change body of created functions use File | Settings | File Templates.
+        TODO("Select item") // To change body of created functions use File | Settings | File Templates.
     }
 
     fun Activity.hideKeyboard() {
@@ -165,5 +166,3 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         return super.onCreateOptionsMenu(menu)
     }
 }
-
-

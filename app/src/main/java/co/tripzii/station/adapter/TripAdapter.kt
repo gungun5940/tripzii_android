@@ -10,12 +10,10 @@ import co.tripzii.station.model.TripModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.trip_item.view.*
 
-
 class TripAdapter(
-    private var dataTrip : List<TripModel>,
-    private var onSelectItem:(trip: TripModel) -> Unit
-
-) : RecyclerView.Adapter<TripAdapter.TripHolder>(){
+    private var dataTrip: List<TripModel>,
+    private var onSelectItem: (trip: TripModel) -> Unit
+) : RecyclerView.Adapter<TripAdapter.TripHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripHolder {
         return TripHolder(
@@ -25,14 +23,14 @@ class TripAdapter(
     }
     override fun getItemCount() = dataTrip.size
 
-    override fun onBindViewHolder(holder:TripHolder, position: Int) {
+    override fun onBindViewHolder(holder: TripHolder, position: Int) {
         holder.bind(dataTrip[position])
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             onSelectItem.invoke(dataTrip[position])
         }
     }
 
-    class TripHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class TripHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(report: TripModel) {
             itemView.apply {
                 nameTripTextView.text = report.nametrip

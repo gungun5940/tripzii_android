@@ -1,8 +1,7 @@
 package co.tripzii.station
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.firebase.storage.FirebaseStorage
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_interesting_trip.*
 
 class InterestingTripActivity : AppCompatActivity() {

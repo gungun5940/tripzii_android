@@ -8,9 +8,9 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import androidx.annotation.NonNull
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import kotlinx.android.synthetic.main.activity_progress_bar.view.*
 
@@ -28,13 +28,13 @@ class ProgressBarActivity : AppCompatActivity() {
         if (title != null) {
             view.cp_title.text = title
         }
-        view.cp_bg_view.setBackgroundColor(Color.parseColor("#60000000")) //Background Color
-        view.cp_cardview.setCardBackgroundColor(Color.parseColor("#70000000")) //Box Color
+        view.cp_bg_view.setBackgroundColor(Color.parseColor("#60000000")) // Background Color
+        view.cp_cardview.setCardBackgroundColor(Color.parseColor("#70000000")) // Box Color
         setColorFilter(
             view.cp_pbar.indeterminateDrawable,
             ResourcesCompat.getColor(context.resources, R.color.colorPrimary, null)
-        ) //Progress Bar Color
-        view.cp_title.setTextColor(Color.WHITE) //Text Color
+        ) // Progress Bar Color
+        view.cp_title.setTextColor(Color.WHITE) // Text Color
 
         dialog = Dialog(context, R.style.CustomProgressBarTheme)
         dialog.setContentView(view)
