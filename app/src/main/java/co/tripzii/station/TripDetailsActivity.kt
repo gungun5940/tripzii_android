@@ -1,5 +1,6 @@
 package co.tripzii.station
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -17,14 +18,24 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_trip_details.*
+import kotlinx.android.synthetic.main.booking_bottom_bar.*
+import kotlinx.android.synthetic.main.trip_description.*
+import kotlinx.android.synthetic.main.trip_duration.*
+import kotlinx.android.synthetic.main.trip_include.*
+import kotlinx.android.synthetic.main.trip_interesting.*
+import kotlinx.android.synthetic.main.trip_remark.*
 
 class TripDetailsActivity : AppCompatActivity() {
 
     lateinit var timelineAdapter: TimelineAdapter
+
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
+
     private var tripModel: TripModel? = null
+
     private val progressBar = ProgressBarActivity()
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trip_details)
                 BackToHomePageButton.setOnClickListener {
@@ -102,11 +113,11 @@ class TripDetailsActivity : AppCompatActivity() {
                             Handler().postDelayed({}, 2000)
 
                         })
-                        interesthingTripRecycleView.layoutManager = LinearLayoutManager(
+                        interestingTripRecycleView.layoutManager = LinearLayoutManager(
                             this,
                             RecyclerView.HORIZONTAL, false
                         )
-                        interesthingTripRecycleView.adapter = interestingTripAdapter
+                        interestingTripRecycleView.adapter = interestingTripAdapter
                         interestingTripAdapter.notifyDataSetChanged()
                     }
             }

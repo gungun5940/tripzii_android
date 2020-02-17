@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.adapter.ReportCommissionAdapter
 import co.tripzii.station.model.ReportCommissionDAO
 import kotlinx.android.synthetic.main.activity_report_commission.*
@@ -16,7 +17,6 @@ class ReportCommissionActivity : AppCompatActivity() {
 
     lateinit var adapter: ReportCommissionAdapter
 
-    @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_commission)
@@ -43,7 +43,7 @@ class ReportCommissionActivity : AppCompatActivity() {
         report.add(ReportCommissionDAO("Bangkok", "14/02/2020", "6,500", "800"))
 
         val reportAdapter = ReportCommissionAdapter(report)
-        commissionRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        commissionRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         commissionRecyclerView.adapter = reportAdapter
     }
 }
