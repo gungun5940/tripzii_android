@@ -1,6 +1,5 @@
 package co.tripzii.station
 
-import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -87,20 +86,14 @@ class AllTripActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.navigation_activities -> {
                     replaceFragment(ActivitiesFragment())
-//                    val activitiesFragment = ActivitiesFragment.newInstance()
-//                    replaceFragment(activitiesFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_ticket -> {
-                    val ticketFragment = TicketFragment.newInstance()
-                    replaceFragment(ticketFragment)
-                    setHamburgerButton()
+                    replaceFragment(TicketFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_transfer -> {
-                    val transferFragment = TransferFragment.newInstance()
-                    replaceFragment(transferFragment)
-                    setHamburgerButton()
+                    replaceFragment(TransferFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
             }

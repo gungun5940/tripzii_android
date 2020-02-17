@@ -1,73 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#DFE0E0"
-    android:orientation="vertical">
+    android:id="@+id/containerTicket"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/contain">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:theme="@style/AppTheme.NoActionBar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="#DFE0E0"-->
+<!--        android:orientation="vertical"/>-->
 
-        <androidx.drawerlayout.widget.DrawerLayout
-            android:id="@+id/drawerLayoutTicket"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            tools:openDrawer="start">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="?attr/colorPrimary"
-                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/imgMenu"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/ic_hamberger_bar">
-                    </androidx.appcompat.widget.AppCompatImageView>
-                    <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="30dp"
-                        android:background="@drawable/ic_tripzii"
-                        android:gravity="center_horizontal">
-                    </TextView>
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/imgFilter"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/ic_filter"
-                        android:layout_marginStart="270dp">
-                    </androidx.appcompat.widget.AppCompatImageView>
-                </androidx.appcompat.widget.Toolbar>
-                <include
-                    layout="@layout/view_pager_ticket"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/toolbar"></include>
-            </RelativeLayout>
+<!--        <androidx.drawerlayout.widget.DrawerLayout-->
+<!--            android:id="@+id/drawerLayoutTicket"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:fitsSystemWindows="true"-->
+<!--            tools:openDrawer="start">-->
+<!--            <RelativeLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
 
-            <!--            <include layout="@layout/hamberger_bar"></include>-->
-            <com.google.android.material.navigation.NavigationView
-                android:id="@+id/navView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:fitsSystemWindows="true">
-                <include layout="@layout/activity_menu_bar"></include>
-            </com.google.android.material.navigation.NavigationView>
-        </androidx.drawerlayout.widget.DrawerLayout>
+<!--                <androidx.appcompat.widget.Toolbar-->
+<!--                    android:id="@+id/toolbarTicket"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="?attr/actionBarSize"-->
+<!--                    android:background="?attr/colorPrimary"-->
+<!--                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar">-->
+<!--                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                        android:id="@+id/imgMenuTicket"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:background="@drawable/ic_hamberger_bar">-->
+<!--                    </androidx.appcompat.widget.AppCompatImageView>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="110dp"-->
+<!--                        android:layout_height="35dp"-->
+<!--                        android:layout_marginStart="30dp"-->
+<!--                        android:background="@drawable/ic_tripzii"-->
+<!--                        android:gravity="center_horizontal">-->
+<!--                    </TextView>-->
+<!--                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                        android:id="@+id/imgFilterTicket"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:background="@drawable/ic_filter"-->
+<!--                        android:layout_marginStart="270dp">-->
+<!--                    </androidx.appcompat.widget.AppCompatImageView>-->
+<!--                </androidx.appcompat.widget.Toolbar>-->
+<!--                <include-->
+<!--                    layout="@layout/view_pager_ticket"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/toolbar"></include>-->
+<!--            </RelativeLayout>-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            &lt;!&ndash;            <include layout="@layout/hamberger_bar"></include>&ndash;&gt;-->
+<!--            <com.google.android.material.navigation.NavigationView-->
+<!--                android:id="@+id/navViewTicket"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:fitsSystemWindows="true">-->
+<!--                <include layout="@layout/activity_menu_bar"></include>-->
+<!--            </com.google.android.material.navigation.NavigationView>-->
+<!--        </androidx.drawerlayout.widget.DrawerLayout>-->
 
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/navBottomNavigationTicket"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="0dp"-->
+<!--            android:layout_marginEnd="0dp"-->
+<!--            android:background="?android:attr/windowBackground"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:menu="@menu/bottom_nav_menu" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 </RelativeLayout>
-
