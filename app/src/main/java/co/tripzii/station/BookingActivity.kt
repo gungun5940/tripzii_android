@@ -93,7 +93,7 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         }
         checkOutButton!!.setOnClickListener {
             if (pickupLocationTextInput!!.text.toString().isEmpty()) {
-                Toast.makeText(this, "Enter String!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill in information! ", Toast.LENGTH_SHORT).show()
             } else {
                 try {
                     val intent = Intent(this, PaymentActivity::class.java)
