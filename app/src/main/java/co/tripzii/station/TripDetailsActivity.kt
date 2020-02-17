@@ -50,8 +50,6 @@ class TripDetailsActivity : AppCompatActivity() {
                     progressBar.show(this, "Booking...")
                     Handler().postDelayed({}, 2000)
                 }
-                val getImgData = db.collection("alltrip")
-                getImgData.whereArrayContains("image", "id")
                 tripModel = intent?.getParcelableExtra("trip") as? TripModel
                 Log.d("alltrip", tripModel.toString())
                 bindDataTripDetails(tripModel)
@@ -121,6 +119,7 @@ class TripDetailsActivity : AppCompatActivity() {
                         interestingTripAdapter.notifyDataSetChanged()
                     }
             }
+
     private fun bindDataTripDetails(trip: TripModel?) {
         tripNameDetailsTextView.text = trip?.nametrip
         tripDetailsLocationTextView.text = trip?.provice
@@ -138,7 +137,7 @@ class TripDetailsActivity : AppCompatActivity() {
         guideTextView.text = trip?.serviceGuide
         accidentTextView.text = trip?.serviceAccident
     }
-        }
+}
 
 
 
