@@ -59,13 +59,19 @@ class TripDetailsActivity : AppCompatActivity() {
                         LinearLayoutManager(this, RecyclerView.VERTICAL, false)
                     timelineRecyclerView.adapter = timelineAdapter
                 }
-                val trip: MutableList<TripModel> = mutableListOf()
-                val viewFlipper = findViewById<ViewFlipper>(R.id.tripDetailsImageViewFlipper)
-                if (viewFlipper != null) {
-                    viewFlipper.setInAnimation(this, R.anim.slide_in_rigth)
-                    viewFlipper.setOutAnimation(this, R.anim.slide_out_left)
-                }
-                if (viewFlipper != null) {
+              val trip: MutableList<TripModel> = mutableListOf()
+              val mViewFlipper = findViewById<ViewFlipper>(R.id.tripDetailsImageViewFlipper)
+              arrowLeftButton.setOnClickListener {
+                  mViewFlipper.setInAnimation(this, R.anim.slide_in_rigth)
+                  mViewFlipper.setOutAnimation(this, R.anim.slide_out_left)
+                  mViewFlipper.showPrevious()
+              }
+              arrowRightButton.setOnClickListener {
+                  mViewFlipper.setInAnimation(this,R.anim.slide_in_left)
+                  mViewFlipper.setOutAnimation(this,R.anim.slide_out_rigth)
+                  mViewFlipper.showNext()
+              }
+                if (mViewFlipper != null) {
                     if (tripModel?.image != null) {
                         for (image in tripModel?.image!!) {
                             val imageView = ImageView(this)
@@ -77,7 +83,7 @@ class TripDetailsActivity : AppCompatActivity() {
                             imageView.layoutParams = layoutParams
                             Picasso.get().load(image.url).into(imageView)
                             imageView.scaleType = ImageView.ScaleType.FIT_XY
-                            viewFlipper.addView(imageView)
+                            mViewFlipper.addView(imageView)
                         }
                     }
                 }
@@ -119,7 +125,6 @@ class TripDetailsActivity : AppCompatActivity() {
                         interestingTripAdapter.notifyDataSetChanged()
                     }
             }
-
     private fun bindDataTripDetails(trip: TripModel?) {
         tripNameDetailsTextView.text = trip?.nametrip
         tripDetailsLocationTextView.text = trip?.provice
