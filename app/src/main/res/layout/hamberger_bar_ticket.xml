@@ -6,13 +6,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarTicket"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgMenu"
+            android:id="@+id/imgMenuTicket"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/ic_hamberger_bar">
@@ -25,7 +25,7 @@
             android:gravity="center_horizontal">
         </TextView>
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgFilter"
+            android:id="@+id/imgFilterTicket"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/ic_filter"
@@ -34,10 +34,9 @@
     </androidx.appcompat.widget.Toolbar>
 
     <include
-        layout="@layout/view_pager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="-395dp"></include>
+    layout="@layout/view_pager_ticket"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/toolbarTicket"></include>
 
 </RelativeLayout>
