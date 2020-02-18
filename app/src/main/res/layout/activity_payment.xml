@@ -207,7 +207,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="315dp"
             android:layout_marginTop="3dp"
-            android:text="฿ 2,000"
+            android:text="฿ 1,000"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -257,7 +257,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="315dp"
             android:layout_marginTop="3dp"
-            android:text="฿ 2,000"
+            android:text="฿ 900"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
