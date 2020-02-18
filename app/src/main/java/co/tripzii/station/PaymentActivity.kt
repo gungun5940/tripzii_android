@@ -45,6 +45,10 @@ class PaymentActivity : AppCompatActivity() {
             progressBar.show(this, "Confirming your trip...")
             Handler().postDelayed({}, 2000)
         }
+        conFirmButton.setOnClickListener {
+            val intent = Intent(this,PaymentSuccessActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun saveImage(myBitmap: Bitmap?): String {
