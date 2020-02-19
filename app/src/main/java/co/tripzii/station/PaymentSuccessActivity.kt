@@ -11,7 +11,8 @@ class PaymentSuccessActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment_success)
         backToMainPageButton.setOnClickListener {
-            val intent = Intent(this,AllTripActivity::class.java)
+            val intent = Intent(this, AllTripActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
     }
