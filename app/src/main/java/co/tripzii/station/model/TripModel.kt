@@ -10,6 +10,7 @@ data class TripModel(
     var price: String? = null,
     var rate: String? = null,
     val image: MutableList<Image>? = mutableListOf(),
+    val location: MutableList<Location>? = mutableListOf(),
     var category: String? = null,
     var countDate: String? = null,
     var description: String? = null,
@@ -18,8 +19,6 @@ data class TripModel(
     var durationType: String? = null,
     var include: String? = null,
     var remark: String? = null,
-    var longitude: String? = null,
-    var latitude: String? = null,
     var serviceFood: String? = null,
     var serviceGuide: String? = null,
     var serviceAccident: String? = null,
@@ -31,4 +30,10 @@ data class TripModel(
 data class Image(
     var id: String? = null,
     var url: String? = null
+) : Parcelable
+
+@Parcelize
+data class Location(
+    var longitude: String? = null,
+    var latitude: String? = null
 ) : Parcelable

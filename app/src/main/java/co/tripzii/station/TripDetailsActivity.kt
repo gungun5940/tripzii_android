@@ -1,20 +1,32 @@
 package co.tripzii.station
 
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.ViewFlipper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.adapter.TimelineAdapter
 import co.tripzii.station.adapter.TripAdapter
+import co.tripzii.station.model.Location
 import co.tripzii.station.model.TripModel
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.GeoPoint
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_trip_details.*
 import kotlinx.android.synthetic.main.booking_bottom_bar.*
@@ -24,7 +36,8 @@ import kotlinx.android.synthetic.main.trip_include.*
 import kotlinx.android.synthetic.main.trip_interesting.*
 import kotlinx.android.synthetic.main.trip_remark.*
 
-class TripDetailsActivity : AppCompatActivity() {
+
+class TripDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     lateinit var timelineAdapter: TimelineAdapter
 
@@ -33,11 +46,20 @@ class TripDetailsActivity : AppCompatActivity() {
     private var tripModel: TripModel? = null
 
     private val progressBar = ProgressBarActivity()
+    private lateinit var mMap: GoogleMap
 
-      override fun onCreate(savedInstanceState: Bundle?) {
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trip_details)
-                BackToHomePageButton.setOnClickListener {
+          val mapFragment = supportFragmentManager
+              .findFragmentById(R.id.map) as SupportMapFragment
+          mapFragment.getMapAsync(this)
+
+
+
+        BackToHomePageButton.setOnClickListener {
                     val intent = Intent(this@TripDetailsActivity, AllTripActivity::class.java)
                     startActivity(intent)
                     progressBar.show(this, "Please Wait...")
@@ -141,8 +163,29 @@ class TripDetailsActivity : AppCompatActivity() {
         guideTextView.text = trip?.serviceGuide
         accidentTextView.text = trip?.serviceAccident
     }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+
+
+
+        // Add a marker in Sydney and move the camera
+        val location = LatLng
+        mMap.addMarker(MarkerOptions().position(location))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location))
+        mMap.maxZoomLevel
+        mMap.isMyLocationEnabled
+        try {
+            val success = googleMap.setMapStyle(
+                MapStyleOptions.loadRawResourceStyle(
+                    this, R.raw.maps))
+            if (!success) {
+                Log.e("MapsActivity", "Style parsing failed.")
+            }
+        } catch (e: Resources.NotFoundException) {
+            Log.e("MapsActivity", "Can't find style. Error: ", e)
+        }
+    }
 }
-
-
 
 
