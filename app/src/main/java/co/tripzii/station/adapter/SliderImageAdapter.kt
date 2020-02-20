@@ -13,7 +13,7 @@ import co.tripzii.station.model.ImageModel
 class SliderImageAdapter(private val context: Context, private val myImageList: ArrayList<ImageModel>)
     : PagerAdapter() {
 
-      private var inflater: LayoutInflater? = null
+    private var inflater: LayoutInflater
     init {
         inflater = LayoutInflater.from(context)
     }

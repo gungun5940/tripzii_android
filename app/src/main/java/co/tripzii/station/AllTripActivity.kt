@@ -2,40 +2,17 @@ package co.tripzii.station
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
-import co.tripzii.station.adapter.SliderImageAdapter
-import co.tripzii.station.adapter.TripAdapter
-import co.tripzii.station.model.ImageModel
-import co.tripzii.station.model.TripModel
-import co.tripzii.station.ui.activities.ActivitiesFragment
-import co.tripzii.station.ui.ticket.TicketFragment
-import co.tripzii.station.ui.transfer.TransferFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.firestore.DocumentChange
-import com.google.firebase.firestore.FirebaseFirestore
-import com.viewpagerindicator.CirclePageIndicator
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlinx.android.synthetic.main.activity_all_trip.*
 import kotlinx.android.synthetic.main.hamberger_bar.*
 import kotlinx.android.synthetic.main.nav_menu.*
-import kotlinx.android.synthetic.main.view_pager.*
 
 class AllTripActivity : AppCompatActivity() {
 

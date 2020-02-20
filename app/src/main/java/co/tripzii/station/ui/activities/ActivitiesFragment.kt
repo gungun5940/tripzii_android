@@ -26,6 +26,12 @@ import kotlin.collections.ArrayList
 
 class ActivitiesFragment : Fragment() {
 
+//    private var viewPage: ViewPager? = null
+//
+//    private var currentPage = 0
+//
+//    private var numPage = 0
+
     private var imageModelArrayList: ArrayList<ImageModel>? = null
 
     private val myImageList = intArrayOf(R.drawable.img_doiinthanon, R.drawable.img_mist,
@@ -55,18 +61,18 @@ class ActivitiesFragment : Fragment() {
 
     private fun init() {
         viewPage = view?.findViewById(R.id.viewPager)
-        viewPage?.adapter = SliderImageAdapter(activity!!.applicationContext, imageModelArrayList!!)
+        viewPage!!.adapter = SliderImageAdapter(this.activity!!.applicationContext, imageModelArrayList!!)
         val indicator = view?.findViewById(R.id.indicator) as CirclePageIndicator
         indicator.setViewPager(viewPager)
         val density = resources.displayMetrics.density
         indicator.setRadius(4 * density)
-        NumPage = imageModelArrayList!!.size
+        numPage = imageModelArrayList!!.size
         val handler = Handler() // Auto start of viewpager
         val update = Runnable {
-            if (currentPage == NumPage) {
+            if (currentPage == numPage) {
                 currentPage = 0
             }
-            viewPage?.setCurrentItem(currentPage++, true)
+            viewPage!!.setCurrentItem(currentPage++, true)
         }
         val swipeTimer = Timer()
         swipeTimer.schedule(object : TimerTask() {
@@ -91,7 +97,7 @@ class ActivitiesFragment : Fragment() {
     companion object {
         private var viewPage: ViewPager? = null
         private var currentPage = 0
-        private var NumPage = 0
+        private var numPage = 0
     }
 
     override fun onStart() {
