@@ -42,6 +42,7 @@ class ActivitiesFragment : Fragment() {
         imageModelArrayList = populateList()
         init()
     }
+
     private fun populateList(): ArrayList<ImageModel> {
         val list = ArrayList<ImageModel>()
         for (i in 0..4) {
@@ -55,10 +56,10 @@ class ActivitiesFragment : Fragment() {
     private fun init() {
         viewPage = view?.findViewById(R.id.viewPager)
         viewPage?.adapter = SliderImageAdapter(activity!!.applicationContext, imageModelArrayList!!)
-//        val indicator = view!!.findViewById(R.id.indicator) as CirclePageIndicator
-//        indicator.setViewPager(viewPager)
-//        val density = resources.displayMetrics.density
-//        indicator.setRadius(4 * density)
+        val indicator = view?.findViewById(R.id.indicator) as CirclePageIndicator
+        indicator.setViewPager(viewPager)
+        val density = resources.displayMetrics.density
+        indicator.setRadius(4 * density)
         NumPage = imageModelArrayList!!.size
         val handler = Handler() // Auto start of viewpager
         val update = Runnable {
@@ -73,18 +74,18 @@ class ActivitiesFragment : Fragment() {
                 handler.post(update)
             }
         }, 3000, 3000)
-//        indicator.setOnPageChangeListener(object : ViewPager.OnPageChangeListener { // Pager listener over indicator
-//
-//            override fun onPageSelected(position: Int) {
-//                currentPage = position
-//            }
-//
-//            override fun onPageScrolled(pos: Int, arg1: Float, arg2: Int) {
-//            }
-//
-//            override fun onPageScrollStateChanged(pos: Int) {
-//            }
-//        })
+        indicator.setOnPageChangeListener(object : ViewPager.OnPageChangeListener { // Pager listener over indicator
+
+            override fun onPageSelected(position: Int) {
+                currentPage = position
+            }
+
+            override fun onPageScrolled(pos: Int, arg1: Float, arg2: Int) {
+            }
+
+            override fun onPageScrollStateChanged(pos: Int) {
+            }
+        })
     }
 
     companion object {
@@ -147,5 +148,4 @@ class ActivitiesFragment : Fragment() {
                 tripRecommendedAdapter.notifyDataSetChanged()
             }
     }
-
 }
