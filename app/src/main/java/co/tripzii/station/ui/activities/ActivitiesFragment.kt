@@ -26,12 +26,6 @@ import kotlin.collections.ArrayList
 
 class ActivitiesFragment : Fragment() {
 
-//    private var viewPage: ViewPager? = null
-//
-//    private var currentPage = 0
-//
-//    private var numPage = 0
-
     private var imageModelArrayList: ArrayList<ImageModel>? = null
 
     private val myImageList = intArrayOf(R.drawable.img_doiinthanon, R.drawable.img_mist,
@@ -39,30 +33,20 @@ class ActivitiesFragment : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_activities, container, false)
+    companion object {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        imageModelArrayList = ArrayList()
-        imageModelArrayList = populateList()
-        init()
+        private var viewPage: ViewPager? = null
+
+        private var currentPage = 0
+
+        private var numPage = 0
     }
 
-    private fun populateList(): ArrayList<ImageModel> {
-        val list = ArrayList<ImageModel>()
-        for (i in 0..4) {
-            val imageModel = ImageModel()
-            imageModel.setImageDrawables(myImageList[i])
-            list.add(imageModel)
-        }
-        return list
-    }
-
-    private fun init() {
-        viewPage = view?.findViewById(R.id.viewPager)
-        viewPage!!.adapter = SliderImageAdapter(this.activity!!.applicationContext, imageModelArrayList!!)
-        val indicator = view?.findViewById(R.id.indicator) as CirclePageIndicator
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_activities, container, false)
+        viewPage = view.findViewById(R.id.viewPager)
+        viewPage?.adapter = SliderImageAdapter(activity!!, imageModelArrayList!!)
+        val indicator = view.findViewById(R.id.indicator) as CirclePageIndicator
         indicator.setViewPager(viewPager)
         val density = resources.displayMetrics.density
         indicator.setRadius(4 * density)
@@ -72,7 +56,7 @@ class ActivitiesFragment : Fragment() {
             if (currentPage == numPage) {
                 currentPage = 0
             }
-            viewPage!!.setCurrentItem(currentPage++, true)
+            viewPage?.setCurrentItem(currentPage++, true)
         }
         val swipeTimer = Timer()
         swipeTimer.schedule(object : TimerTask() {
@@ -92,12 +76,23 @@ class ActivitiesFragment : Fragment() {
             override fun onPageScrollStateChanged(pos: Int) {
             }
         })
+        return view
     }
 
-    companion object {
-        private var viewPage: ViewPager? = null
-        private var currentPage = 0
-        private var numPage = 0
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        imageModelArrayList = ArrayList()
+        imageModelArrayList = populateList()
+    }
+
+    private fun populateList(): ArrayList<ImageModel> {
+        val list = ArrayList<ImageModel>()
+        for (i in 0..4) {
+            val imageModel = ImageModel()
+            imageModel.setImageDrawables(myImageList[i])
+            list.add(imageModel)
+        }
+        return list
     }
 
     override fun onStart() {
@@ -123,7 +118,7 @@ class ActivitiesFragment : Fragment() {
                     }
                 }
                 val tripAdapter = TripAdapter(trip, onSelectItem = { trip ->
-                    Log.d("alltrip", trip.toString())
+                    Log.d("trip", trip.toString())
                     val intent = Intent(activity, TripDetailsActivity::class.java)
                     intent.putExtra("trip", trip)
                     startActivity(intent)

@@ -28,7 +28,7 @@ class SliderImageAdapter(private val context: Context, private val myImageList: 
 
     override fun instantiateItem(view: ViewGroup, position: Int): Any {
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val imageLayout = inflater!!.inflate(R.layout.slider_images_layout, view, false)
+        val imageLayout = inflater.inflate(R.layout.slider_images_layout, view, false)
         val imageView = imageLayout.findViewById(R.id.imageView) as ImageView
         imageView.setImageResource(myImageList[position].getImageDrawables())
         view.addView(imageLayout, 0)

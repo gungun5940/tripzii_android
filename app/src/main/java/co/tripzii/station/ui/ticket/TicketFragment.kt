@@ -19,6 +19,7 @@ import co.tripzii.station.model.ImageModel
 import co.tripzii.station.model.TicketModel
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
+import com.viewpagerindicator.CirclePageIndicator
 import kotlinx.android.synthetic.main.view_pager_ticket.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -28,26 +29,60 @@ class TicketFragment : Fragment(){
     private var imageModelArrayList: ArrayList<ImageModel>? = null
 
     private val myImageList = intArrayOf(R.drawable.img_art, R.drawable.img_chiangmaizoo,
-        R.drawable.img_temple,R.drawable.img_thesea,R.drawable.img_fish)
+        R.drawable.img_draemworld,R.drawable.img_thesea,R.drawable.img_fish)
 
     private val db = FirebaseFirestore.getInstance()
 
     companion object {
+
         private var viewPageTicket: ViewPager? = null
+
         private var currentPageTicket = 0
-        private var NumPageTicket = 0
+
+        private var numPageTicket = 0
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root = inflater.inflate(R.layout.fragment_ticket, container, false)
-        return root
+        val view = inflater.inflate(R.layout.fragment_ticket, container, false)
+        viewPageTicket = view.findViewById(R.id.viewPagerTicket)
+        viewPageTicket?.adapter = SliderImageTicketAdapter(activity!!, imageModelArrayList!!)
+        val indicator = view.findViewById(R.id.indicatorTicket) as CirclePageIndicator
+        indicator.setViewPager(viewPagerTicket)
+        val density = resources.displayMetrics.density
+        indicator.setRadius(4 * density)
+        numPageTicket = imageModelArrayList!!.size
+        val handler = Handler() // Auto start of viewpager
+        val update = Runnable {
+            if (currentPageTicket == numPageTicket) {
+                currentPageTicket = 0
+            }
+            viewPageTicket!!.setCurrentItem(currentPageTicket++, true)
+        }
+        val swipeTimer = Timer()
+        swipeTimer.schedule(object : TimerTask() {
+            override fun run() {
+                handler.post(update)
+            }
+        }, 3000, 3000)
+        indicator.setOnPageChangeListener(object : ViewPager.OnPageChangeListener { // Pager listener over indicator
+
+            override fun onPageSelected(position: Int) {
+                currentPageTicket = position
+            }
+
+            override fun onPageScrolled(pos: Int, arg1: Float, arg2: Int) {
+            }
+
+            override fun onPageScrollStateChanged(pos: Int) {
+            }
+        })
+        return view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         imageModelArrayList = ArrayList()
         imageModelArrayList = populateList()
-        init()
     }
 
     private fun populateList(): ArrayList<ImageModel> {
@@ -60,40 +95,6 @@ class TicketFragment : Fragment(){
         return list
     }
 
-    private fun init() {
-        viewPageTicket = view?.findViewById(R.id.viewPagerTicket)
-        viewPageTicket?.adapter = SliderImageTicketAdapter(activity, imageModelArrayList!!)
-//        val indicatorTicket = view!!.findViewById(R.id.indicatorTicket) as CirclePageIndicator
-//        indicatorTicket.setViewPager(viewPagerTicket)
-//        val density = resources.displayMetrics.density
-//        indicatorTicket.setRadius(4 * density)
-        NumPageTicket = imageModelArrayList!!.size
-        val handlerTicket = Handler() // Auto start of viewpager
-        val updateTicket = Runnable {
-            if (currentPageTicket == NumPageTicket) {
-                currentPageTicket = 0
-            }
-            viewPageTicket?.setCurrentItem(currentPageTicket++, true)
-        }
-        val swipeTimer = Timer()
-        swipeTimer.schedule(object : TimerTask() {
-            override fun run() {
-                handlerTicket.post(updateTicket)
-            }
-        }, 3000, 3000)
-//        indicator.setOnPageChangeListener(object : ViewPager.OnPageChangeListener { // Pager listener over indicator
-//
-//            override fun onPageSelected(position: Int) {
-//                currentPageTicket = position
-//            }
-//
-//            override fun onPageScrolled(pos: Int, arg1: Float, arg2: Int) {
-//            }
-//
-//            override fun onPageScrollStateChanged(pos: Int) {
-//            }
-//        })
-    }
     override fun onStart() {
         super.onStart()
         val tripTicket : MutableList<TicketModel> = mutableListOf()
@@ -118,7 +119,7 @@ class TicketFragment : Fragment(){
                 }
                 val tripTicketAdapter = TripTicketAdapter(tripTicket, onSelectItem = { tripTicket ->
                     val intent = Intent(activity, TripDetailsActivity::class.java)
-                    intent.putExtra("trip", tripTicket)
+                    intent.putExtra("ticket", tripTicket)
                     startActivity(intent)
                 })
                 recyclerViewTicket.layoutManager = LinearLayoutManager(activity,
@@ -128,7 +129,7 @@ class TicketFragment : Fragment(){
                 val tripTicketPopularAdapter = TripTicketAdapter(tripTicket, onSelectItem = {tripTicket ->
                     Log.d("PopularTrip", tripTicket.toString())
                     val intent = Intent(activity, TripDetailsActivity::class.java)
-                    intent.putExtra("trip", tripTicket)
+                    intent.putExtra("ticket", tripTicket)
                     startActivity(intent)
                 })
                 popularTicketRecyclerView.layoutManager = LinearLayoutManager(activity,
@@ -137,7 +138,7 @@ class TicketFragment : Fragment(){
                 tripTicketPopularAdapter.notifyDataSetChanged()
                 val tripRecommendedTicketAdapter = TripTicketAdapter(tripTicket, onSelectItem = {tripTicket ->
                     val intent = Intent(activity, TripDetailsActivity::class.java)
-                    intent.putExtra("trip", tripTicket)
+                    intent.putExtra("ticket", tripTicket)
                     startActivity(intent)
                 })
                 recommendedTicketRecyclerView.layoutManager = LinearLayoutManager(activity,
