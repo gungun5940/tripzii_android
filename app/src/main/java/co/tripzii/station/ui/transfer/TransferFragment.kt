@@ -47,10 +47,12 @@ class TransferFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_transfer, container, false)
+        imageModelArrayList = ArrayList()
+        imageModelArrayList = populateList()
         viewPageTransfer = view.findViewById(R.id.viewPagerTransfer)
-        viewPageTransfer?.adapter = SliderImageTicketAdapter(activity!!, imageModelArrayList!!)
+        viewPageTransfer!!.adapter = SliderImageTicketAdapter(activity!!, imageModelArrayList!!)
         val indicator = view.findViewById(R.id.indicatorTransfer) as CirclePageIndicator
-        indicator.setViewPager(viewPagerTransfer)
+        indicator.setViewPager(viewPageTransfer)
         val density = resources.displayMetrics.density
         indicator.setRadius(4 * density)
         numPageTransfer = imageModelArrayList!!.size
@@ -80,12 +82,6 @@ class TransferFragment : Fragment() {
             }
         })
         return view
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        imageModelArrayList = ArrayList()
-        imageModelArrayList = populateList()
     }
 
     private fun populateList(): ArrayList<ImageModel> {

@@ -44,10 +44,12 @@ class TicketFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_ticket, container, false)
+        imageModelArrayList = ArrayList()
+        imageModelArrayList = populateList()
         viewPageTicket = view.findViewById(R.id.viewPagerTicket)
-        viewPageTicket?.adapter = SliderImageTicketAdapter(activity!!, imageModelArrayList!!)
+        viewPageTicket!!.adapter = SliderImageTicketAdapter(activity!!, imageModelArrayList!!)
         val indicator = view.findViewById(R.id.indicatorTicket) as CirclePageIndicator
-        indicator.setViewPager(viewPagerTicket)
+        indicator.setViewPager(viewPageTicket)
         val density = resources.displayMetrics.density
         indicator.setRadius(4 * density)
         numPageTicket = imageModelArrayList!!.size
@@ -63,7 +65,7 @@ class TicketFragment : Fragment(){
             override fun run() {
                 handler.post(update)
             }
-        }, 3000, 3000)
+        }, 3500, 3500)
         indicator.setOnPageChangeListener(object : ViewPager.OnPageChangeListener { // Pager listener over indicator
 
             override fun onPageSelected(position: Int) {
@@ -77,12 +79,6 @@ class TicketFragment : Fragment(){
             }
         })
         return view
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        imageModelArrayList = ArrayList()
-        imageModelArrayList = populateList()
     }
 
     private fun populateList(): ArrayList<ImageModel> {

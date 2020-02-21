@@ -44,10 +44,12 @@ class ActivitiesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_activities, container, false)
+        imageModelArrayList = ArrayList()
+        imageModelArrayList = populateList()
         viewPage = view.findViewById(R.id.viewPager)
-        viewPage?.adapter = SliderImageAdapter(activity!!, imageModelArrayList!!)
+        viewPage!!.adapter = SliderImageAdapter(activity!!, imageModelArrayList!!)
         val indicator = view.findViewById(R.id.indicator) as CirclePageIndicator
-        indicator.setViewPager(viewPager)
+        indicator.setViewPager(viewPage)
         val density = resources.displayMetrics.density
         indicator.setRadius(4 * density)
         numPage = imageModelArrayList!!.size
@@ -56,14 +58,14 @@ class ActivitiesFragment : Fragment() {
             if (currentPage == numPage) {
                 currentPage = 0
             }
-            viewPage?.setCurrentItem(currentPage++, true)
+            viewPage!!.setCurrentItem(currentPage++, true)
         }
         val swipeTimer = Timer()
         swipeTimer.schedule(object : TimerTask() {
             override fun run() {
                 handler.post(update)
             }
-        }, 3000, 3000)
+        }, 3500, 3500)
         indicator.setOnPageChangeListener(object : ViewPager.OnPageChangeListener { // Pager listener over indicator
 
             override fun onPageSelected(position: Int) {
@@ -77,12 +79,6 @@ class ActivitiesFragment : Fragment() {
             }
         })
         return view
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        imageModelArrayList = ArrayList()
-        imageModelArrayList = populateList()
     }
 
     private fun populateList(): ArrayList<ImageModel> {
