@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.adapter.TimelineAdapter
 import co.tripzii.station.adapter.TripAdapter
-import co.tripzii.station.model.Location
 import co.tripzii.station.model.TripModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -46,9 +45,8 @@ class TripDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var tripModel: TripModel? = null
 
     private val progressBar = ProgressBarActivity()
+
     private lateinit var mMap: GoogleMap
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,9 +54,6 @@ class TripDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
           val mapFragment = supportFragmentManager
               .findFragmentById(R.id.map) as SupportMapFragment
           mapFragment.getMapAsync(this)
-
-
-
         BackToHomePageButton.setOnClickListener {
                     val intent = Intent(this@TripDetailsActivity, AllTripActivity::class.java)
                     startActivity(intent)
@@ -72,7 +67,7 @@ class TripDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
                     Handler().postDelayed({}, 2000)
                 }
                 tripModel = intent?.getParcelableExtra("trip") as? TripModel
-                Log.d("alltrip", tripModel.toString())
+                Log.d("#######TripDetail######: " ,  tripModel.toString())
                 bindDataTripDetails(tripModel)
                 if (tripModel?.timeline != null) {
                     timelineAdapter = TimelineAdapter(tripModel?.timeline!!)
@@ -166,14 +161,9 @@ class TripDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-
-
-        // Add a marker in Sydney and move the camera
-        val location = LatLng
+        val location = LatLng(tripModel?.latitude!!.toDouble() , tripModel?.longitude!!.toDouble() )
         mMap.addMarker(MarkerOptions().position(location))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(location))
-        mMap.maxZoomLevel
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 18.0f))
         mMap.isMyLocationEnabled
         try {
             val success = googleMap.setMapStyle(
