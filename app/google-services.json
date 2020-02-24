@@ -1,29 +1,21 @@
 {
   "project_info": {
-    "project_number": "992280378028",
-    "firebase_url": "https://testtripziistation.firebaseio.com",
-    "project_id": "testtripziistation",
-    "storage_bucket": "testtripziistation.appspot.com"
+    "project_number": "960178384981",
+    "firebase_url": "https://tripzii-station-533b3.firebaseio.com",
+    "project_id": "tripzii-station-533b3",
+    "storage_bucket": "tripzii-station-533b3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:992280378028:android:59bfaa52157ac6497ffd09",
+        "mobilesdk_app_id": "1:960178384981:android:43a1ca34882c7e5defa4dc",
         "android_client_info": {
           "package_name": "co.tripzii.station"
         }
       },
       "oauth_client": [
         {
-          "client_id": "992280378028-bm9num91bnv11g4acem17ta3t2urk00n.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "co.tripzii.station",
-            "certificate_hash": "ae56139ad84a0c2f8a39b4931aaedb53ad557b4f"
-          }
-        },
-        {
-          "client_id": "992280378028-iihro6omf9hfiih36e5g4p0t1lijpph9.apps.googleusercontent.com",
+          "client_id": "960178384981-6lqucei4st3qmlf2bd70mudul3eiae31.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "co.tripzii.station",
@@ -31,20 +23,20 @@
           }
         },
         {
-          "client_id": "992280378028-ffm13u1077qr6mjjm427p8fl5eicm1eq.apps.googleusercontent.com",
+          "client_id": "960178384981-b5ie51ch2ofphnvfb6nvop8njgp11qsi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCDnRtVo1Kn0KY93cHNeB9xvLC0RdHFt_4"
+          "current_key": "AIzaSyDoR1ywK_AYJVXLaanswH5K572fL4BZZB0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "992280378028-ffm13u1077qr6mjjm427p8fl5eicm1eq.apps.googleusercontent.com",
+              "client_id": "960178384981-b5ie51ch2ofphnvfb6nvop8njgp11qsi.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
