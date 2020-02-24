@@ -36,7 +36,7 @@ import kotlinx.android.synthetic.main.trip_interesting.*
 import kotlinx.android.synthetic.main.trip_remark.*
 
 
-class TripDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
+class TripDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
 
     lateinit var timelineAdapter: TimelineAdapter
 

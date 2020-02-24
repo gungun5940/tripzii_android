@@ -27,11 +27,6 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_transfer_details.*
-import kotlinx.android.synthetic.main.activity_trip_details.*
-import kotlinx.android.synthetic.main.activity_trip_details.BackToHomePageButton
-import kotlinx.android.synthetic.main.activity_trip_details.arrowLeftButton
-import kotlinx.android.synthetic.main.activity_trip_details.arrowRightButton
-import kotlinx.android.synthetic.main.booking_bottom_bar.bookingButton
 import kotlinx.android.synthetic.main.tarnsfer_booking_bottom_bar.*
 import kotlinx.android.synthetic.main.transfer_description.*
 import kotlinx.android.synthetic.main.transfer_duration.*
@@ -43,6 +38,7 @@ import kotlinx.android.synthetic.main.transfer_remark.*
 class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
 
     lateinit var transferTimelineAdapter: TransferTimelineAdapter
+
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private var transferModel: TransferModel? = null
@@ -57,13 +53,13 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        BackToHomePageButton.setOnClickListener {
+        transferBackToHomePageButton.setOnClickListener {
             val intent = Intent(this@TransferDetailsActivity , AllTripActivity::class.java)
             startActivity(intent)
             progressBar.show(this, "Please Wait...")
             Handler().postDelayed({}, 2000)
         }
-        bookingButton.setOnClickListener {
+        transferBookingButton.setOnClickListener {
             val intent = Intent(this@TransferDetailsActivity , BookingActivity::class.java)
             startActivity(intent)
             progressBar.show(this, "Booking...")
@@ -79,12 +75,12 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
         }
         val transfer: MutableList<TransferModel> = mutableListOf()
         val mViewFlipper = findViewById<ViewFlipper>(R.id.transferDetailsImageViewFlipper)
-        arrowLeftButton.setOnClickListener {
+        transferArrowLeftButton.setOnClickListener {
             mViewFlipper.setInAnimation(this, R.anim.slide_in_rigth)
             mViewFlipper.setOutAnimation(this, R.anim.slide_out_left)
             mViewFlipper.showPrevious()
         }
-        arrowRightButton.setOnClickListener {
+        transferArrowRightButton.setOnClickListener {
             mViewFlipper.setInAnimation(this,R.anim.slide_in_left)
             mViewFlipper.setOutAnimation(this,R.anim.slide_out_rigth)
             mViewFlipper.showNext()
@@ -129,7 +125,7 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
                     Log.d("interesting transfer service", transfer.toString())
                     val intent =
                         Intent(this@TransferDetailsActivity
-                            , TripDetailsActivity::class.java)
+                            , TransferDetailsActivity::class.java)
                     intent.putExtra("transfer", transfer)
                     startActivity(intent)
                     progressBar.show(this, "Please Wait...")

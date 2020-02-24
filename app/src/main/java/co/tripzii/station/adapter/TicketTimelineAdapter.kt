@@ -14,7 +14,7 @@ class TicketTimelineAdapter ( private val dataTicketTimeline: List<TicketTimelin
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TicketTimelineViewHolder {
         return TicketTimelineViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.transfer_timeline, parent, false)
+                .inflate(R.layout.ticket_timeline, parent, false)
         )
     }
     override fun getItemCount() = dataTicketTimeline.size

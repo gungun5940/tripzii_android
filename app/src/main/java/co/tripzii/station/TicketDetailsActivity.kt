@@ -27,11 +27,6 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_ticket_details.*
-import kotlinx.android.synthetic.main.activity_transfer_details.*
-import kotlinx.android.synthetic.main.activity_trip_details.BackToHomePageButton
-import kotlinx.android.synthetic.main.activity_trip_details.arrowLeftButton
-import kotlinx.android.synthetic.main.activity_trip_details.arrowRightButton
-import kotlinx.android.synthetic.main.booking_bottom_bar.bookingButton
 import kotlinx.android.synthetic.main.ticket_booking_bottom_bar.*
 import kotlinx.android.synthetic.main.ticket_description.*
 import kotlinx.android.synthetic.main.ticket_duration.*
@@ -41,7 +36,8 @@ import kotlinx.android.synthetic.main.ticket_remark.*
 
 class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
 
-    lateinit var ticketTimelineAdapter:TicketTimelineAdapter
+    lateinit var ticketTimelineAdapter: TicketTimelineAdapter
+
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private var ticketModel: TicketModel? = null
@@ -56,13 +52,13 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        BackToHomePageButton.setOnClickListener {
-            val intent = Intent(this@TicketDetailsActivity , AllTripActivity::class.java)
+        ticketDetailsBackToHomePageButton.setOnClickListener {
+            val intent = Intent(this@TicketDetailsActivity ,AllTripActivity ::class.java)
             startActivity(intent)
             progressBar.show(this, "Please Wait...")
             Handler().postDelayed({}, 2000)
         }
-        bookingButton.setOnClickListener {
+        ticketBookingButton.setOnClickListener {
             val intent = Intent(this@TicketDetailsActivity , BookingActivity::class.java)
             startActivity(intent)
             progressBar.show(this, "Booking...")
@@ -74,16 +70,16 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
         if (ticketModel?.ticketTimeline != null) {
             ticketTimelineAdapter = TicketTimelineAdapter(ticketModel?.ticketTimeline!!)
             LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-            transferTimelineRecyclerView.adapter = ticketTimelineAdapter
+            ticketTimelineRecyclerView.adapter = ticketTimelineAdapter
         }
         val ticket: MutableList<TicketModel> = mutableListOf()
-        val mViewFlipper = findViewById<ViewFlipper>(R.id.transferDetailsImageViewFlipper)
-        arrowLeftButton.setOnClickListener {
+        val mViewFlipper = findViewById<ViewFlipper>(R.id.ticketDetailsImageViewFlipper)
+        ticketDetailsArrowLeftButton.setOnClickListener {
             mViewFlipper.setInAnimation(this, R.anim.slide_in_rigth)
             mViewFlipper.setOutAnimation(this, R.anim.slide_out_left)
             mViewFlipper.showPrevious()
         }
-        arrowRightButton.setOnClickListener {
+        ticketDetailsArrowRightButton.setOnClickListener {
             mViewFlipper.setInAnimation(this,R.anim.slide_in_left)
             mViewFlipper.setOutAnimation(this,R.anim.slide_out_rigth)
             mViewFlipper.showNext()
@@ -126,9 +122,8 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
                 }
                 val interestingTripTicketAdapter = TripTicketAdapter(ticket , onSelectItem = { ticket ->
                     Log.d("interesting transfer service", ticket.toString())
-                    val intent =
-                        Intent(this@TicketDetailsActivity
-                            , TripDetailsActivity::class.java)
+                    val intent = Intent(this@TicketDetailsActivity,
+                        TicketDetailsActivity::class.java)
                     intent.putExtra("ticket", ticket)
                     startActivity(intent)
                     progressBar.show(this, "Please Wait...")

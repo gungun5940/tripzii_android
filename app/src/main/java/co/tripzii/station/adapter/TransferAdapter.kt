@@ -17,26 +17,26 @@ import kotlinx.android.synthetic.main.trip_ticket_item.view.rateTicketTextView
 
 class TransferAdapter(
     private var dataTransfer : List<TransferModel>,
-    private var onSelectItem:(trip: TransferModel) -> Unit
+    private var onSelectItem:(transfer: TransferModel) -> Unit
 
-) : RecyclerView.Adapter<TransferAdapter.TripHolder>(){
+) : RecyclerView.Adapter<TransferAdapter.TransferHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripHolder {
-        return TripHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransferHolder {
+        return TransferHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.transfer_item, parent, false)
         )
     }
     override fun getItemCount() = dataTransfer.size
 
-    override fun onBindViewHolder(holder:TripHolder, position: Int) {
+    override fun onBindViewHolder(holder:TransferHolder, position: Int) {
         holder.bind(dataTransfer[position])
         holder.itemView.setOnClickListener{
             onSelectItem.invoke(dataTransfer[position])
         }
     }
 
-    class TripHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class TransferHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(report: TransferModel) {
             itemView.apply {
                 nameTransferTextView.text = report.nametransfer

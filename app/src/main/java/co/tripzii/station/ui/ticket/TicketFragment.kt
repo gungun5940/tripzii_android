@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import co.tripzii.station.R
+import co.tripzii.station.TicketDetailsActivity
 import co.tripzii.station.TripDetailsActivity
 import co.tripzii.station.adapter.SliderImageTicketAdapter
 import co.tripzii.station.adapter.TripTicketAdapter
@@ -114,7 +115,7 @@ class TicketFragment : Fragment(){
                     }
                 }
                 val tripTicketAdapter = TripTicketAdapter(tripTicket, onSelectItem = { tripTicket ->
-                    val intent = Intent(activity, TripDetailsActivity::class.java)
+                    val intent = Intent(activity, TicketDetailsActivity::class.java)
                     intent.putExtra("ticket", tripTicket)
                     startActivity(intent)
                 })
@@ -124,7 +125,7 @@ class TicketFragment : Fragment(){
                 tripTicketAdapter.notifyDataSetChanged()
                 val tripTicketPopularAdapter = TripTicketAdapter(tripTicket, onSelectItem = {tripTicket ->
                     Log.d("PopularTrip", tripTicket.toString())
-                    val intent = Intent(activity, TripDetailsActivity::class.java)
+                    val intent = Intent(activity, TicketDetailsActivity::class.java)
                     intent.putExtra("ticket", tripTicket)
                     startActivity(intent)
                 })
@@ -133,7 +134,7 @@ class TicketFragment : Fragment(){
                 popularTicketRecyclerView.adapter = tripTicketPopularAdapter
                 tripTicketPopularAdapter.notifyDataSetChanged()
                 val tripRecommendedTicketAdapter = TripTicketAdapter(tripTicket, onSelectItem = {tripTicket ->
-                    val intent = Intent(activity, TripDetailsActivity::class.java)
+                    val intent = Intent(activity, TicketDetailsActivity::class.java)
                     intent.putExtra("ticket", tripTicket)
                     startActivity(intent)
                 })

@@ -24,7 +24,7 @@
                     android:flipInterval="5000"/>
 
                 <TextView
-                    android:id="@+id/BackToHomePageButton"
+                    android:id="@+id/transferBackToHomePageButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true">
                     <TextView
-                        android:id="@+id/arrowLeftButton"
+                        android:id="@+id/transferArrowLeftButton"
                         android:layout_width="140dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="120dp"
@@ -47,7 +47,7 @@
                         android:layout_weight="1">
                     </TextView>
                     <TextView
-                        android:id="@+id/arrowRightButton"
+                        android:id="@+id/transferArrowRightButton"
                         android:layout_width="140dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="120dp"

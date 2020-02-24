@@ -15,8 +15,6 @@ data class TicketModel (
     var durationSchedule: String? = null,
     var duration: String? = null,
     var durationType:String? = null,
-
-    
     var include: String? = null,
     var remark: String? = null,
     var longitude: String? = null,
