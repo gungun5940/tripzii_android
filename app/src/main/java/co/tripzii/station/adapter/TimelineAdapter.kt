@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.R
 import co.tripzii.station.model.TimelineDAO
-import kotlinx.android.synthetic.main.list_commission.view.*
 import kotlinx.android.synthetic.main.timeline.view.*
 
 class TimelineAdapter(val dataTimeline: List<TimelineDAO>) : RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder>() {
@@ -24,7 +23,6 @@ class TimelineAdapter(val dataTimeline: List<TimelineDAO>) : RecyclerView.Adapte
         holder.itemView.setOnClickListener {
         }
     }
-
     class TimelineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(report: TimelineDAO) {
             itemView.apply {

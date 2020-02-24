@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import co.tripzii.station.R
+import co.tripzii.station.TransferDetailsActivity
 import co.tripzii.station.TripDetailsActivity
 import co.tripzii.station.adapter.SliderImageTicketAdapter
 import co.tripzii.station.adapter.TransferAdapter
@@ -117,7 +118,7 @@ class TransferFragment : Fragment() {
                     }
                 }
                 val transferAdapter = TransferAdapter(transfer, onSelectItem = { transfer ->
-                    val intent = Intent(activity, TripDetailsActivity::class.java)
+                    val intent = Intent(activity, TransferDetailsActivity::class.java)
                     intent.putExtra("transfer", transfer)
                     startActivity(intent)
                 })
@@ -127,7 +128,7 @@ class TransferFragment : Fragment() {
                 transferAdapter.notifyDataSetChanged()
                 val transferPopularAdapter = TransferAdapter(transfer, onSelectItem = {transfer ->
                     Log.d("PopularTransfer", transfer.toString())
-                    val intent = Intent(activity, TripDetailsActivity::class.java)
+                    val intent = Intent(activity, TransferDetailsActivity::class.java)
                     intent.putExtra("transfer", transfer)
                     startActivity(intent)
                 })
@@ -136,7 +137,7 @@ class TransferFragment : Fragment() {
                 popularTransferRecyclerView.adapter = transferPopularAdapter
                 transferPopularAdapter.notifyDataSetChanged()
                 val recommendedTransferAdapter = TransferAdapter(transfer, onSelectItem = {transfer ->
-                    val intent = Intent(activity, TripDetailsActivity::class.java)
+                    val intent = Intent(activity, TransferDetailsActivity::class.java)
                     intent.putExtra("transfer", transfer)
                     startActivity(intent)
                 })

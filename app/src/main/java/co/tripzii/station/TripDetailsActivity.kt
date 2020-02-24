@@ -67,7 +67,7 @@ class TripDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
                     Handler().postDelayed({}, 2000)
                 }
                 tripModel = intent?.getParcelableExtra("trip") as? TripModel
-                Log.d("#######TripDetail######: " ,  tripModel.toString())
+                Log.d("TripDetail: " ,  tripModel.toString())
                 bindDataTripDetails(tripModel)
                 if (tripModel?.timeline != null) {
                     timelineAdapter = TimelineAdapter(tripModel?.timeline!!)
@@ -143,7 +143,7 @@ class TripDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
     private fun bindDataTripDetails(trip: TripModel?) {
         tripNameDetailsTextView.text = trip?.nametrip
-        tripDetailsLocationTextView.text = trip?.provice
+        tripDetailsLocationTextView.text = trip?.province
         tripRateTextView.text = trip?.rate
         tripPriceTextView.text = trip?.price
         tripDayTextView.text = trip?.countDate

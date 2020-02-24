@@ -9,21 +9,21 @@ data class TransferModel (
     var price: String? = null,
     var rate: String? = null,
     val image: MutableList<ImageTransfer>? = mutableListOf(),
-//    var category: String? = null,
-//    var countDate: String? = null,
-//    var description: String? = null,
-//    var durationSchedule: String? = null,
-//    var duration: String? = null,
-//    var durationType:String? = null,
-//    var include: String? = null,
-//    var remark: String? = null,
-//    var longitude: String? = null,
-//    var latitude: String? = null,
-//    var serviceFood: String? = null,
-//    var serviceGuide: String? = null,
-//    var serviceAccident: String? = null,
-    var province: String? = null
-//    var timeline : List<TimelineDAO>? = null
+    var category: String? = null,
+    var countDate: String? = null,
+    var description: String? = null,
+    var durationSchedule: String? = null,
+    var duration: String? = null,
+    var durationType:String? = null,
+    var include: String? = null,
+    var remark: String? = null,
+    var longitude: String? = null,
+    var latitude: String? = null,
+    var serviceFood: String? = null,
+    var serviceGuide: String? = null,
+    var serviceAccident: String? = null,
+    var province: String? = null,
+    var transferTimeline : List<TransferTimelineDAO>? = null
 ) : Parcelable
 @Parcelize
 data class ImageTransfer(
