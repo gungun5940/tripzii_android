@@ -8,7 +8,7 @@ data class TransferModel (
     var nametransfer: String? = null,
     var price: String? = null,
     var rate: String? = null,
-    val image: MutableList<ImageTransfer>? = mutableListOf(),
+    var image: MutableList<ImageTransfer>? = mutableListOf(),
     var category: String? = null,
     var countDate: String? = null,
     var description: String? = null,

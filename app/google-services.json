@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "960178384981",
-    "firebase_url": "https://tripzii-station-533b3.firebaseio.com",
-    "project_id": "tripzii-station-533b3",
-    "storage_bucket": "tripzii-station-533b3.appspot.com"
+    "project_number": "308121129602",
+    "firebase_url": "https://tripzii-station-11662.firebaseio.com",
+    "project_id": "tripzii-station-11662",
+    "storage_bucket": "tripzii-station-11662.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:960178384981:android:43a1ca34882c7e5defa4dc",
+        "mobilesdk_app_id": "1:308121129602:android:c0f3bf7498d3abe157da9b",
         "android_client_info": {
           "package_name": "co.tripzii.station"
         }
       },
       "oauth_client": [
         {
-          "client_id": "960178384981-6lqucei4st3qmlf2bd70mudul3eiae31.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "co.tripzii.station",
-            "certificate_hash": "8e214cf6240747ce805cc838b089ff4d3147a9d0"
-          }
-        },
-        {
-          "client_id": "960178384981-b5ie51ch2ofphnvfb6nvop8njgp11qsi.apps.googleusercontent.com",
+          "client_id": "308121129602-lfrddbqbu9vn69e9rivm54seqhev6u52.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDoR1ywK_AYJVXLaanswH5K572fL4BZZB0"
+          "current_key": "AIzaSyDvdr7T9rVjct-zlxcUPNK2Z51gb9XQEaI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "960178384981-b5ie51ch2ofphnvfb6nvop8njgp11qsi.apps.googleusercontent.com",
+              "client_id": "308121129602-lfrddbqbu9vn69e9rivm54seqhev6u52.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

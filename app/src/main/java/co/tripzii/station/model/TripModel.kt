@@ -9,7 +9,7 @@ data class TripModel(
     var nametrip: String? = null,
     var price: String? = null,
     var rate: String? = null,
-    val image: MutableList<Image>? = mutableListOf(),
+    var image: MutableList<Image>? = mutableListOf(),
     var category: String? = null,
     var latitude: String? = null,
     var longitude: String? = null,

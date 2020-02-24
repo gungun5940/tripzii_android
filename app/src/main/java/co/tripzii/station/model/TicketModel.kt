@@ -8,7 +8,7 @@ data class TicketModel (
     var nameticket: String? = null,
     var price: String? = null,
     var rate: String? = null,
-    val image: MutableList<ImageTicket>? = mutableListOf(),
+    var image: MutableList<ImageTicket>? = mutableListOf(),
     var category: String? = null,
     var countDate: String? = null,
     var description: String? = null,
