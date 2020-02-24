@@ -9,7 +9,7 @@ data class TripModel(
     var nametrip: String? = null,
     var price: String? = null,
     var rate: String? = null,
-    var image: MutableList<Image>? = mutableListOf(),
+    val image: MutableList<Image>? = mutableListOf(),
     var category: String? = null,
     var latitude: String? = null,
     var longitude: String? = null,
@@ -23,6 +23,7 @@ data class TripModel(
     var serviceFood: String? = null,
     var serviceGuide: String? = null,
     var serviceAccident: String? = null,
+    var servicePickup: String? = null,
     var province: String? = null,
     var timeline: List<TimelineDAO>? = null
 ) : Parcelable

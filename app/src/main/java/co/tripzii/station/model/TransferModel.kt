@@ -8,7 +8,7 @@ data class TransferModel (
     var nametransfer: String? = null,
     var price: String? = null,
     var rate: String? = null,
-    var image: MutableList<ImageTransfer>? = mutableListOf(),
+    val image: MutableList<ImageTransfer>? = mutableListOf(),
     var category: String? = null,
     var countDate: String? = null,
     var description: String? = null,
@@ -22,6 +22,7 @@ data class TransferModel (
     var serviceFood: String? = null,
     var serviceGuide: String? = null,
     var serviceAccident: String? = null,
+    var servicePickup: String? = null,
     var province: String? = null,
     var transferTimeline : List<TransferTimelineDAO>? = null
 ) : Parcelable

@@ -8,7 +8,7 @@ data class TicketModel (
     var nameticket: String? = null,
     var price: String? = null,
     var rate: String? = null,
-    var image: MutableList<ImageTicket>? = mutableListOf(),
+    val image: MutableList<ImageTicket>? = mutableListOf(),
     var category: String? = null,
     var countDate: String? = null,
     var description: String? = null,
@@ -22,6 +22,7 @@ data class TicketModel (
     var serviceFood: String? = null,
     var serviceGuide: String? = null,
     var serviceAccident: String? = null,
+    var servicePickup: String? = null,
     var province: String? = null,
     var ticketTimeline : List<TicketTimelineDAO>? = null
 ) : Parcelable
