@@ -9,7 +9,7 @@ data class TripModel(
     var nametrip: String? = null,
     var price: String? = null,
     var rate: String? = null,
-    val image: MutableList<ImageDAO>? = mutableListOf(),
+    val image: MutableList<ImageTrip>? = mutableListOf(),
     var category: String? = null,
     var latitude: String? = null,
     var longitude: String? = null,
@@ -29,7 +29,7 @@ data class TripModel(
 ) : Parcelable
 
 @Parcelize
-data class ImageDAO(
+data class ImageTrip(
     var id: String? = null,
     var url: String? = null
 ) : Parcelable
