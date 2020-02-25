@@ -154,7 +154,7 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
         transferRemarkTextView.text = transfer?.remark
         transferTotalPriceTextView.text = transfer?.price
         transferFoodTextView.text = transfer?.serviceFood
-        transferServiceTextView.text = transfer?.serviceGuide
+        transferServiceTextView.text = transfer?.serviceTransfer
         transferAccidentTextView.text = transfer?.serviceAccident
     }
     override fun onMapReady(googleMap: GoogleMap) {

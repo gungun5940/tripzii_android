@@ -20,6 +20,7 @@ data class TicketModel (
     var longitude: String? = null,
     var latitude: String? = null,
     var serviceFood: String? = null,
+    var servicePickup: String? = null,
     var serviceGuide: String? = null,
     var serviceAccident: String? = null,
     var province: String? = null,

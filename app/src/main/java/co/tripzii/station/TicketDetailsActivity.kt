@@ -152,6 +152,7 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
         ticketRemarkTextView.text = ticket?.remark
         ticketTotalPriceTextView.text = ticket?.price
         ticketFoodTextView.text = ticket?.serviceFood
+        ticketPickupTextView.text = ticket?.servicePickup
         ticketGuideTextView.text = ticket?.serviceGuide
         ticketAccidentTextView.text = ticket?.serviceAccident
     }
