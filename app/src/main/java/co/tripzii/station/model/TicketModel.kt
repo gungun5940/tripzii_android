@@ -23,7 +23,6 @@ data class TicketModel (
     var servicePickup: String? = null,
     var serviceGuide: String? = null,
     var serviceAccident: String? = null,
-    var servicePickup: String? = null,
     var province: String? = null,
     var ticketTimeline : List<TicketTimelineDAO>? = null
 ) : Parcelable
