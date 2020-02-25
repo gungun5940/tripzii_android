@@ -16,7 +16,6 @@ data class TripModel(
     var countDate: String? = null,
     var description: String? = null,
     var durationSchedule: String? = null,
-    var servicePickup: String? = null,
     var duration: String? = null,
     var durationType: String? = null,
     var include: String? = null,
