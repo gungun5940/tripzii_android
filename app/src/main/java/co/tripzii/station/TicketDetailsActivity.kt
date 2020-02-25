@@ -158,7 +158,7 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
     }
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        if (mMap != checkNotNull(mMap)) {
+//        if (mMap != checkNotNull(mMap)) {
             val location =
                 LatLng(ticketModel?.latitude!!.toDouble(), ticketModel?.longitude!!.toDouble())
             mMap.addMarker(MarkerOptions().position(location))
@@ -178,4 +178,4 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
             }
         }
     }
-}
+//}

@@ -162,7 +162,7 @@ class TripDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        if (mMap != checkNotNull(mMap)) {
+//        if (mMap != checkNotNull(mMap)) {
             val location =
                 LatLng(tripModel?.latitude!!.toDouble(), tripModel?.longitude!!.toDouble())
             mMap.addMarker(MarkerOptions().position(location))
@@ -182,6 +182,6 @@ class TripDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
             }
         }
     }
-}
+//}
 
 

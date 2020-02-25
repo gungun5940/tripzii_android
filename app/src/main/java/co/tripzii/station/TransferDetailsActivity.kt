@@ -159,7 +159,7 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
     }
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        if (mMap != checkNotNull(mMap)) {
+//        if (mMap != checkNotNull(mMap)) {
             val location =
                 LatLng(transferModel?.latitude!!.toDouble(), transferModel?.longitude!!.toDouble())
             mMap.addMarker(MarkerOptions().position(location))
@@ -179,4 +179,4 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
             }
         }
     }
-}
+//}
