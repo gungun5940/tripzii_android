@@ -155,6 +155,7 @@ class TripDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
         remarkTextView.text = trip?.remark
         totalPriceTextView.text = trip?.price
         foodTextView.text = trip?.serviceFood
+        pickupTextView.text = trip?.servicePickup
         guideTextView.text = trip?.serviceGuide
         accidentTextView.text = trip?.serviceAccident
     }

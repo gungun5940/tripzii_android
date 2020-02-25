@@ -20,7 +20,7 @@ data class TransferModel (
     var longitude: String? = null,
     var latitude: String? = null,
     var serviceFood: String? = null,
-    var serviceGuide: String? = null,
+    var serviceTransfer: String? = null,
     var serviceAccident: String? = null,
     var servicePickup: String? = null,
     var province: String? = null,
