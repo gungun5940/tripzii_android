@@ -24,6 +24,7 @@ data class TripModel(
     var serviceFood: String? = null,
     var serviceGuide: String? = null,
     var serviceAccident: String? = null,
+    var servicePickup: String? = null,
     var province: String? = null,
     var timeline: List<TimelineDAO>? = null
 ) : Parcelable

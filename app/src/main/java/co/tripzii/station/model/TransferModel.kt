@@ -22,6 +22,7 @@ data class TransferModel (
     var serviceFood: String? = null,
     var serviceTransfer: String? = null,
     var serviceAccident: String? = null,
+    var servicePickup: String? = null,
     var province: String? = null,
     var transferTimeline : List<TransferTimelineDAO>? = null
 ) : Parcelable
