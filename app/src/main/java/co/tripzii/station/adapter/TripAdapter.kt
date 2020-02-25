@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.trip_item.view.*
 
 class TripAdapter(
-    private var dataTrip: List<TripModel>,
+    private var dataTrip: MutableList<TripModel>,
     private var onSelectItem: (trip: TripModel) -> Unit
 ) : RecyclerView.Adapter<TripAdapter.TripHolder>() {
 

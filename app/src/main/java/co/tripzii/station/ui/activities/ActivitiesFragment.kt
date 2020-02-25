@@ -24,11 +24,13 @@ import kotlinx.android.synthetic.main.view_pager.*
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class ActivitiesFragment : Fragment() {
 
     private var imageModelArrayList: ArrayList<ImageModel>? = null
 
-    private val myImageList = intArrayOf(R.drawable.img_doiinthanon, R.drawable.img_mist,
+    private val myImageList = intArrayOf(
+        R.drawable.img_doiinthanon, R.drawable.img_mist,
         R.drawable.img_sea, R.drawable.img_temple, R.drawable.img_phiphi_island)
 
     private val db = FirebaseFirestore.getInstance()
