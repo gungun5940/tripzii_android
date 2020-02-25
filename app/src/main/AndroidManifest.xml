@@ -17,10 +17,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,RtlEnable">
-        <activity android:name=".TransferDetailsActivity"
-                  android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".TicketDetailsActivity"
-                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PaymentTransferActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BookingTicketActivity" />
+        </activity>
+        <activity android:name=".BookingTransferActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TransferDetailsActivity" />
+        </activity>
+        <activity android:name=".PaymentTicketActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BookingTicketActivity" />
+        </activity>
+        <activity android:name=".BookingTicketActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TicketDetailsActivity" />
+        </activity>
+        <activity
+            android:name=".TransferDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TicketDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PaymentSuccessActivity"
             android:theme="@style/AppTheme.NoActionBar" />

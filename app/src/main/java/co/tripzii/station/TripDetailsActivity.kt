@@ -162,19 +162,24 @@ class TripDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val location = LatLng(tripModel?.latitude!!.toDouble() , tripModel?.longitude!!.toDouble() )
-        mMap.addMarker(MarkerOptions().position(location))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 18.0f))
-        mMap.isMyLocationEnabled
-        try {
-            val success = googleMap.setMapStyle(
-                MapStyleOptions.loadRawResourceStyle(
-                    this, R.raw.maps))
-            if (!success) {
-                Log.e("MapsActivity", "Style parsing failed.")
+        if (mMap != checkNotNull(mMap)) {
+            val location =
+                LatLng(tripModel?.latitude!!.toDouble(), tripModel?.longitude!!.toDouble())
+            mMap.addMarker(MarkerOptions().position(location))
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 18.0f))
+            mMap.isMyLocationEnabled
+            try {
+                val success = googleMap.setMapStyle(
+                    MapStyleOptions.loadRawResourceStyle(
+                        this, R.raw.maps
+                    )
+                )
+                if (!success) {
+                    Log.e("MapsActivity", "Style parsing failed.")
+                }
+            } catch (e: Resources.NotFoundException) {
+                Log.e("MapsActivity", "Can't find style. Error: ", e)
             }
-        } catch (e: Resources.NotFoundException) {
-            Log.e("MapsActivity", "Can't find style. Error: ", e)
         }
     }
 }
