@@ -8,7 +8,7 @@ import co.tripzii.station.R
 import co.tripzii.station.model.TimelineDAO
 import kotlinx.android.synthetic.main.timeline.view.*
 
-class TimelineAdapter(val dataTimeline: List<TimelineDAO>) : RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder>() {
+class TimelineAdapter(private val dataTimeline: List<TimelineDAO>) : RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimelineViewHolder {
         return TimelineViewHolder(
