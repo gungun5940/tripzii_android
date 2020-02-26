@@ -32,6 +32,7 @@ class BookingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)
         supportActionBar?.title = "Booking"
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         pickupLocationTextInput = findViewById(R.id.pickupLocationTextInput) as TextInputEditText
         checkOutButton = findViewById(R.id.checkOutButton) as Button
         val calendar = Calendar.getInstance()

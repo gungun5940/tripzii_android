@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".PaymentTicketActivity"
+        android:background="#DFE0E0">
+        <LinearLayout
+            android:id="@+id/qrTicketLinearLayout"
+            android:layout_width="300dp"
+            android:layout_height="320dp"
+            android:layout_marginTop="35dp"
+            android:background="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#F43B44">
+
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_tripzii"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp">
+                </View>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/qrCodeTicketImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/scanPaymentTicketTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qrTicketLinearLayout"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="13dp"
+            android:layout_toStartOf="@+id/timePaymentTicketTextView"
+            android:text="Scan in"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/timePaymentTicketTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qrTicketLinearLayout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="197dp"
+            android:text="04:59"
+            android:textColor="#F43B44"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/titleTripNamePaymentTicketTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qrTicketLinearLayout"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="65dp"
+            android:text="Trip name"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/tripNamePaymentTicketTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTripNamePaymentTicketTextView"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="3dp"
+            android:text="Lampang na ja"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/titlePackagePaymentTicketTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tripNamePaymentTicketTextView"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Package"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/packageNamePaymentTicketTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titlePackagePaymentTicketTextView"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="3dp"
+            android:text="PackageName"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/titleDateAndTimePaymentTicketTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/packageNamePaymentTicketTextView"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Date / Time"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dateAndTimePaymentTicketTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleDateAndTimePaymentTicketTextView"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="3dp"
+            android:text="2019-03-05 / 7.00 PM"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/dateAndTimePaymentTicketTextView">
+            <LinearLayout
+                android:id="@+id/quantityTicketLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="0dp">
+
+                <TextView
+                    android:id="@+id/titleQuantityPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Quantity"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/priceQuantityPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="330dp"
+                    android:layout_marginTop="20dp"
+                    android:text="฿ 2,000"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/adultTicketLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quantityTicketLinearLayout"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/titleAdultPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Adult"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/adultPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="3dp"
+                    android:text="x"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/numberAdultPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="3dp"
+                    android:text="1"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/priceAdultPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="315dp"
+                    android:layout_marginTop="3dp"
+                    android:text="฿ 1,000"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/childTicketLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/adultTicketLinearLayout"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/titleChildPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Child"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/childPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="3dp"
+                    android:text="x"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/numberChildPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="3dp"
+                    android:text="1"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/priceChildPaymentTicketTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="315dp"
+                    android:layout_marginTop="3dp"
+                    android:text="฿ 900"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lineTicketLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_below="@+id/childTicketLinearLayout"
+                android:background="@drawable/line"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/titleTotalPricePaymentTicketTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Total Price"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/totalPricePaymentTicketTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="฿ 3,900"
+                    android:layout_marginStart="-85dp"
+                    android:textColor="#F43B44"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/totalPriceTicketLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/totalPriceTicketLinearLayout"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/conFirmTicketButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Confirm"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/bt_rounded"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
