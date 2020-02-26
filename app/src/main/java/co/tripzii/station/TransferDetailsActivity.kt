@@ -11,11 +11,14 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.ViewFlipper
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.adapter.TransferAdapter
 import co.tripzii.station.adapter.TransferTimelineAdapter
 import co.tripzii.station.model.TransferModel
+import co.tripzii.station.ui.ticket.TicketFragment
+import co.tripzii.station.ui.transfer.TransferFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -54,13 +57,12 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         transferBackToHomePageButton.setOnClickListener {
-            val intent = Intent(this@TransferDetailsActivity , AllTripActivity::class.java)
-            startActivity(intent)
+            replaceFragment(TransferFragment())
             progressBar.show(this, "Please Wait...")
             Handler().postDelayed({}, 2000)
         }
         transferBookingButton.setOnClickListener {
-            val intent = Intent(this@TransferDetailsActivity , BookingActivity::class.java)
+            val intent = Intent(this@TransferDetailsActivity , BookingTransferActivity::class.java)
             startActivity(intent)
             progressBar.show(this, "Booking...")
             Handler().postDelayed({}, 2000)
@@ -140,6 +142,14 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
                 interestingTransferAdapter.notifyDataSetChanged()
             }
     }
+
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.containerTransfer , fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
     private fun bindDataTransferDetails(transfer: TransferModel?) {
         transferNameDetailsTextView.text = transfer?.nametransfer
         transferDetailsLocationTextView.text = transfer?.province
@@ -157,6 +167,7 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
         transferServiceTextView.text = transfer?.serviceTransfer
         transferAccidentTextView.text = transfer?.serviceAccident
     }
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 //        if (mMap != checkNotNull(mMap)) {

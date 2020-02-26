@@ -11,11 +11,14 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.ViewFlipper
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.adapter.TicketTimelineAdapter
 import co.tripzii.station.adapter.TripTicketAdapter
 import co.tripzii.station.model.TicketModel
+import co.tripzii.station.ui.ticket.TicketFragment
+import co.tripzii.station.ui.transfer.TransferFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -53,19 +56,18 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         ticketDetailsBackToHomePageButton.setOnClickListener {
-            val intent = Intent(this@TicketDetailsActivity ,AllTripActivity ::class.java)
-            startActivity(intent)
+            replaceFragment(TicketFragment())
             progressBar.show(this, "Please Wait...")
             Handler().postDelayed({}, 2000)
         }
         ticketBookingButton.setOnClickListener {
-            val intent = Intent(this@TicketDetailsActivity , BookingActivity::class.java)
+            val intent = Intent(this@TicketDetailsActivity, BookingTicketActivity::class.java)
             startActivity(intent)
             progressBar.show(this, "Booking...")
             Handler().postDelayed({}, 2000)
         }
         ticketModel = intent?.getParcelableExtra("ticket") as? TicketModel
-        Log.d("TicketDetail: " ,  ticketModel.toString())
+        Log.d("TicketDetail: ", ticketModel.toString())
         bindDataTransferDetails(ticketModel)
         if (ticketModel?.ticketTimeline != null) {
             ticketTimelineAdapter = TicketTimelineAdapter(ticketModel?.ticketTimeline!!)
@@ -80,8 +82,8 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
             mViewFlipper.showPrevious()
         }
         ticketDetailsArrowRightButton.setOnClickListener {
-            mViewFlipper.setInAnimation(this,R.anim.slide_in_left)
-            mViewFlipper.setOutAnimation(this,R.anim.slide_out_rigth)
+            mViewFlipper.setInAnimation(this, R.anim.slide_in_left)
+            mViewFlipper.setOutAnimation(this, R.anim.slide_out_rigth)
             mViewFlipper.showNext()
         }
         if (mViewFlipper != null) {
@@ -120,16 +122,19 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
                         }
                     }
                 }
-                val interestingTripTicketAdapter = TripTicketAdapter(ticket , onSelectItem = { ticket ->
-                    Log.d("interesting transfer service", ticket.toString())
-                    val intent = Intent(this@TicketDetailsActivity,
-                        TicketDetailsActivity::class.java)
-                    intent.putExtra("ticket", ticket)
-                    startActivity(intent)
-                    progressBar.show(this, "Please Wait...")
-                    Handler().postDelayed({}, 2000)
+                val interestingTripTicketAdapter =
+                    TripTicketAdapter(ticket, onSelectItem = { ticket ->
+                        Log.d("interesting transfer service", ticket.toString())
+                        val intent = Intent(
+                            this@TicketDetailsActivity,
+                            TicketDetailsActivity::class.java
+                        )
+                        intent.putExtra("ticket", ticket)
+                        startActivity(intent)
+                        progressBar.show(this, "Please Wait...")
+                        Handler().postDelayed({}, 2000)
 
-                })
+                    })
                 interestingTripTicketRecycleView.layoutManager = LinearLayoutManager(
                     this,
                     RecyclerView.HORIZONTAL, false
@@ -138,6 +143,14 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
                 interestingTripTicketAdapter.notifyDataSetChanged()
             }
     }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.containerTicket, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
     private fun bindDataTransferDetails(ticket: TicketModel?) {
         ticketNameDetailsTextView.text = ticket?.nameticket
         ticketDetailsLocationTextView.text = ticket?.province
@@ -156,26 +169,24 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
         ticketGuideTextView.text = ticket?.serviceGuide
         ticketAccidentTextView.text = ticket?.serviceAccident
     }
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-//        if (mMap != checkNotNull(mMap)) {
-            val location =
-                LatLng(ticketModel?.latitude!!.toDouble(), ticketModel?.longitude!!.toDouble())
-            mMap.addMarker(MarkerOptions().position(location))
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 18.0f))
-            mMap.isMyLocationEnabled
-            try {
-                val success = googleMap.setMapStyle(
-                    MapStyleOptions.loadRawResourceStyle(
-                        this, R.raw.maps
-                    )
+        val location = LatLng(ticketModel?.latitude!!.toDouble(), ticketModel?.longitude!!.toDouble())
+        mMap.addMarker(MarkerOptions().position(location))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 18.0f))
+        mMap.isMyLocationEnabled
+        try {
+            val success = googleMap.setMapStyle(
+                MapStyleOptions.loadRawResourceStyle(
+                    this, R.raw.maps
                 )
-                if (!success) {
-                    Log.e("MapsActivity", "Style parsing failed.")
-                }
-            } catch (e: Resources.NotFoundException) {
-                Log.e("MapsActivity", "Can't find style. Error: ", e)
+            )
+            if (!success) {
+                Log.e("MapsActivity", "Style parsing failed.")
             }
+        } catch (e: Resources.NotFoundException) {
+            Log.e("MapsActivity", "Can't find style. Error: ", e)
         }
     }
-//}
+}

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.adapter.TimelineAdapter
 import co.tripzii.station.adapter.TripAdapter
 import co.tripzii.station.model.TripModel
+import co.tripzii.station.ui.activities.ActivitiesFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -55,7 +56,7 @@ class TripDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
               .findFragmentById(R.id.map) as SupportMapFragment
           mapFragment.getMapAsync(this)
         BackToHomePageButton.setOnClickListener {
-                    val intent = Intent(this@TripDetailsActivity, AllTripActivity::class.java)
+                    val intent = Intent(this, AllTripActivity::class.java)
                     startActivity(intent)
                     progressBar.show(this, "Please Wait...")
                     Handler().postDelayed({}, 2000)
