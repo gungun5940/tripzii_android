@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.adapter.TicketTimelineAdapter
 import co.tripzii.station.adapter.TripTicketAdapter
 import co.tripzii.station.model.TicketModel
+import co.tripzii.station.ui.ticket.TicketFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -53,13 +54,13 @@ class TicketDetailsActivity : AppCompatActivity() , OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         ticketDetailsBackToHomePageButton.setOnClickListener {
-            val intent = Intent(this@TicketDetailsActivity ,AllTripActivity ::class.java)
+            val intent = Intent(this.applicationContext, TicketFragment ::class.java)
             startActivity(intent)
             progressBar.show(this, "Please Wait...")
             Handler().postDelayed({}, 2000)
         }
         ticketBookingButton.setOnClickListener {
-            val intent = Intent(this@TicketDetailsActivity , BookingActivity::class.java)
+            val intent = Intent(this@TicketDetailsActivity , BookingTicketActivity::class.java)
             startActivity(intent)
             progressBar.show(this, "Booking...")
             Handler().postDelayed({}, 2000)
