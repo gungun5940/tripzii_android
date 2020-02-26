@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.ViewFlipper
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tripzii.station.adapter.TransferAdapter
@@ -56,8 +57,7 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         transferBackToHomePageButton.setOnClickListener {
-//            val intent = Intent(this.applicationContext , TransferFragment::class.java)
-//            startActivity(intent)
+            replaceFragment(TransferFragment())
             progressBar.show(this, "Please Wait...")
             Handler().postDelayed({}, 2000)
         }
@@ -141,6 +141,13 @@ class TransferDetailsActivity : AppCompatActivity(), OnMapReadyCallback   {
                 interestingTransferServiceRecycleView.adapter = interestingTransferAdapter
                 interestingTransferAdapter.notifyDataSetChanged()
             }
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.containerTransfer , fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 
     private fun bindDataTransferDetails(transfer: TransferModel?) {
